@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Mosaic LIMS — Reporting Dashboards</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;line-height:1.6;color:#1f2328;background:#f7f8fa}
+.wrap{max-width:860px;margin:0 auto;padding:40px 20px 60px}
+.hdr{background:#1a3a5c;color:#fff;border-radius:10px;padding:28px 32px;margin-bottom:32px}
+.hdr h1{font-size:22px;font-weight:700;margin-bottom:6px}
+.hdr p{font-size:12px;color:#a8c4e0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:20px}
+.card{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:24px;text-decoration:none;color:inherit;display:block;transition:box-shadow .15s}
+.card:hover{box-shadow:0 4px 16px rgba(0,0,0,.1)}
+.card-icon{font-size:28px;margin-bottom:12px}
+.card h2{font-size:16px;font-weight:700;margin-bottom:6px;color:#1a3a5c}
+.card p{font-size:12px;color:#57606a;margin-bottom:16px}
+.kpi-row{display:flex;gap:10px;flex-wrap:wrap}
+.kpi{background:#f7f8fa;border:1px solid #e5e7eb;border-radius:6px;padding:8px 14px;text-align:center;min-width:80px}
+.kpi .n{font-size:20px;font-weight:700;line-height:1.2}
+.kpi .l{font-size:10px;color:#57606a}
+.red .n{color:#c0392b}.green .n{color:#27ae60}.blue .n{color:#2980b9}.ora .n{color:#e67e22}.pur .n{color:#8e44ad}
+.badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600;margin-top:14px}
+.badge-blue{background:#dbeafe;color:#1d4ed8}
+.updated{font-size:11px;color:#57606a;margin-top:8px}
+.footer{text-align:center;margin-top:40px;font-size:11px;color:#aaa;border-top:1px solid #e5e7eb;padding-top:20px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hdr">
+    <h1>📊 Mosaic LIMS — Reporting Dashboards</h1>
+    <p>UK Biobank &nbsp;·&nbsp; Source: Azure DevOps (ukbiobank / Mosaic) &nbsp;·&nbsp; Auto-generated 3× per day &nbsp;·&nbsp; Prepared by Satishkumar Sarathi Pillai</p>
+  </div>
+  <div class="grid">
+    <a class="card" href="defect-dashboard/functional-burn-down-report.html">
+      <div class="card-icon">🐛</div>
+      <h2>Functional Defect Burn-Down</h2>
+      <p>Open/closed bugs by category (FN · REG · INT), monthly trends, priority breakdown, and ageing analysis.</p>
+      <div class="kpi-row">
+        <div class="kpi blue"><div class="n">86</div><div class="l">Total</div></div>
+        <div class="kpi red"><div class="n">27</div><div class="l">Open</div></div>
+        <div class="kpi green"><div class="n">69%</div><div class="l">Closed</div></div>
+        <div class="kpi ora"><div class="n">83d</div><div class="l">Avg Age</div></div>
+      </div>
+      <div class="updated">🕐 Generated: 27 Aug 2026</div>
+      <span class="badge badge-blue">View Full Report →</span>
+    </a>
+    <a class="card" href="test-execution-dashboard/overall_functional-test-execution-dashboard.html">
+      <div class="card-icon">✅</div>
+      <h2>Test Execution Dashboard</h2>
+      <p>Pass/fail/blocked rates across all releases, execution progress bars, 1st-time pass rate, and defect traceability.</p>
+      <div class="kpi-row">
+        <div class="kpi blue"><div class="n">159</div><div class="l">Tests</div></div>
+        <div class="kpi green"><div class="n">89%</div><div class="l">Pass Rate</div></div>
+        <div class="kpi red"><div class="n">14</div><div class="l">Failed</div></div>
+        <div class="kpi pur"><div class="n">41%</div><div class="l">1st-Time</div></div>
+      </div>
+      <div class="updated">🕐 Generated: 27 Aug 2026</div>
+      <span class="badge badge-blue">View Full Report →</span>
+    </a>
+  </div>
+  <div class="footer">Mosaic LIMS Reporting Suite &nbsp;·&nbsp; UK Biobank &nbsp;·&nbsp; Auto-published by ADO Pipeline</div>
+</div>
+</body>
+</html>
