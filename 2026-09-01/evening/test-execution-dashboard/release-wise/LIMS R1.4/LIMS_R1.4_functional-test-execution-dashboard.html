@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>LIMS R1.4 – Test Execution Dashboard</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;line-height:1.6;color:#1f2328;background:#f4f6f9}
+.wrap{max-width:1160px;margin:0 auto;padding:20px 16px 64px}
+
+/* Header */
+.hdr{background:linear-gradient(135deg,#1e3a5f 0%,#1d4ed8 100%);color:#fff;border-radius:10px;padding:24px 28px 20px;margin-bottom:22px;position:relative;overflow:hidden}
+.hdr::before{content:'';position:absolute;right:-40px;top:-40px;width:200px;height:200px;background:rgba(255,255,255,0.04);border-radius:50%}
+.hdr h1{font-size:21px;font-weight:700;margin-bottom:4px}
+.hdr .sub{font-size:12px;color:#93c5fd;margin-top:3px}
+.hdr .meta{font-size:11px;color:#bfdbfe;margin-top:6px}
+
+/* KPIs */
+.kpis{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:22px;justify-content:center}
+.kpi{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:16px 14px;text-align:center;min-width:110px;flex:0 0 auto;max-width:160px}
+.kpi .n{font-size:26px;font-weight:700;line-height:1;margin-bottom:3px}
+.kpi .l{font-size:11px;color:#6b7280;font-weight:500}
+.blue .n{color:#2563eb}.green .n{color:#16a34a}.red .n{color:#dc2626}
+.ora .n{color:#d97706}.pur .n{color:#7c3aed}.grey .n{color:#9ca3af}
+
+/* Cards */
+.sec{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:20px;margin-bottom:20px}
+.stitle{font-size:14px;font-weight:700;padding-bottom:10px;border-bottom:2px solid #f3f4f6;margin-bottom:16px;display:flex;align-items:center;gap:8px;color:#111827}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex-shrink:0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+@media(max-width:820px){.two-col,.three-col{grid-template-columns:1fr}}
+
+/* Tables */
+.mt{width:100%;border-collapse:collapse;font-size:12px}
+.mt th{background:#f9fafb;padding:8px 10px;text-align:left;font-weight:700;color:#6b7280;border-bottom:2px solid #e5e7eb;font-size:10px;text-transform:uppercase;letter-spacing:.4px;white-space:nowrap}
+.mt td{padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top}
+.mt tr:last-child td{border-bottom:none}
+.mt tr:hover td{background:#fafbff}
+.sx{overflow-x:auto}
+
+/* Badges */
+.badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:600;white-space:nowrap}
+.green-b{background:#dcfce7;color:#15803d}
+.red-b{background:#fee2e2;color:#b91c1c}
+.ora-b{background:#fff7ed;color:#c2410c;border:1px solid #fed7aa}
+.blue-b{background:#dbeafe;color:#1d4ed8;border:1px solid #bfdbfe}
+.grey-b{background:#f1f5f9;color:#475569}
+
+/* Mini progress bar in KPI */
+.kpi-bar{height:4px;border-radius:2px;margin-top:6px;background:#f3f4f6;overflow:hidden}
+.kpi-bar-fill{height:100%;border-radius:2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ── Header ──────────────────────────────────────────────────────────────── -->
+<div class="hdr">
+  <h1>Mosaic LIMS — LIMS R1.4 Test Execution Dashboard</h1>
+  <div class="sub">Release: LIMS R1.4 &nbsp;·&nbsp; Project: UK Biobank &nbsp;·&nbsp; Source: Azure DevOps (ukbiobank / Mosaic)</div>
+  <div class="meta">Generated: 01 Sept 2026 &nbsp;·&nbsp; Prepared by: Satishkumar Sarathi Pillai</div>
+</div>
+
+<!-- ── KPI Tiles ─────────────────────────────────────────────────────────── -->
+<div class="kpis"><div class="kpi blue"><div class="n">48</div><div class="l">Total Tests</div></div><div class="kpi blue"><div class="n">100%</div><div class="l">Executed</div></div><div class="kpi green"><div class="n">44</div><div class="l">Passed</div></div><div class="kpi green"><div class="n">92%</div><div class="l">Pass Rate</div></div><div class="kpi red"><div class="n">4</div><div class="l">Failed</div></div><div class="kpi red"><div class="n">8%</div><div class="l">Fail Rate</div></div><div class="kpi ora"><div class="n">0</div><div class="l">Blocked</div></div><div class="kpi blue"><div class="n">0</div><div class="l">In Progress</div></div><div class="kpi grey"><div class="n">0</div><div class="l">Not Run</div></div><div class="kpi pur"><div class="n">42%</div><div class="l">1st-Time Pass Rate</div></div><div class="kpi pur"><div class="n">100%</div><div class="l">Retest Success</div></div></div>
+
+<!-- ── Donut + Status Bar Row ────────────────────────────────────────────── -->
+<div class="two-col" style="margin-bottom:20px">
+  <div class="sec">
+    <div class="stitle"><span class="dot" style="background:#2563eb"></span>Execution Status Split</div>
+    <svg width="100%" viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg">
+  <path d="M120,58 L120,22 A88,88 0 1,1 75.99999999999996,33.789764466969416 L93.99999999999997,64.96667900320921 A52,52 0 1,0 120,58" fill="#22c55e" opacity="0.92"/><path d="M93.99999999999997,64.96667900320921 L75.99999999999996,33.789764466969416 A88,88 0 0,1 119.99999999999999,22 L119.99999999999999,58 A52,52 0 0,0 93.99999999999997,64.96667900320921" fill="#ef4444" opacity="0.92"/>
+  <text x="120" y="100" text-anchor="middle" font-size="19" font-weight="700" fill="#22c55e">92%</text>
+  <text x="120" y="120" text-anchor="middle" font-size="10" fill="#6b7280" font-weight="500">Pass Rate</text>
+  <text x="120" y="136" text-anchor="middle" font-size="9" fill="#9ca3af">100% Executed</text>
+  <rect x="252" y="18" width="10" height="10" rx="3" fill="#22c55e"/>
+    <text x="266" y="27" font-size="10" fill="#374151" font-weight="600">Passed</text>
+    <text x="410" y="27" font-size="10" fill="#6b7280" text-anchor="end">44 <tspan font-weight="600" fill="#22c55e">(92%)</tspan></text><rect x="252" y="38" width="10" height="10" rx="3" fill="#ef4444"/>
+    <text x="266" y="47" font-size="10" fill="#374151" font-weight="600">Failed</text>
+    <text x="410" y="47" font-size="10" fill="#6b7280" text-anchor="end">4 <tspan font-weight="600" fill="#ef4444">(8%)</tspan></text>
+</svg>
+  </div>
+  <div class="sec">
+    <div class="stitle"><span class="dot" style="background:#374151"></span>Test Count by Status</div>
+    <div style="font-size:11px;color:#6b7280;margin-bottom:8px">Actual counts and percentages per outcome — each bar shows a concrete number.</div>
+    <svg width="100%" viewBox="0 0 420 250" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="420" height="250" fill="#fdfdfe" rx="4"/>
+  <line x1="36" y1="198.0" x2="404" y2="198.0" stroke="#f0f0f0" stroke-width="1"/><text x="31.0" y="198.0" text-anchor="end" dominant-baseline="middle" font-size="9" fill="#9ca3af">0</text><line x1="36" y1="158.0" x2="404" y2="158.0" stroke="#f0f0f0" stroke-width="1"/><text x="31.0" y="158.0" text-anchor="end" dominant-baseline="middle" font-size="9" fill="#9ca3af">11</text><line x1="36" y1="118.0" x2="404" y2="118.0" stroke="#f0f0f0" stroke-width="1"/><text x="31.0" y="118.0" text-anchor="end" dominant-baseline="middle" font-size="9" fill="#9ca3af">22</text><line x1="36" y1="78.0" x2="404" y2="78.0" stroke="#f0f0f0" stroke-width="1"/><text x="31.0" y="78.0" text-anchor="end" dominant-baseline="middle" font-size="9" fill="#9ca3af">33</text><line x1="36" y1="38.0" x2="404" y2="38.0" stroke="#f0f0f0" stroke-width="1"/><text x="31.0" y="38.0" text-anchor="end" dominant-baseline="middle" font-size="9" fill="#9ca3af">44</text>
+  <line x1="36" y1="198" x2="404" y2="198" stroke="#e5e7eb" stroke-width="1"/>
+  <rect x="118.7" y="38.0" width="60" height="160" fill="#22c55e" rx="3" opacity="0.9"/><text x="148.7" y="32.0" text-anchor="middle" font-size="9" font-weight="600" fill="#22c55e">44</text><text x="148.7" y="18.0" text-anchor="middle" font-size="9" fill="#9ca3af">92%</text><text x="148.7" y="214.0" text-anchor="middle" font-size="9" font-weight="500" fill="#374151">Passed</text><rect x="261.3" y="183.5" width="60" height="14.5" fill="#ef4444" rx="3" opacity="0.9"/><text x="291.3" y="177.5" text-anchor="middle" font-size="9" font-weight="600" fill="#ef4444">4</text><text x="291.3" y="163.5" text-anchor="middle" font-size="9" fill="#9ca3af">8%</text><text x="291.3" y="214.0" text-anchor="middle" font-size="9" font-weight="500" fill="#374151">Failed</text>
+  <text x="210" y="244" text-anchor="middle" font-size="10" fill="#9ca3af">Total: 48 tests &nbsp;·&nbsp; 100% executed</text>
+</svg>
+  </div>
+</div>
+
+<!-- ── Execution Trend ─────────────────────────────────────────────────────── -->
+<div class="sec">
+  <div class="stitle"><span class="dot" style="background:#22c55e"></span>Weekly Execution Trend — Pass / Fail / Blocked</div>
+  <div style="font-size:10px;color:#6b7280;margin-bottom:10px">Results aggregated by ISO week. Labels show week-of-month and month (e.g. <strong>W2 Aug</strong> = second week of August). Dots mark weeks with activity.</div>
+  <svg width="100%" viewBox="0 0 740 220" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="740" height="220" fill="#fdfdfe" rx="4"/>
+  <line x1="46" y1="176" x2="720" y2="176" stroke="#f0f0f0" stroke-width="1"/><text x="40" y="176" text-anchor="end" dominant-baseline="middle" font-size="8" fill="#9ca3af">0</text><line x1="46" y1="132.4" x2="720" y2="132.4" stroke="#f0f0f0" stroke-width="1"/><text x="40" y="132.4" text-anchor="end" dominant-baseline="middle" font-size="8" fill="#9ca3af">8</text><line x1="46" y1="88.8" x2="720" y2="88.8" stroke="#f0f0f0" stroke-width="1"/><text x="40" y="88.8" text-anchor="end" dominant-baseline="middle" font-size="8" fill="#9ca3af">16</text><line x1="46" y1="45.2" x2="720" y2="45.2" stroke="#f0f0f0" stroke-width="1"/><text x="40" y="45.2" text-anchor="end" dominant-baseline="middle" font-size="8" fill="#9ca3af">24</text>
+  <line x1="46" y1="18" x2="46" y2="176" stroke="#e5e7eb"/>
+  <line x1="46" y1="176" x2="720" y2="176" stroke="#e5e7eb"/>
+  <polyline points="46,176 142.3,165.1 238.6,143.3 334.9,116.1 431.1,137.9 527.4,116.1 623.7,154.2 720,116.1" fill="none" stroke="#22c55e" stroke-width="2" stroke-linejoin="round"/><polyline points="46,170.6 142.3,165.1 238.6,170.6 334.9,165.1 431.1,176 527.4,159.7 623.7,159.7 720,165.1" fill="none" stroke="#ef4444" stroke-width="2" stroke-linejoin="round" stroke-dasharray="5,3"/><polyline points="46,176 142.3,148.8 238.6,176 334.9,176 431.1,176 527.4,94.3 623.7,176 720,176" fill="none" stroke="#f97316" stroke-width="2" stroke-linejoin="round" stroke-dasharray="2,4"/>
+  <circle cx="142.3" cy="165.1" r="3.5" fill="#22c55e" stroke="#fff" stroke-width="1.5"/><circle cx="238.6" cy="143.3" r="3.5" fill="#22c55e" stroke="#fff" stroke-width="1.5"/><circle cx="334.9" cy="116.1" r="3.5" fill="#22c55e" stroke="#fff" stroke-width="1.5"/><circle cx="431.1" cy="137.9" r="3.5" fill="#22c55e" stroke="#fff" stroke-width="1.5"/><circle cx="527.4" cy="116.1" r="3.5" fill="#22c55e" stroke="#fff" stroke-width="1.5"/><circle cx="623.7" cy="154.2" r="3.5" fill="#22c55e" stroke="#fff" stroke-width="1.5"/><circle cx="720" cy="116.1" r="3.5" fill="#22c55e" stroke="#fff" stroke-width="1.5"/><circle cx="46" cy="170.6" r="3.5" fill="#ef4444" stroke="#fff" stroke-width="1.5"/><circle cx="142.3" cy="165.1" r="3.5" fill="#ef4444" stroke="#fff" stroke-width="1.5"/><circle cx="238.6" cy="170.6" r="3.5" fill="#ef4444" stroke="#fff" stroke-width="1.5"/><circle cx="334.9" cy="165.1" r="3.5" fill="#ef4444" stroke="#fff" stroke-width="1.5"/><circle cx="527.4" cy="159.7" r="3.5" fill="#ef4444" stroke="#fff" stroke-width="1.5"/><circle cx="623.7" cy="159.7" r="3.5" fill="#ef4444" stroke="#fff" stroke-width="1.5"/><circle cx="720" cy="165.1" r="3.5" fill="#ef4444" stroke="#fff" stroke-width="1.5"/><circle cx="142.3" cy="148.8" r="3.5" fill="#f97316" stroke="#fff" stroke-width="1.5"/><circle cx="527.4" cy="94.3" r="3.5" fill="#f97316" stroke="#fff" stroke-width="1.5"/>
+  <text x="46" y="191" text-anchor="middle" font-size="8" fill="#6b7280" font-weight="500">W5 Jun</text><text x="142.3" y="191" text-anchor="middle" font-size="8" fill="#6b7280" font-weight="500">W2 Jul</text><text x="238.6" y="191" text-anchor="middle" font-size="8" fill="#6b7280" font-weight="500">W3 Jul</text><text x="334.9" y="191" text-anchor="middle" font-size="8" fill="#6b7280" font-weight="500">W4 Jul</text><text x="431.1" y="191" text-anchor="middle" font-size="8" fill="#6b7280" font-weight="500">W1 Aug</text><text x="527.4" y="191" text-anchor="middle" font-size="8" fill="#6b7280" font-weight="500">W2 Aug</text><text x="623.7" y="191" text-anchor="middle" font-size="8" fill="#6b7280" font-weight="500">W3 Aug</text><text x="720" y="191" text-anchor="middle" font-size="8" fill="#6b7280" font-weight="500">W4 Aug</text>
+  <line x1="243" y1="208" x2="261" y2="208" stroke="#22c55e" stroke-width="2"/><text x="265" y="212" font-size="9" font-weight="600" fill="#374151">Passed</text><line x1="353" y1="208" x2="371" y2="208" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,3"/><text x="375" y="212" font-size="9" font-weight="600" fill="#374151">Failed</text><line x1="463" y1="208" x2="481" y2="208" stroke="#f97316" stroke-width="2" stroke-dasharray="2,4"/><text x="485" y="212" font-size="9" font-weight="600" fill="#374151">Blocked</text>
+</svg>
+</div>
+
+<!-- ── Module Breakdown ─────────────────────────────────────────────────────── -->
+<div class="sec">
+  <div class="stitle"><span class="dot" style="background:#7c3aed"></span>Module-wise Execution Breakdown</div>
+  <div style="font-size:11px;color:#6b7280;margin-bottom:12px">Modules sorted by defect density (Failed + Blocked count). Bar width proportional to test count.</div>
+  <svg width="100%" viewBox="0 0 720 156" xmlns="http://www.w3.org/2000/svg" overflow="visible">
+  <line x1="220.0" y1="14" x2="220.0" y2="110" stroke="#e5e7eb" stroke-width="1"/><text x="220.0" y="130" text-anchor="middle" font-size="9" fill="#9ca3af">0</text><line x1="317.8" y1="14" x2="317.8" y2="110" stroke="#e5e7eb" stroke-width="1"/><text x="317.8" y="130" text-anchor="middle" font-size="9" fill="#9ca3af">4</text><line x1="415.6" y1="14" x2="415.6" y2="110" stroke="#e5e7eb" stroke-width="1"/><text x="415.6" y="130" text-anchor="middle" font-size="9" fill="#9ca3af">8</text><line x1="513.3" y1="14" x2="513.3" y2="110" stroke="#e5e7eb" stroke-width="1"/><text x="513.3" y="130" text-anchor="middle" font-size="9" fill="#9ca3af">12</text><line x1="611.1" y1="14" x2="611.1" y2="110" stroke="#e5e7eb" stroke-width="1"/><text x="611.1" y="130" text-anchor="middle" font-size="9" fill="#9ca3af">16</text>
+  <text x="214" y="31" text-anchor="end" font-size="9" font-weight="600" fill="#374151">Sample Measurement</text><rect x="220" y="17" width="440" height="20" fill="#f9fafb" rx="2"/><rect x="220.0" y="19" width="391.1" height="16" fill="#22c55e" rx="2"/><rect x="611.1" y="19" width="48.9" height="16" fill="#ef4444" rx="2"/><text x="665.0" y="31" font-size="9" font-weight="400" fill="#9ca3af">18</text><text x="214" y="55" text-anchor="end" font-size="9" font-weight="600" fill="#374151">Sample Shipment</text><rect x="220.0" y="43" width="342.2" height="16" fill="#22c55e" rx="2"/><rect x="562.2" y="43" width="24.4" height="16" fill="#ef4444" rx="2"/><text x="591.7" y="55" font-size="9" font-weight="400" fill="#9ca3af">15</text><text x="214" y="79" text-anchor="end" font-size="9" font-weight="600" fill="#374151">Workload and Resource Manage…</text><rect x="220" y="65" width="440" height="20" fill="#f9fafb" rx="2"/><rect x="220.0" y="67" width="146.7" height="16" fill="#22c55e" rx="2"/><rect x="366.7" y="67" width="24.4" height="16" fill="#ef4444" rx="2"/><text x="396.1" y="79" font-size="9" font-weight="400" fill="#9ca3af">7</text><text x="214" y="103" text-anchor="end" font-size="9" font-weight="600" fill="#374151">Sample Picking</text><rect x="220.0" y="91" width="195.6" height="16" fill="#22c55e" rx="2"/><text x="420.6" y="103" font-size="9" font-weight="400" fill="#9ca3af">8</text>
+  <line x1="220" y1="14" x2="220" y2="110" stroke="#d1d5db" stroke-width="1"/>
+  <rect x="360.0" y="139.0" width="11" height="11" rx="2" fill="#22c55e"/><text x="375.0" y="150.0" font-size="9" font-weight="600" fill="#6b7280">Passed</text><rect x="440.0" y="139.0" width="11" height="11" rx="2" fill="#ef4444"/><text x="455.0" y="150.0" font-size="9" font-weight="600" fill="#6b7280">Failed</text>
+</svg>
+</div>
+
+<!-- ── Module Summary Table ─────────────────────────────────────────────────── -->
+<div class="sec">
+  <div class="stitle"><span class="dot" style="background:#0369a1"></span>Module Execution Summary — LIMS R1.4</div>
+  <div class="sx">
+  <table class="mt">
+    <thead><tr>
+      <th>Module</th><th style="text-align:center">Total</th>
+      <th style="text-align:center;color:#16a34a">Passed</th>
+      <th style="text-align:center;color:#dc2626">Failed</th>
+      <th style="text-align:center;color:#d97706">Blocked</th>
+      <th style="text-align:center;color:#2563eb">In Progress</th>
+      <th style="text-align:center">Not Run</th>
+      <th style="text-align:center">Executed %</th>
+      <th style="text-align:center">Pass Rate</th>
+      <th style="min-width:100px">Status Bar</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+  <td style="font-size:11px;font-weight:600;color:#374151">Sample Measurement</td>
+  <td style="text-align:center;font-weight:700">18</td>
+  <td style="text-align:center"><span class="badge green-b">16</span></td>
+  <td style="text-align:center"><span class="badge red-b">2</span></td>
+  <td style="text-align:center"><span class="badge ora-b">0</span></td>
+  <td style="text-align:center"><span class="badge blue-b">0</span></td>
+  <td style="text-align:center;color:#9ca3af">0</td>
+  <td style="text-align:center;font-weight:700">100%</td>
+  <td style="text-align:center;font-weight:700;color:#16a34a">89%</td>
+  <td>
+    <div style="height:8px;background:#f3f4f6;border-radius:4px;overflow:hidden;display:flex">
+      <div style="width:89%;background:#22c55e"></div>
+      <div style="width:11%;background:#ef4444"></div>
+      <div style="width:0%;background:#f97316"></div>
+      <div style="width:0%;background:#60a5fa"></div>
+    </div>
+  </td>
+</tr><tr>
+  <td style="font-size:11px;font-weight:600;color:#374151">Sample Shipment</td>
+  <td style="text-align:center;font-weight:700">15</td>
+  <td style="text-align:center"><span class="badge green-b">14</span></td>
+  <td style="text-align:center"><span class="badge red-b">1</span></td>
+  <td style="text-align:center"><span class="badge ora-b">0</span></td>
+  <td style="text-align:center"><span class="badge blue-b">0</span></td>
+  <td style="text-align:center;color:#9ca3af">0</td>
+  <td style="text-align:center;font-weight:700">100%</td>
+  <td style="text-align:center;font-weight:700;color:#16a34a">93%</td>
+  <td>
+    <div style="height:8px;background:#f3f4f6;border-radius:4px;overflow:hidden;display:flex">
+      <div style="width:93%;background:#22c55e"></div>
+      <div style="width:7%;background:#ef4444"></div>
+      <div style="width:0%;background:#f97316"></div>
+      <div style="width:0%;background:#60a5fa"></div>
+    </div>
+  </td>
+</tr><tr>
+  <td style="font-size:11px;font-weight:600;color:#374151">Workload and Resource Management</td>
+  <td style="text-align:center;font-weight:700">7</td>
+  <td style="text-align:center"><span class="badge green-b">6</span></td>
+  <td style="text-align:center"><span class="badge red-b">1</span></td>
+  <td style="text-align:center"><span class="badge ora-b">0</span></td>
+  <td style="text-align:center"><span class="badge blue-b">0</span></td>
+  <td style="text-align:center;color:#9ca3af">0</td>
+  <td style="text-align:center;font-weight:700">100%</td>
+  <td style="text-align:center;font-weight:700;color:#16a34a">86%</td>
+  <td>
+    <div style="height:8px;background:#f3f4f6;border-radius:4px;overflow:hidden;display:flex">
+      <div style="width:86%;background:#22c55e"></div>
+      <div style="width:14%;background:#ef4444"></div>
+      <div style="width:0%;background:#f97316"></div>
+      <div style="width:0%;background:#60a5fa"></div>
+    </div>
+  </td>
+</tr><tr>
+  <td style="font-size:11px;font-weight:600;color:#374151">Sample Picking</td>
+  <td style="text-align:center;font-weight:700">8</td>
+  <td style="text-align:center"><span class="badge green-b">8</span></td>
+  <td style="text-align:center"><span class="badge red-b">0</span></td>
+  <td style="text-align:center"><span class="badge ora-b">0</span></td>
+  <td style="text-align:center"><span class="badge blue-b">0</span></td>
+  <td style="text-align:center;color:#9ca3af">0</td>
+  <td style="text-align:center;font-weight:700">100%</td>
+  <td style="text-align:center;font-weight:700;color:#16a34a">100%</td>
+  <td>
+    <div style="height:8px;background:#f3f4f6;border-radius:4px;overflow:hidden;display:flex">
+      <div style="width:100%;background:#22c55e"></div>
+      <div style="width:0%;background:#ef4444"></div>
+      <div style="width:0%;background:#f97316"></div>
+      <div style="width:0%;background:#60a5fa"></div>
+    </div>
+  </td>
+</tr>
+    </tbody>
+    <tfoot>
+      <tr style="background:#f9fafb;font-weight:700;border-top:2px solid #e5e7eb">
+        <td>TOTAL</td>
+        <td style="text-align:center">48</td>
+        <td style="text-align:center"><span class="badge green-b">44</span></td>
+        <td style="text-align:center"><span class="badge red-b">4</span></td>
+        <td style="text-align:center"><span class="badge ora-b">0</span></td>
+        <td style="text-align:center"><span class="badge blue-b">0</span></td>
+        <td style="text-align:center;color:#9ca3af">0</td>
+        <td style="text-align:center">100%</td>
+        <td style="text-align:center;color:#16a34a">92%</td>
+        <td></td>
+      </tr>
+    </tfoot>
+  </table>
+  </div>
+</div>
+
+<!-- ── Defect Traceability ─────────────────────────────────────────────────── -->
+<div class="sec">
+  <div class="stitle"><span class="dot" style="background:#dc2626"></span>Failed &amp; Blocked Tests — Defect Traceability (4)</div>
+  <div style="font-size:11px;color:#6b7280;margin-bottom:10px">Grouped by module · sorted by defect density · Failed shown before Blocked within each module</div>
+    <div class="sx"><table class="mt">
+    <thead><tr>
+      <th>Test Case</th><th>Status</th><th>Tester</th>
+      <th style="text-align:center">Last Run</th><th style="text-align:center">Age</th><th>Linked Bugs</th>
+    </tr></thead>
+    <tbody><tr style="background:#f8f9fa">
+  <td colspan="6" style="padding:7px 12px;font-size:11px;font-weight:700;color:#374151;border-bottom:2px solid #e5e7eb">
+    Sample Measurement
+    <span style="margin-left:8px"><span class="badge red-b" style="font-size:9px">2 Failed</span></span>
+    <span style="float:right;font-size:10px;color:#9ca3af;font-weight:400">2 defects</span>
+  </td>
+</tr><tr>
+  <td style="font-size:11px;max-width:220px;padding-left:20px">14_Sample Measurement_DNA Quantitation_Import Lunatic File</td>
+  <td><span class="badge red-b">Failed</span></td>
+  <td style="font-size:11px">Satishkumar</td>
+  <td style="text-align:center;font-size:10px;white-space:nowrap">17 Aug 2026</td>
+  <td style="text-align:center"><span style="color:#ef4444;font-size:10px;font-weight:700">15d</span></td>
+  <td style="font-size:10px"><div style="margin-bottom:4px;font-size:10px">
+            <a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/32787" style="color:#2563eb;font-weight:700;text-decoration:none">#32787</a>
+            <span style="margin-left:4px">LIMS Processing of Lunatic DNA Quantification Output file fails due to unresolvable sample association</span><br>
+            <span class="badge red-b" style="font-size:9px">Active</span>
+            <span style="color:#9ca3af;font-size:9px;margin-left:4px">P3 · High · Grace</span>
+          </div></td>
+</tr><tr>
+  <td style="font-size:11px;max-width:220px;padding-left:20px">16_Sample Measurement_DNA Quantitation_Assign Sample Replicates to a New Repeat Batch Using 'Add Repeats to New Plate'</td>
+  <td><span class="badge red-b">Failed</span></td>
+  <td style="font-size:11px">Satishkumar</td>
+  <td style="text-align:center;font-size:10px;white-space:nowrap">13 Aug 2026</td>
+  <td style="text-align:center"><span style="color:#ef4444;font-size:10px;font-weight:700">19d</span></td>
+  <td style="font-size:10px"><div style="margin-bottom:4px;font-size:10px">
+            <a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/32902" style="color:#2563eb;font-weight:700;text-decoration:none">#32902</a>
+            <span style="margin-left:4px">Placeholder Clarification Required for Testing DNA Quantitation Repeat Batch Workflow (“Add Repeats to New Plate”)</span><br>
+            <span class="badge red-b" style="font-size:9px">Active</span>
+            <span style="color:#9ca3af;font-size:9px;margin-left:4px">P2 · Medium · Grace</span>
+          </div></td>
+</tr><tr style="background:#f8f9fa">
+  <td colspan="6" style="padding:7px 12px;font-size:11px;font-weight:700;color:#374151;border-bottom:2px solid #e5e7eb">
+    Sample Shipment
+    <span style="margin-left:8px"><span class="badge red-b" style="font-size:9px">1 Failed</span></span>
+    <span style="float:right;font-size:10px;color:#9ca3af;font-weight:400">1 defect</span>
+  </td>
+</tr><tr>
+  <td style="font-size:11px;max-width:220px;padding-left:20px">08_Sample Shipment_Scan Samples (Not Racks) into Shipping Material for Sample-Type Shipments</td>
+  <td><span class="badge red-b">Failed</span></td>
+  <td style="font-size:11px">Satishkumar</td>
+  <td style="text-align:center;font-size:10px;white-space:nowrap">27 Aug 2026</td>
+  <td style="text-align:center"><span style="color:#ef4444;font-size:10px;font-weight:700">5d</span></td>
+  <td style="font-size:10px"><div style="margin-bottom:4px;font-size:10px">
+            <a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/33747" style="color:#2563eb;font-weight:700;text-decoration:none">#33747</a>
+            <span style="margin-left:4px">Unable to create shipment task for research projects with Shipping Type set to Sample</span><br>
+            <span class="badge red-b" style="font-size:9px">Active</span>
+            <span style="color:#9ca3af;font-size:9px;margin-left:4px">P3 · Medium · Grace</span>
+          </div></td>
+</tr><tr style="background:#f8f9fa">
+  <td colspan="6" style="padding:7px 12px;font-size:11px;font-weight:700;color:#374151;border-bottom:2px solid #e5e7eb">
+    Workload and Resource Management
+    <span style="margin-left:8px"><span class="badge red-b" style="font-size:9px">1 Failed</span></span>
+    <span style="float:right;font-size:10px;color:#9ca3af;font-weight:400">1 defect</span>
+  </td>
+</tr><tr>
+  <td style="font-size:11px;max-width:220px;padding-left:20px">04_Validate Load Manager graphical workload chart</td>
+  <td><span class="badge red-b">Failed</span></td>
+  <td style="font-size:11px">Satishkumar</td>
+  <td style="text-align:center;font-size:10px;white-space:nowrap">11 Aug 2026</td>
+  <td style="text-align:center"><span style="color:#ef4444;font-size:10px;font-weight:700">21d</span></td>
+  <td style="font-size:10px"><div style="margin-bottom:4px;font-size:10px">
+            <a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/32779" style="color:#2563eb;font-weight:700;text-decoration:none">#32779</a>
+            <span style="margin-left:4px">Load Manager workflow throws JavaScript error alert when selecting a Storage Device SOAP Exception</span><br>
+            <span class="badge red-b" style="font-size:9px">Active</span>
+            <span style="color:#9ca3af;font-size:9px;margin-left:4px">P3 · Medium · Peter</span>
+          </div></td>
+</tr></tbody>
+  </table></div>
+</div>
+
+<!-- ── In Progress / Paused Tests ─────────────────────────────────────────── -->
+
+
+<!-- ── Retest Cycle Analysis ───────────────────────────────────────────────── -->
+<div class="sec">
+  <div class="stitle"><span class="dot" style="background:#7c3aed"></span>Retest Cycle Analysis — Multi-Attempt Tests</div>
+
+  <!-- Release-level KPI strip -->
+  <div style="display:flex;gap:16px;margin-bottom:14px;flex-wrap:wrap;justify-content:center">
+    <div class="kpi pur" style="min-width:130px;flex:0 0 auto"><div class="n">25</div><div class="l">Retested → Passed</div></div>
+    <div class="kpi red" style="min-width:130px;flex:0 0 auto"><div class="n">0</div><div class="l">Repeatedly Failing</div></div>
+    <div class="kpi green" style="min-width:130px;flex:0 0 auto"><div class="n">100%</div><div class="l">Retest Success Rate</div></div>
+    <div class="kpi blue" style="min-width:130px;flex:0 0 auto"><div class="n">42%</div><div class="l">First-Time Pass Rate</div></div>
+  </div>
+
+  <!-- Dot legend -->
+  <div style="font-size:11px;color:#6b7280;margin-bottom:14px">
+    Each dot = one execution attempt:
+    <span style="display:inline-block;width:11px;height:11px;background:#22c55e;border-radius:50%;margin:0 3px 0 8px;vertical-align:middle"></span>Passed
+    <span style="display:inline-block;width:11px;height:11px;background:#ef4444;border-radius:50%;margin:0 3px 0 8px;vertical-align:middle"></span>Failed
+    <span style="display:inline-block;width:11px;height:11px;background:#f97316;border-radius:50%;margin:0 3px 0 8px;vertical-align:middle"></span>Blocked
+    <span style="display:inline-block;width:11px;height:11px;background:#d1d5db;border-radius:50%;margin:0 3px 0 8px;vertical-align:middle"></span>Not Run
+  </div>
+
+  <!-- Per-module blocks -->
+  <div style="margin-bottom:20px;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden">
+  <div style="background:#f3f4f6;padding:9px 14px;border-bottom:2px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px">
+    <span style="font-size:12px;font-weight:700;color:#111827">Sample Measurement</span>
+    <span style="display:flex;align-items:center;gap:0;flex-wrap:wrap">
+      <span style="margin-right:14px;font-size:11px;color:#6b7280">
+        <strong style="color:#374151">12</strong> tests
+      </span>
+      <span style="margin-right:14px;font-size:11px;color:#6b7280">
+        max <strong style="color:#374151">4</strong> attempts
+      </span>
+      <span style="margin-right:14px"><span class="badge green-b" style="font-size:9px">10 retested → Passed</span></span>
+      </span>
+  </div>
+  <div class="sx">
+  <table class="mt" style="border-radius:0">
+    <thead><tr>
+      <th>Test Case</th>
+      <th style="text-align:center">Attempts</th>
+      <th>Attempt History</th>
+      <th>Final Status</th>
+      <th>Pass Date</th>
+      <th>Fail Date</th>
+      <th>Blocked Date</th>
+      <th>N/A Date</th>
+    </tr></thead>
+    <tbody><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">04_Sample Measurement_Tube Auditor_XML File Contains Barcodes — Results Assigned via Barcode Match</td>
+  <td style="text-align:center;font-weight:700;color:#374151">4</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Blocked on 19 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#f97316;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: InProgress on 24 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#60a5fa;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 3: Failed on 28 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 4: Passed on 05 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">05 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">28 Jul 2026</td>
+  <td style="font-size:10px;white-space:nowrap">19 Jul 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">06_Sample Measurement_Tube Auditor_Result Processing When Samples Moved After Scanning</td>
+  <td style="text-align:center;font-weight:700;color:#374151">4</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Blocked on 19 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#f97316;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: InProgress on 24 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#60a5fa;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 3: Failed on 28 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 4: Passed on 09 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">09 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">28 Jul 2026</td>
+  <td style="font-size:10px;white-space:nowrap">19 Jul 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">05_Sample Measurement_Tube Auditor_XML File Contains No Barcodes — Results Assigned via Rack Position Fallback</td>
+  <td style="text-align:center;font-weight:700;color:#374151">3</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Blocked on 19 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#f97316;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: InProgress on 24 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#60a5fa;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 3: Passed on 28 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">28 Jul 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">19 Jul 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">08_Sample Measurement_Tube Auditor_XML File Rack Barcode Does Not Match Audited Rack</td>
+  <td style="text-align:center;font-weight:700;color:#374151">3</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: NotRun on 19 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#d1d5db;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Passed on 24 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 3: Passed on 28 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">24 Jul 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">09_Sample Measurement_Tube Auditor_Number of Tubes in XML Differs From Rack Contents</td>
+  <td style="text-align:center;font-weight:700;color:#374151">3</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: NotRun on 19 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#d1d5db;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Passed on 24 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 3: Passed on 28 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">24 Jul 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">10_Sample Measurement_Tube Auditor_Repeat Tube Auditor Measurement — New Test Result Created Without Overwriting Previous</td>
+  <td style="text-align:center;font-weight:700;color:#374151">3</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: NotRun on 19 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#d1d5db;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Passed on 24 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 3: Passed on 28 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">24 Jul 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">01_Sample Measurement_Tube Auditor_Add Rack to Tube Auditor Location_AUDITOR_1</td>
+  <td style="text-align:center;font-weight:700;color:#374151">2</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Failed on 19 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Passed on 23 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">23 Jul 2026</td>
+  <td style="font-size:10px;white-space:nowrap">19 Jul 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">02_Sample Measurement_Tube Auditor_Add Rack to Tube Auditor Location_AZENTA_TUBE_AUDITOR</td>
+  <td style="text-align:center;font-weight:700;color:#374151">2</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Blocked on 19 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#f97316;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Passed on 23 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">23 Jul 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">19 Jul 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">03_Sample Measurement_Tube Auditor_Verify Volume Is Recorded in Both the Volume Analysis Test Result and the Sample Property</td>
+  <td style="text-align:center;font-weight:700;color:#374151">2</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Failed on 19 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Passed on 28 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">28 Jul 2026</td>
+  <td style="font-size:10px;white-space:nowrap">19 Jul 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">07_Sample Measurement_Tube Auditor_Verify Audited Rack Using AD HOC Folder</td>
+  <td style="text-align:center;font-weight:700;color:#374151">2</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Blocked on 19 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#f97316;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Passed on 23 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">23 Jul 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">19 Jul 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">14_Sample Measurement_DNA Quantitation_Import Lunatic File</td>
+  <td style="text-align:center;font-weight:700;color:#374151">2</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Passed on 30 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Failed on 17 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge red-b">Failed</span></td>
+  <td style="font-size:10px;white-space:nowrap">30 Jul 2026</td>
+  <td style="font-size:10px;white-space:nowrap">17 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">16_Sample Measurement_DNA Quantitation_Assign Sample Replicates to a New Repeat Batch Using 'Add Repeats to New Plate'</td>
+  <td style="text-align:center;font-weight:700;color:#374151">2</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Blocked on 13 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#f97316;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Failed on 13 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge red-b">Failed</span></td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr></tbody>
+  </table>
+  </div>
+</div><div style="margin-bottom:20px;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden">
+  <div style="background:#f3f4f6;padding:9px 14px;border-bottom:2px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px">
+    <span style="font-size:12px;font-weight:700;color:#111827">Sample Shipment</span>
+    <span style="display:flex;align-items:center;gap:0;flex-wrap:wrap">
+      <span style="margin-right:14px;font-size:11px;color:#6b7280">
+        <strong style="color:#374151">14</strong> tests
+      </span>
+      <span style="margin-right:14px;font-size:11px;color:#6b7280">
+        max <strong style="color:#374151">6</strong> attempts
+      </span>
+      <span style="margin-right:14px"><span class="badge green-b" style="font-size:9px">12 retested → Passed</span></span>
+      </span>
+  </div>
+  <div class="sx">
+  <table class="mt" style="border-radius:0">
+    <thead><tr>
+      <th>Test Case</th>
+      <th style="text-align:center">Attempts</th>
+      <th>Attempt History</th>
+      <th>Final Status</th>
+      <th>Pass Date</th>
+      <th>Fail Date</th>
+      <th>Blocked Date</th>
+      <th>N/A Date</th>
+    </tr></thead>
+    <tbody><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">01_Sample Shipment_Create New Shipping Request from Main Dashboard — Default Field Population</td>
+  <td style="text-align:center;font-weight:700;color:#374151">6</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: NotRun on 22 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#d1d5db;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Passed on 09 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 3: InProgress on 13 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#60a5fa;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 4: Blocked on 13 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#f97316;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 5: Failed on 13 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 6: Passed on 20 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">09 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">02_Sample Shipment_Shipping Task Drives Request Template — Racks vs. Samples Shipping Type</td>
+  <td style="text-align:center;font-weight:700;color:#374151">4</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Passed on 09 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: InProgress on 13 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#60a5fa;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 3: Blocked on 13 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#f97316;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 4: Passed on 20 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">09 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">06_Sample Shipment_Research Project &amp; Request ID Inheritance Through Packaging Hierarchy</td>
+  <td style="text-align:center;font-weight:700;color:#374151">3</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Blocked on 13 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#f97316;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Failed on 20 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 3: Passed on 26 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">26 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">20 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">07_Sample Shipment_Scan Racks Directly into Shipment or into Bags/Containers</td>
+  <td style="text-align:center;font-weight:700;color:#374151">3</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Blocked on 13 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#f97316;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: InProgress on 20 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#60a5fa;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 3: Passed on 25 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">25 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">09_Sample Shipment_Generate Manifest from Research Project Shipping Tab</td>
+  <td style="text-align:center;font-weight:700;color:#374151">3</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Blocked on 13 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#f97316;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Failed on 25 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 3: Passed on 26 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">26 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">25 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">11_Sample Shipment_Record Data Logger IDs on Shipping Containers Before Sending</td>
+  <td style="text-align:center;font-weight:700;color:#374151">3</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: InProgress on 12 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#60a5fa;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Blocked on 13 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#f97316;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 3: Passed on 25 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">25 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">14_Sample Shipment_Close Shipping Request After All Receipt Information Recorded</td>
+  <td style="text-align:center;font-weight:700;color:#374151">3</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: InProgress on 12 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#60a5fa;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Blocked on 13 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#f97316;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 3: Passed on 25 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">25 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">03_Sample Shipment_Manually Set Request ID / Research Project on Bag or Container</td>
+  <td style="text-align:center;font-weight:700;color:#374151">2</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Blocked on 13 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#f97316;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Passed on 25 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">25 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">04_Sample Shipment_Create New Shipping Bag 12-Digit Barcode Format (099__________)</td>
+  <td style="text-align:center;font-weight:700;color:#374151">2</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Blocked on 13 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#f97316;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Passed on 20 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">20 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">05_Sample Shipment_Create New Shipping Container 12-Digit Barcode Format (77__________)</td>
+  <td style="text-align:center;font-weight:700;color:#374151">2</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Blocked on 13 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#f97316;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Passed on 20 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">20 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">08_Sample Shipment_Scan Samples (Not Racks) into Shipping Material for Sample-Type Shipments</td>
+  <td style="text-align:center;font-weight:700;color:#374151">2</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Blocked on 13 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#f97316;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Failed on 27 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge red-b">Failed</span></td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">27 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">10_Sample Shipment_Select SHIPMENT_DESTINATION and Ship Request — Status Transitions to Shipped</td>
+  <td style="text-align:center;font-weight:700;color:#374151">2</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Blocked on 13 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#f97316;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Passed on 25 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">25 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">12_Sample Shipment_Attach Photograph of Packaged Samples to Shipping Request</td>
+  <td style="text-align:center;font-weight:700;color:#374151">2</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Blocked on 13 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#f97316;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Passed on 26 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">26 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">13_Sample Shipment_Record Initial Receipt — Receive Button Sets Received By and Received Date</td>
+  <td style="text-align:center;font-weight:700;color:#374151">2</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Blocked on 13 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#f97316;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Passed on 25 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">25 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr></tbody>
+  </table>
+  </div>
+</div><div style="margin-bottom:20px;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden">
+  <div style="background:#f3f4f6;padding:9px 14px;border-bottom:2px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px">
+    <span style="font-size:12px;font-weight:700;color:#111827">Workload and Resource Management</span>
+    <span style="display:flex;align-items:center;gap:0;flex-wrap:wrap">
+      <span style="margin-right:14px;font-size:11px;color:#6b7280">
+        <strong style="color:#374151">1</strong> test
+      </span>
+      <span style="margin-right:14px;font-size:11px;color:#6b7280">
+        max <strong style="color:#374151">1</strong> attempt
+      </span>
+      
+      </span>
+  </div>
+  <div class="sx">
+  <table class="mt" style="border-radius:0">
+    <thead><tr>
+      <th>Test Case</th>
+      <th style="text-align:center">Attempts</th>
+      <th>Attempt History</th>
+      <th>Final Status</th>
+      <th>Pass Date</th>
+      <th>Fail Date</th>
+      <th>Blocked Date</th>
+      <th>N/A Date</th>
+    </tr></thead>
+    <tbody><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">04_Validate Load Manager graphical workload chart</td>
+  <td style="text-align:center;font-weight:700;color:#374151">1</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Failed on 11 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge red-b">Failed</span></td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">11 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr></tbody>
+  </table>
+  </div>
+</div><div style="margin-bottom:20px;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden">
+  <div style="background:#f3f4f6;padding:9px 14px;border-bottom:2px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px">
+    <span style="font-size:12px;font-weight:700;color:#111827">Sample Picking</span>
+    <span style="display:flex;align-items:center;gap:0;flex-wrap:wrap">
+      <span style="margin-right:14px;font-size:11px;color:#6b7280">
+        <strong style="color:#374151">3</strong> tests
+      </span>
+      <span style="margin-right:14px;font-size:11px;color:#6b7280">
+        max <strong style="color:#374151">2</strong> attempts
+      </span>
+      <span style="margin-right:14px"><span class="badge green-b" style="font-size:9px">3 retested → Passed</span></span>
+      </span>
+  </div>
+  <div class="sx">
+  <table class="mt" style="border-radius:0">
+    <thead><tr>
+      <th>Test Case</th>
+      <th style="text-align:center">Attempts</th>
+      <th>Attempt History</th>
+      <th>Final Status</th>
+      <th>Pass Date</th>
+      <th>Fail Date</th>
+      <th>Blocked Date</th>
+      <th>N/A Date</th>
+    </tr></thead>
+    <tbody><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">01_Sample Picking_Create a New Picking Request from the Main Dashboard</td>
+  <td style="text-align:center;font-weight:700;color:#374151">2</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Failed on 05 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Passed on 19 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">19 Jul 2026</td>
+  <td style="font-size:10px;white-space:nowrap">05 Jul 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">03_Sample Picking_Automated Store Picking Type Workflow</td>
+  <td style="text-align:center;font-weight:700;color:#374151">2</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Failed on 21 Jul 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Passed on 09 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">09 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">21 Jul 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">08_Sample Picking_Export Tube Picker Worklist to XL20 and Pick Task State Management</td>
+  <td style="text-align:center;font-weight:700;color:#374151">2</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Failed on 17 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Passed on 27 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">27 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">17 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr></tbody>
+  </table>
+  </div>
+</div>
+</div>
+
+<!-- ── Footer ──────────────────────────────────────────────────────────────── -->
+<div style="font-size:11px;color:#9ca3af;text-align:center;margin-top:10px;padding-top:14px;border-top:1px solid #e5e7eb">
+  Last refreshed: 01 Sept 2026, 17:01 &nbsp;·&nbsp; LIMS R1.4 &nbsp;·&nbsp; Prepared by Satishkumar Sarathi Pillai &nbsp;·&nbsp; UK Biobank — Mosaic LIMS
+</div>
+
+</div>
+</body>
+</html>
