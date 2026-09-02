@@ -1,0 +1,1500 @@
+
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Mosaic LIMS R1.4 – Functional Defect Burn-Down</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;line-height:1.6;color:#1f2328;background:#f7f8fa}
+.wrap{max-width:1080px;margin:0 auto;padding:20px 16px 48px}
+.hdr{background:#1a3a5c;color:#fff;border-radius:8px;padding:24px 28px 20px;margin-bottom:20px}
+.hdr h1{font-size:20px;font-weight:700;margin-bottom:4px}
+.hdr .sub{font-size:12px;color:#a8c4e0}
+.hdr .meta{font-size:11px;color:#7aa8cc;margin-top:6px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:20px}
+.kpi{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:16px 12px;text-align:center}
+.kpi .n{font-size:28px;font-weight:700;line-height:1;margin-bottom:3px}
+.kpi .l{font-size:11px;color:#57606a;font-weight:500}
+.red .n{color:#c0392b}.green .n{color:#27ae60}.blue .n{color:#2980b9}.ora .n{color:#e67e22}.pur .n{color:#8e44ad}
+.sec{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:20px;margin-bottom:20px}
+.stitle{font-size:15px;font-weight:700;padding-bottom:10px;border-bottom:2px solid #e5e7eb;margin-bottom:16px;display:flex;align-items:center;gap:7px}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+.mt{width:100%;border-collapse:collapse;font-size:12.5px}
+.mt th{background:#f7f8fa;padding:8px 10px;text-align:left;font-weight:600;color:#57606a;border-bottom:2px solid #e5e7eb;font-size:11px;text-transform:uppercase;letter-spacing:.3px;white-space:nowrap}
+.mt td{padding:7px 10px;border-bottom:1px solid #f0f2f5;vertical-align:top}
+.mt tr:last-child td{border-bottom:none}
+.mt tr:hover td{background:#fafbfc}
+.ins{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.ic{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:18px}
+.ic h3{font-size:12px;font-weight:700;color:#57606a;text-transform:uppercase;letter-spacing:.4px;margin-bottom:12px;padding-bottom:7px;border-bottom:1px solid #f0f2f5}
+.alert{background:#fffbf0;border:1px solid #f0c040;border-left:4px solid #f0a000;border-radius:5px;padding:10px 14px;font-size:12.5px;color:#7a5800;margin-bottom:16px}
+details summary{cursor:pointer;user-select:none;font-weight:600;color:#3b82d4;font-size:13px;padding:5px 0}
+.sx{overflow-x:auto}
+.stitle2{font-size:13px;font-weight:700;color:#1a3a5c;margin:20px 0 10px;padding-bottom:8px;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;gap:6px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hdr">
+  <h1>Mosaic LIMS R1.4 — Functional Defect Burn-Down Report</h1>
+  <div class="sub">Project: UK Biobank &nbsp;·&nbsp; Source: Azure DevOps (ukbiobank / Mosaic)</div>
+  <div class="meta">Generated: 02 Sep 2026 | Scope: Functional Testing Team (Felicity Hardy-Birt &amp; UAT-tagged bugs excluded) | Total in scope: 86</div>
+</div>
+
+<div class="kpis">
+  <div class="kpi blue"><div class="n">86</div><div class="l">Total Defects</div></div>
+  <div class="kpi red"><div class="n">27</div><div class="l">Open</div></div>
+  <div class="kpi green"><div class="n">59</div><div class="l">Closed</div></div>
+  <div class="kpi green"><div class="n">69%</div><div class="l">Closure Rate</div></div>
+  <div class="kpi ora"><div class="n">89.2d</div><div class="l">Avg Age (Open)</div></div>
+  <div class="kpi pur"><div class="n">22.1d</div><div class="l">Avg Age (Closed)</div></div>
+</div>
+
+<div class="sec">
+  <div class="stitle"><span class="dot" style="background:#3b82d4"></span>Monthly Defect Burn-Down</div>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px">
+
+    <!-- BAR CHART 1: Functional (FN) -->
+    <div style="overflow-x:auto">
+      <div style="font-size:11px;font-weight:700;color:#1d4ed8;text-align:center;margin-bottom:4px">Functional (FN) — Bugs Raised per Month</div>
+      <svg width="100%" viewBox="0 0 680 250" xmlns="http://www.w3.org/2000/svg" style="display:block">
+          <rect x="0" y="0" width="680" height="250" fill="#f5f5f5" rx="4"/>
+  <line x1="42" y1="220" x2="660" y2="220" stroke="#ddd" stroke-width="1"/>
+  <line x1="42" y1="220" x2="42" y2="30"  stroke="#ddd" stroke-width="1"/>
+  <line x1="42" y1="220" x2="660" y2="220" stroke="#ddd" stroke-width="1"/>
+  <text x="38" y="220" text-anchor="end" dominant-baseline="middle" font-size="9" font-weight="700" fill="#555">0</text>
+  <line x1="42" y1="169.4" x2="660" y2="169.4" stroke="#f0f0f0" stroke-width="1"/>
+  <text x="38" y="169.4" text-anchor="end" dominant-baseline="middle" font-size="9" font-weight="700" fill="#555">5</text>
+  <line x1="42" y1="118.9" x2="660" y2="118.9" stroke="#f0f0f0" stroke-width="1"/>
+  <text x="38" y="118.9" text-anchor="end" dominant-baseline="middle" font-size="9" font-weight="700" fill="#555">10</text>
+  <line x1="42" y1="68.3" x2="660" y2="68.3" stroke="#f0f0f0" stroke-width="1"/>
+  <text x="38" y="68.3" text-anchor="end" dominant-baseline="middle" font-size="9" font-weight="700" fill="#555">15</text>
+  <line x1="42" y1="38" x2="660" y2="38" stroke="#f0f0f0" stroke-width="1"/>
+  <text x="38" y="38" text-anchor="end" dominant-baseline="middle" font-size="9" font-weight="700" fill="#555">18</text>
+  <rect x="42" y="159.3" width="60" height="60.7" fill="#3b82d4" opacity="0.85" rx="2"/>
+  <text x="72" y="153.3" text-anchor="middle" font-size="10" font-weight="700" fill="#3b82d4">6</text>
+  <rect x="134" y="88.6" width="60" height="131.4" fill="#3b82d4" opacity="0.85" rx="2"/>
+  <text x="164" y="82.6" text-anchor="middle" font-size="10" font-weight="700" fill="#3b82d4">13</text>
+  <rect x="226" y="78.4" width="60" height="141.6" fill="#3b82d4" opacity="0.85" rx="2"/>
+  <text x="256" y="72.4" text-anchor="middle" font-size="10" font-weight="700" fill="#3b82d4">14</text>
+  <rect x="318" y="48.1" width="60" height="171.9" fill="#3b82d4" opacity="0.85" rx="2"/>
+  <text x="348" y="42.1" text-anchor="middle" font-size="10" font-weight="700" fill="#3b82d4">17</text>
+  <rect x="410" y="108.8" width="60" height="111.2" fill="#3b82d4" opacity="0.85" rx="2"/>
+  <text x="440" y="102.8" text-anchor="middle" font-size="10" font-weight="700" fill="#3b82d4">11</text>
+  <rect x="502" y="159.3" width="60" height="60.7" fill="#3b82d4" opacity="0.85" rx="2"/>
+  <text x="532" y="153.3" text-anchor="middle" font-size="10" font-weight="700" fill="#3b82d4">6</text>
+  <rect x="594" y="139.1" width="60" height="80.9" fill="#3b82d4" opacity="0.85" rx="2"/>
+  <text x="624" y="133.1" text-anchor="middle" font-size="10" font-weight="700" fill="#3b82d4">8</text>
+  <text x="72" y="234" text-anchor="middle" font-size="9" font-weight="700" fill="#555">Feb</text>
+  <text x="164" y="234" text-anchor="middle" font-size="9" font-weight="700" fill="#555">Mar</text>
+  <text x="256" y="234" text-anchor="middle" font-size="9" font-weight="700" fill="#555">Apr</text>
+  <text x="348" y="234" text-anchor="middle" font-size="9" font-weight="700" fill="#555">May</text>
+  <text x="440" y="234" text-anchor="middle" font-size="9" font-weight="700" fill="#555">Jun</text>
+  <text x="532" y="234" text-anchor="middle" font-size="9" font-weight="700" fill="#555">Jul</text>
+  <text x="624" y="234" text-anchor="middle" font-size="9" font-weight="700" fill="#555">Aug</text>
+  <text x="351" y="248" text-anchor="middle" font-size="9" font-weight="700" fill="#555">Total FN raised: 75</text>
+
+        <text x="351" y="248" text-anchor="middle" font-size="9" fill="#888">Total FN raised: 75</text>
+      </svg>
+    </div>
+
+    <!-- BAR CHART 2: Regression (REG) -->
+    <div style="overflow-x:auto">
+      <div style="font-size:11px;font-weight:700;color:#7e22ce;text-align:center;margin-bottom:4px">Regression (REG) — Bugs Raised per Month</div>
+      <svg width="100%" viewBox="0 0 680 250" xmlns="http://www.w3.org/2000/svg" style="display:block">
+          <rect x="0" y="0" width="680" height="250" fill="#f5f5f5" rx="4"/>
+  <line x1="42" y1="220" x2="660" y2="220" stroke="#ddd" stroke-width="1"/>
+  <line x1="42" y1="220" x2="42" y2="30"  stroke="#ddd" stroke-width="1"/>
+  <line x1="42" y1="220" x2="660" y2="220" stroke="#ddd" stroke-width="1"/>
+  <text x="38" y="220" text-anchor="end" dominant-baseline="middle" font-size="9" font-weight="700" fill="#555">0</text>
+  <line x1="42" y1="159.3" x2="660" y2="159.3" stroke="#f0f0f0" stroke-width="1"/>
+  <text x="38" y="159.3" text-anchor="end" dominant-baseline="middle" font-size="9" font-weight="700" fill="#555">1</text>
+  <line x1="42" y1="98.7" x2="660" y2="98.7" stroke="#f0f0f0" stroke-width="1"/>
+  <text x="38" y="98.7" text-anchor="end" dominant-baseline="middle" font-size="9" font-weight="700" fill="#555">2</text>
+  <line x1="42" y1="38" x2="660" y2="38" stroke="#f0f0f0" stroke-width="1"/>
+  <text x="38" y="38" text-anchor="end" dominant-baseline="middle" font-size="9" font-weight="700" fill="#555">3</text>
+  <rect x="226" y="38" width="60" height="182" fill="#8e44ad" opacity="0.85" rx="2"/>
+  <text x="256" y="32" text-anchor="middle" font-size="10" font-weight="700" fill="#8e44ad">3</text>
+  <rect x="318" y="159.3" width="60" height="60.7" fill="#8e44ad" opacity="0.85" rx="2"/>
+  <text x="348" y="153.3" text-anchor="middle" font-size="10" font-weight="700" fill="#8e44ad">1</text>
+  <rect x="410" y="98.7" width="60" height="121.3" fill="#8e44ad" opacity="0.85" rx="2"/>
+  <text x="440" y="92.7" text-anchor="middle" font-size="10" font-weight="700" fill="#8e44ad">2</text>
+  <rect x="502" y="98.7" width="60" height="121.3" fill="#8e44ad" opacity="0.85" rx="2"/>
+  <text x="532" y="92.7" text-anchor="middle" font-size="10" font-weight="700" fill="#8e44ad">2</text>
+  <text x="72" y="234" text-anchor="middle" font-size="9" font-weight="700" fill="#555">Feb</text>
+  <text x="164" y="234" text-anchor="middle" font-size="9" font-weight="700" fill="#555">Mar</text>
+  <text x="256" y="234" text-anchor="middle" font-size="9" font-weight="700" fill="#555">Apr</text>
+  <text x="348" y="234" text-anchor="middle" font-size="9" font-weight="700" fill="#555">May</text>
+  <text x="440" y="234" text-anchor="middle" font-size="9" font-weight="700" fill="#555">Jun</text>
+  <text x="532" y="234" text-anchor="middle" font-size="9" font-weight="700" fill="#555">Jul</text>
+  <text x="624" y="234" text-anchor="middle" font-size="9" font-weight="700" fill="#555">Aug</text>
+  <text x="351" y="248" text-anchor="middle" font-size="9" font-weight="700" fill="#555">Total REG raised: 8</text>
+
+        <text x="351" y="248" text-anchor="middle" font-size="9" fill="#888">Total REG raised: 8</text>
+      </svg>
+    </div>
+
+    <!-- BAR CHART 3: Integration (INT) -->
+    <div style="overflow-x:auto">
+      <div style="font-size:11px;font-weight:700;color:#0f766e;text-align:center;margin-bottom:4px">Integration (INT) — Bugs Raised per Month</div>
+      <svg width="100%" viewBox="0 0 680 250" xmlns="http://www.w3.org/2000/svg" style="display:block">
+          <rect x="0" y="0" width="680" height="250" fill="#f5f5f5" rx="4"/>
+  <line x1="42" y1="220" x2="660" y2="220" stroke="#ddd" stroke-width="1"/>
+  <line x1="42" y1="220" x2="42" y2="30"  stroke="#ddd" stroke-width="1"/>
+  <line x1="42" y1="220" x2="660" y2="220" stroke="#ddd" stroke-width="1"/>
+  <text x="38" y="220" text-anchor="end" dominant-baseline="middle" font-size="9" font-weight="700" fill="#555">0</text>
+  <line x1="42" y1="174.5" x2="660" y2="174.5" stroke="#f0f0f0" stroke-width="1"/>
+  <text x="38" y="174.5" text-anchor="end" dominant-baseline="middle" font-size="9" font-weight="700" fill="#555">1</text>
+  <line x1="42" y1="129" x2="660" y2="129" stroke="#f0f0f0" stroke-width="1"/>
+  <text x="38" y="129" text-anchor="end" dominant-baseline="middle" font-size="9" font-weight="700" fill="#555">2</text>
+  <line x1="42" y1="83.5" x2="660" y2="83.5" stroke="#f0f0f0" stroke-width="1"/>
+  <text x="38" y="83.5" text-anchor="end" dominant-baseline="middle" font-size="9" font-weight="700" fill="#555">3</text>
+  <line x1="42" y1="38" x2="660" y2="38" stroke="#f0f0f0" stroke-width="1"/>
+  <text x="38" y="38" text-anchor="end" dominant-baseline="middle" font-size="9" font-weight="700" fill="#555">4</text>
+  <rect x="594" y="83.5" width="60" height="136.5" fill="#0d9488" opacity="0.85" rx="2"/>
+  <text x="624" y="77.5" text-anchor="middle" font-size="10" font-weight="700" fill="#0d9488">3</text>
+  <text x="72" y="234" text-anchor="middle" font-size="9" font-weight="700" fill="#555">Feb</text>
+  <text x="164" y="234" text-anchor="middle" font-size="9" font-weight="700" fill="#555">Mar</text>
+  <text x="256" y="234" text-anchor="middle" font-size="9" font-weight="700" fill="#555">Apr</text>
+  <text x="348" y="234" text-anchor="middle" font-size="9" font-weight="700" fill="#555">May</text>
+  <text x="440" y="234" text-anchor="middle" font-size="9" font-weight="700" fill="#555">Jun</text>
+  <text x="532" y="234" text-anchor="middle" font-size="9" font-weight="700" fill="#555">Jul</text>
+  <text x="624" y="234" text-anchor="middle" font-size="9" font-weight="700" fill="#555">Aug</text>
+  <text x="351" y="248" text-anchor="middle" font-size="9" font-weight="700" fill="#555">Total INT raised: 3</text>
+
+        <text x="351" y="248" text-anchor="middle" font-size="9" fill="#888">Total INT raised: 3</text>
+      </svg>
+    </div>
+
+  </div>
+
+  <!-- LINE CHART -->
+  <div style="overflow-x:auto;margin-bottom:4px">
+  <svg width="740" height="320" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:0 auto;max-width:100%">
+      <rect x="0" y="0" width="740" height="320" fill="#f5f5f5" rx="4"/>
+  <line x1="62" y1="258" x2="726" y2="258" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="56" y="258" text-anchor="end" dominant-baseline="middle" font-size="10" font-weight="700" fill="#555">0</text>
+  <line x1="62" y1="217.3" x2="726" y2="217.3" stroke="#eee" stroke-width="1"/>
+  <text x="56" y="217.3" text-anchor="end" dominant-baseline="middle" font-size="10" font-weight="700" fill="#555">5</text>
+  <line x1="62" y1="176.5" x2="726" y2="176.5" stroke="#eee" stroke-width="1"/>
+  <text x="56" y="176.5" text-anchor="end" dominant-baseline="middle" font-size="10" font-weight="700" fill="#555">10</text>
+  <line x1="62" y1="135.8" x2="726" y2="135.8" stroke="#eee" stroke-width="1"/>
+  <text x="56" y="135.8" text-anchor="end" dominant-baseline="middle" font-size="10" font-weight="700" fill="#555">15</text>
+  <line x1="62" y1="95" x2="726" y2="95" stroke="#eee" stroke-width="1"/>
+  <text x="56" y="95" text-anchor="end" dominant-baseline="middle" font-size="10" font-weight="700" fill="#555">20</text>
+  <line x1="62" y1="54.3" x2="726" y2="54.3" stroke="#eee" stroke-width="1"/>
+  <text x="56" y="54.3" text-anchor="end" dominant-baseline="middle" font-size="10" font-weight="700" fill="#555">25</text>
+  <line x1="62" y1="258" x2="726" y2="258" stroke="#ccc"/>
+  <line x1="62" y1="38"  x2="62"  y2="258" stroke="#ccc"/>
+  <polyline points="82,209.1 186,152.1 290,119.5 394,111.3 498,152.1 602,192.8 706,168.4" fill="none" stroke="#1d4ed8" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="5,3"/>
+  <polyline points="82,233.6 186,225.4 290,127.6 394,184.7 498,152.1 602,233.6 706,168.4" fill="none" stroke="#27ae60" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="5,3"/>
+  <polyline points="82,233.6 186,160.2 290,152.1 394,78.7 498,78.7 602,38 706,38"    fill="none" stroke="#e74c3c" stroke-width="2.2" stroke-linejoin="round"/>
+  <circle cx="82" cy="209.1" r="4" fill="#1d4ed8" stroke="#fff" stroke-width="1.5"/>
+  <text x="82" y="201.1" text-anchor="middle" font-size="9" font-weight="700" fill="#1d4ed8">6</text>
+  <circle cx="186" cy="152.1" r="4" fill="#1d4ed8" stroke="#fff" stroke-width="1.5"/>
+  <text x="186" y="144.1" text-anchor="middle" font-size="9" font-weight="700" fill="#1d4ed8">13</text>
+  <circle cx="290" cy="119.5" r="4" fill="#1d4ed8" stroke="#fff" stroke-width="1.5"/>
+  <text x="290" y="111.5" text-anchor="middle" font-size="9" font-weight="700" fill="#1d4ed8">17</text>
+  <circle cx="394" cy="111.3" r="4" fill="#1d4ed8" stroke="#fff" stroke-width="1.5"/>
+  <text x="394" y="103.3" text-anchor="middle" font-size="9" font-weight="700" fill="#1d4ed8">18</text>
+  <circle cx="498" cy="152.1" r="4" fill="#1d4ed8" stroke="#fff" stroke-width="1.5"/>
+  <text x="498" y="144.1" text-anchor="middle" font-size="9" font-weight="700" fill="#1d4ed8">13</text>
+  <circle cx="602" cy="192.8" r="4" fill="#1d4ed8" stroke="#fff" stroke-width="1.5"/>
+  <text x="602" y="184.8" text-anchor="middle" font-size="9" font-weight="700" fill="#1d4ed8">8</text>
+  <circle cx="706" cy="168.4" r="4" fill="#1d4ed8" stroke="#fff" stroke-width="1.5"/>
+  <text x="706" y="160.4" text-anchor="middle" font-size="9" font-weight="700" fill="#1d4ed8">11</text>
+  <circle cx="82" cy="233.6" r="4" fill="#27ae60" stroke="#fff" stroke-width="1.5"/>
+  <text x="82" y="225.6" text-anchor="middle" font-size="9" font-weight="700" fill="#27ae60">3</text>
+  <circle cx="186" cy="225.4" r="4" fill="#27ae60" stroke="#fff" stroke-width="1.5"/>
+  <text x="186" y="217.4" text-anchor="middle" font-size="9" font-weight="700" fill="#27ae60">4</text>
+  <circle cx="290" cy="127.6" r="4" fill="#27ae60" stroke="#fff" stroke-width="1.5"/>
+  <text x="290" y="137.6" text-anchor="middle" font-size="9" font-weight="700" fill="#27ae60">16</text>
+  <circle cx="394" cy="184.7" r="4" fill="#27ae60" stroke="#fff" stroke-width="1.5"/>
+  <text x="394" y="176.7" text-anchor="middle" font-size="9" font-weight="700" fill="#27ae60">9</text>
+  <circle cx="498" cy="152.1" r="4" fill="#27ae60" stroke="#fff" stroke-width="1.5"/>
+  <text x="498" y="162.1" text-anchor="middle" font-size="9" font-weight="700" fill="#27ae60">13</text>
+  <circle cx="602" cy="233.6" r="4" fill="#27ae60" stroke="#fff" stroke-width="1.5"/>
+  <text x="602" y="225.6" text-anchor="middle" font-size="9" font-weight="700" fill="#27ae60">3</text>
+  <circle cx="706" cy="168.4" r="4" fill="#27ae60" stroke="#fff" stroke-width="1.5"/>
+  <text x="706" y="178.4" text-anchor="middle" font-size="9" font-weight="700" fill="#27ae60">11</text>
+  <circle cx="82" cy="233.6" r="4" fill="#e74c3c" stroke="#fff" stroke-width="1.5"/>
+  <text x="82" y="225.6" text-anchor="middle" font-size="9" font-weight="700" fill="#e74c3c">3</text>
+  <circle cx="186" cy="160.2" r="4" fill="#e74c3c" stroke="#fff" stroke-width="1.5"/>
+  <text x="186" y="152.2" text-anchor="middle" font-size="9" font-weight="700" fill="#e74c3c">12</text>
+  <circle cx="290" cy="152.1" r="4" fill="#e74c3c" stroke="#fff" stroke-width="1.5"/>
+  <text x="290" y="144.1" text-anchor="middle" font-size="9" font-weight="700" fill="#e74c3c">13</text>
+  <circle cx="394" cy="78.7" r="4" fill="#e74c3c" stroke="#fff" stroke-width="1.5"/>
+  <text x="394" y="70.7" text-anchor="middle" font-size="9" font-weight="700" fill="#e74c3c">22</text>
+  <circle cx="498" cy="78.7" r="4" fill="#e74c3c" stroke="#fff" stroke-width="1.5"/>
+  <text x="498" y="70.7" text-anchor="middle" font-size="9" font-weight="700" fill="#e74c3c">22</text>
+  <circle cx="602" cy="38" r="4" fill="#e74c3c" stroke="#fff" stroke-width="1.5"/>
+  <text x="602" y="30" text-anchor="middle" font-size="9" font-weight="700" fill="#e74c3c">27</text>
+  <circle cx="706" cy="38" r="4" fill="#e74c3c" stroke="#fff" stroke-width="1.5"/>
+  <text x="706" y="30" text-anchor="middle" font-size="9" font-weight="700" fill="#e74c3c">27</text>
+  <text x="82" y="275" text-anchor="middle" font-size="10" font-weight="700" fill="#555">Feb 2026</text>
+  <text x="186" y="275" text-anchor="middle" font-size="10" font-weight="700" fill="#555">Mar 2026</text>
+  <text x="290" y="275" text-anchor="middle" font-size="10" font-weight="700" fill="#555">Apr 2026</text>
+  <text x="394" y="275" text-anchor="middle" font-size="10" font-weight="700" fill="#555">May 2026</text>
+  <text x="498" y="275" text-anchor="middle" font-size="10" font-weight="700" fill="#555">Jun 2026</text>
+  <text x="602" y="275" text-anchor="middle" font-size="10" font-weight="700" fill="#555">Jul 2026</text>
+  <text x="706" y="275" text-anchor="middle" font-size="10" font-weight="700" fill="#555">Aug 2026</text>
+  <line x1="239" y1="295" x2="253" y2="295" stroke="#1d4ed8" stroke-width="2" stroke-dasharray="5,3"/>
+  <circle cx="246" cy="295" r="3.5" fill="#1d4ed8"/>
+  <text x="258" y="299" font-size="10" font-weight="700" fill="#333">Total Raised</text>
+  <line x1="349" y1="295" x2="363" y2="295" stroke="#27ae60" stroke-width="2" stroke-dasharray="5,3"/>
+  <circle cx="356" cy="295" r="3.5" fill="#27ae60"/>
+  <text x="368" y="299" font-size="10" font-weight="700" fill="#333">Total Closed</text>
+  <line x1="459" y1="295" x2="473" y2="295" stroke="#e74c3c" stroke-width="2"/>
+  <circle cx="466" cy="295" r="3.5" fill="#e74c3c"/>
+  <text x="478" y="299" font-size="10" font-weight="700" fill="#333">Cumulative Open</text>
+
+  </svg>
+  </div>
+
+  <!-- TABLE: By Type (FN / REG / INT) -->
+  <div class="stitle2"><span class="dot" style="background:#3b82d4"></span>Breakdown by Defect Type</div>
+  <div class="sx">
+  <table class="mt" style="margin-top:4px">
+    <thead>
+      <tr>
+        <th rowspan="2" style="vertical-align:bottom">Month</th>
+        <th colspan="4" style="text-align:center;color:#3b82d4;border-bottom:1px solid #e5e7eb">Raised</th>
+        <th colspan="4" style="text-align:center;color:#27ae60;border-bottom:1px solid #e5e7eb">Closed</th>
+        <th rowspan="2" style="text-align:center;vertical-align:bottom">Net Change</th>
+        <th rowspan="2" style="text-align:center;color:#e74c3c;vertical-align:bottom">Cumul. Open</th>
+      </tr>
+      <tr>
+        <th style="text-align:center;color:#3b82d4;font-size:10px">Total</th>
+        <th style="text-align:center;color:#1d4ed8;font-size:10px">FN</th>
+        <th style="text-align:center;color:#7e22ce;font-size:10px">REG</th>
+        <th style="text-align:center;color:#0f766e;font-size:10px">INT</th>
+        <th style="text-align:center;color:#27ae60;font-size:10px">Total</th>
+        <th style="text-align:center;color:#166534;font-size:10px">FN</th>
+        <th style="text-align:center;color:#7e22ce;font-size:10px">REG</th>
+        <th style="text-align:center;color:#0f766e;font-size:10px">INT</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+<td style="font-weight:600">Feb 2026</td>
+<td style="text-align:center;color:#3b82d4;font-weight:600">6</td>
+<td style="text-align:center;font-size:11px"><span style="background:#dbeafe;color:#1d4ed8;padding:1px 5px;border-radius:3px;font-weight:600">6</span></td>
+<td style="text-align:center;font-size:11px"><span style="background:#f3e8ff;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;font-size:11px"><span style="background:#ccfbf1;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;color:#27ae60;font-weight:600">3</td>
+<td style="text-align:center;font-size:11px"><span style="background:#dcfce7;color:#166534;padding:1px 5px;border-radius:3px;font-weight:600">3</span></td>
+<td style="text-align:center;font-size:11px"><span style="background:#f3e8ff;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;font-size:11px"><span style="background:#ccfbf1;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;color:#c0392b;font-weight:600">+3</td>
+<td style="text-align:center;font-weight:600;color:#e74c3c">3</td>
+</tr>
+<tr>
+<td style="font-weight:600">Mar 2026</td>
+<td style="text-align:center;color:#3b82d4;font-weight:600">13</td>
+<td style="text-align:center;font-size:11px"><span style="background:#dbeafe;color:#1d4ed8;padding:1px 5px;border-radius:3px;font-weight:600">13</span></td>
+<td style="text-align:center;font-size:11px"><span style="background:#f3e8ff;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;font-size:11px"><span style="background:#ccfbf1;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;color:#27ae60;font-weight:600">4</td>
+<td style="text-align:center;font-size:11px"><span style="background:#dcfce7;color:#166534;padding:1px 5px;border-radius:3px;font-weight:600">4</span></td>
+<td style="text-align:center;font-size:11px"><span style="background:#f3e8ff;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;font-size:11px"><span style="background:#ccfbf1;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;color:#c0392b;font-weight:600">+9</td>
+<td style="text-align:center;font-weight:600;color:#e74c3c">12</td>
+</tr>
+<tr>
+<td style="font-weight:600">Apr 2026</td>
+<td style="text-align:center;color:#3b82d4;font-weight:600">17</td>
+<td style="text-align:center;font-size:11px"><span style="background:#dbeafe;color:#1d4ed8;padding:1px 5px;border-radius:3px;font-weight:600">14</span></td>
+<td style="text-align:center;font-size:11px"><span style="background:#f3e8ff;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:600">3</span></td>
+<td style="text-align:center;font-size:11px"><span style="background:#ccfbf1;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;color:#27ae60;font-weight:600">16</td>
+<td style="text-align:center;font-size:11px"><span style="background:#dcfce7;color:#166534;padding:1px 5px;border-radius:3px;font-weight:600">13</span></td>
+<td style="text-align:center;font-size:11px"><span style="background:#f3e8ff;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:600">3</span></td>
+<td style="text-align:center;font-size:11px"><span style="background:#ccfbf1;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;color:#c0392b;font-weight:600">+1</td>
+<td style="text-align:center;font-weight:600;color:#e74c3c">13</td>
+</tr>
+<tr>
+<td style="font-weight:600">May 2026</td>
+<td style="text-align:center;color:#3b82d4;font-weight:600">18</td>
+<td style="text-align:center;font-size:11px"><span style="background:#dbeafe;color:#1d4ed8;padding:1px 5px;border-radius:3px;font-weight:600">17</span></td>
+<td style="text-align:center;font-size:11px"><span style="background:#f3e8ff;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:600">1</span></td>
+<td style="text-align:center;font-size:11px"><span style="background:#ccfbf1;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;color:#27ae60;font-weight:600">9</td>
+<td style="text-align:center;font-size:11px"><span style="background:#dcfce7;color:#166534;padding:1px 5px;border-radius:3px;font-weight:600">9</span></td>
+<td style="text-align:center;font-size:11px"><span style="background:#f3e8ff;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;font-size:11px"><span style="background:#ccfbf1;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;color:#c0392b;font-weight:600">+9</td>
+<td style="text-align:center;font-weight:600;color:#e74c3c">22</td>
+</tr>
+<tr>
+<td style="font-weight:600">Jun 2026</td>
+<td style="text-align:center;color:#3b82d4;font-weight:600">13</td>
+<td style="text-align:center;font-size:11px"><span style="background:#dbeafe;color:#1d4ed8;padding:1px 5px;border-radius:3px;font-weight:600">11</span></td>
+<td style="text-align:center;font-size:11px"><span style="background:#f3e8ff;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:600">2</span></td>
+<td style="text-align:center;font-size:11px"><span style="background:#ccfbf1;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;color:#27ae60;font-weight:600">13</td>
+<td style="text-align:center;font-size:11px"><span style="background:#dcfce7;color:#166534;padding:1px 5px;border-radius:3px;font-weight:600">12</span></td>
+<td style="text-align:center;font-size:11px"><span style="background:#f3e8ff;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:600">1</span></td>
+<td style="text-align:center;font-size:11px"><span style="background:#ccfbf1;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;color:#57606a;font-weight:600">0</td>
+<td style="text-align:center;font-weight:600;color:#e74c3c">22</td>
+</tr>
+<tr>
+<td style="font-weight:600">Jul 2026</td>
+<td style="text-align:center;color:#3b82d4;font-weight:600">8</td>
+<td style="text-align:center;font-size:11px"><span style="background:#dbeafe;color:#1d4ed8;padding:1px 5px;border-radius:3px;font-weight:600">6</span></td>
+<td style="text-align:center;font-size:11px"><span style="background:#f3e8ff;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:600">2</span></td>
+<td style="text-align:center;font-size:11px"><span style="background:#ccfbf1;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;color:#27ae60;font-weight:600">3</td>
+<td style="text-align:center;font-size:11px"><span style="background:#dcfce7;color:#166534;padding:1px 5px;border-radius:3px;font-weight:600">3</span></td>
+<td style="text-align:center;font-size:11px"><span style="background:#f3e8ff;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;font-size:11px"><span style="background:#ccfbf1;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;color:#c0392b;font-weight:600">+5</td>
+<td style="text-align:center;font-weight:600;color:#e74c3c">27</td>
+</tr>
+<tr>
+<td style="font-weight:600">Aug 2026</td>
+<td style="text-align:center;color:#3b82d4;font-weight:600">11</td>
+<td style="text-align:center;font-size:11px"><span style="background:#dbeafe;color:#1d4ed8;padding:1px 5px;border-radius:3px;font-weight:600">8</span></td>
+<td style="text-align:center;font-size:11px"><span style="background:#f3e8ff;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;font-size:11px"><span style="background:#ccfbf1;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:600">3</span></td>
+<td style="text-align:center;color:#27ae60;font-weight:600">11</td>
+<td style="text-align:center;font-size:11px"><span style="background:#dcfce7;color:#166534;padding:1px 5px;border-radius:3px;font-weight:600">9</span></td>
+<td style="text-align:center;font-size:11px"><span style="background:#f3e8ff;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:600">2</span></td>
+<td style="text-align:center;font-size:11px"><span style="background:#ccfbf1;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;color:#57606a;font-weight:600">0</td>
+<td style="text-align:center;font-weight:600;color:#e74c3c">27</td>
+</tr>
+      <tr style="background:#f7f8fa;font-weight:700">
+<td>TOTAL</td>
+<td style="text-align:center;color:#3b82d4">86</td>
+<td style="text-align:center"><span style="background:#dbeafe;color:#1d4ed8;padding:1px 5px;border-radius:3px;font-weight:700">75</span></td>
+<td style="text-align:center"><span style="background:#f3e8ff;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:700">8</span></td>
+<td style="text-align:center"><span style="background:#ccfbf1;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:700">3</span></td>
+<td style="text-align:center;color:#27ae60">59</td>
+<td style="text-align:center"><span style="background:#dcfce7;color:#166534;padding:1px 5px;border-radius:3px;font-weight:700">53</span></td>
+<td style="text-align:center"><span style="background:#f3e8ff;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:700">6</span></td>
+<td style="text-align:center"><span style="background:#ccfbf1;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:700">0</span></td>
+<td style="text-align:center">—</td>
+<td style="text-align:center;color:#e74c3c">27</td>
+</tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- TABLE: By Release (FT_R1.1 … FT_R1.4) -->
+  <div class="stitle2" style="margin-top:24px"><span class="dot" style="background:#0369a1"></span>Breakdown by LIMS Release</div>
+  <div class="sx">
+  <table class="mt" style="margin-top:4px">
+    <thead>
+      <tr>
+        <th rowspan="2" style="vertical-align:bottom">Month</th>
+        <th colspan="7" style="text-align:center;color:#3b82d4;border-bottom:1px solid #e5e7eb">Raised</th>
+        <th colspan="7" style="text-align:center;color:#27ae60;border-bottom:1px solid #e5e7eb">Closed</th>
+        <th rowspan="2" style="text-align:center;vertical-align:bottom">Net Change</th>
+        <th rowspan="2" style="text-align:center;color:#e74c3c;vertical-align:bottom">Cumul. Open</th>
+      </tr>
+      <tr>
+        <th style="text-align:center;color:#3b82d4;font-size:10px">Total</th>
+        <th style="text-align:center;color:#1d4ed8;font-size:10px;white-space:nowrap">R1.1</th><th style="text-align:center;color:#0369a1;font-size:10px;white-space:nowrap">R1.2</th><th style="text-align:center;color:#0f766e;font-size:10px;white-space:nowrap">R1.3</th><th style="text-align:center;color:#7e22ce;font-size:10px;white-space:nowrap">R1.4</th><th style="text-align:center;color:#c2410c;font-size:10px;white-space:nowrap">R1.5</th><th style="text-align:center;color:#b91c1c;font-size:10px;white-space:nowrap">R1.6</th>
+        <th style="text-align:center;color:#27ae60;font-size:10px">Total</th>
+        <th style="text-align:center;color:#1d4ed8;font-size:10px;white-space:nowrap">R1.1</th><th style="text-align:center;color:#0369a1;font-size:10px;white-space:nowrap">R1.2</th><th style="text-align:center;color:#0f766e;font-size:10px;white-space:nowrap">R1.3</th><th style="text-align:center;color:#7e22ce;font-size:10px;white-space:nowrap">R1.4</th><th style="text-align:center;color:#c2410c;font-size:10px;white-space:nowrap">R1.5</th><th style="text-align:center;color:#b91c1c;font-size:10px;white-space:nowrap">R1.6</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+<td style="font-weight:600">Feb 2026</td>
+<td style="text-align:center;color:#b45309;font-weight:600">6</td>
+<td style="text-align:center;font-size:11px"><span style="background:#1d4ed822;color:#1d4ed8;padding:1px 5px;border-radius:3px;font-weight:600">6</span></td><td style="text-align:center;font-size:11px"><span style="background:#0369a122;color:#0369a1;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#0f766e22;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#7e22ce22;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#c2410c22;color:#c2410c;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#b91c1c22;color:#b91c1c;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;color:#27ae60;font-weight:600">3</td>
+<td style="text-align:center;font-size:11px"><span style="background:#1d4ed822;color:#1d4ed8;padding:1px 5px;border-radius:3px;font-weight:600">3</span></td><td style="text-align:center;font-size:11px"><span style="background:#0369a122;color:#0369a1;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#0f766e22;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#7e22ce22;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#c2410c22;color:#c2410c;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#b91c1c22;color:#b91c1c;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;color:#c0392b;font-weight:600">+3</td>
+<td style="text-align:center;font-weight:600;color:#e74c3c">3</td>
+</tr>
+<tr>
+<td style="font-weight:600">Mar 2026</td>
+<td style="text-align:center;color:#b45309;font-weight:600">13</td>
+<td style="text-align:center;font-size:11px"><span style="background:#1d4ed822;color:#1d4ed8;padding:1px 5px;border-radius:3px;font-weight:600">13</span></td><td style="text-align:center;font-size:11px"><span style="background:#0369a122;color:#0369a1;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#0f766e22;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#7e22ce22;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#c2410c22;color:#c2410c;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#b91c1c22;color:#b91c1c;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;color:#27ae60;font-weight:600">4</td>
+<td style="text-align:center;font-size:11px"><span style="background:#1d4ed822;color:#1d4ed8;padding:1px 5px;border-radius:3px;font-weight:600">4</span></td><td style="text-align:center;font-size:11px"><span style="background:#0369a122;color:#0369a1;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#0f766e22;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#7e22ce22;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#c2410c22;color:#c2410c;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#b91c1c22;color:#b91c1c;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;color:#c0392b;font-weight:600">+9</td>
+<td style="text-align:center;font-weight:600;color:#e74c3c">12</td>
+</tr>
+<tr>
+<td style="font-weight:600">Apr 2026</td>
+<td style="text-align:center;color:#b45309;font-weight:600">14</td>
+<td style="text-align:center;font-size:11px"><span style="background:#1d4ed822;color:#1d4ed8;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#0369a122;color:#0369a1;padding:1px 5px;border-radius:3px;font-weight:600">14</span></td><td style="text-align:center;font-size:11px"><span style="background:#0f766e22;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#7e22ce22;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#c2410c22;color:#c2410c;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#b91c1c22;color:#b91c1c;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;color:#27ae60;font-weight:600">13</td>
+<td style="text-align:center;font-size:11px"><span style="background:#1d4ed822;color:#1d4ed8;padding:1px 5px;border-radius:3px;font-weight:600">7</span></td><td style="text-align:center;font-size:11px"><span style="background:#0369a122;color:#0369a1;padding:1px 5px;border-radius:3px;font-weight:600">6</span></td><td style="text-align:center;font-size:11px"><span style="background:#0f766e22;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#7e22ce22;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#c2410c22;color:#c2410c;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#b91c1c22;color:#b91c1c;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;color:#c0392b;font-weight:600">+1</td>
+<td style="text-align:center;font-weight:600;color:#e74c3c">13</td>
+</tr>
+<tr>
+<td style="font-weight:600">May 2026</td>
+<td style="text-align:center;color:#b45309;font-weight:600">17</td>
+<td style="text-align:center;font-size:11px"><span style="background:#1d4ed822;color:#1d4ed8;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#0369a122;color:#0369a1;padding:1px 5px;border-radius:3px;font-weight:600">8</span></td><td style="text-align:center;font-size:11px"><span style="background:#0f766e22;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:600">9</span></td><td style="text-align:center;font-size:11px"><span style="background:#7e22ce22;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#c2410c22;color:#c2410c;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#b91c1c22;color:#b91c1c;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;color:#27ae60;font-weight:600">9</td>
+<td style="text-align:center;font-size:11px"><span style="background:#1d4ed822;color:#1d4ed8;padding:1px 5px;border-radius:3px;font-weight:600">1</span></td><td style="text-align:center;font-size:11px"><span style="background:#0369a122;color:#0369a1;padding:1px 5px;border-radius:3px;font-weight:600">5</span></td><td style="text-align:center;font-size:11px"><span style="background:#0f766e22;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:600">3</span></td><td style="text-align:center;font-size:11px"><span style="background:#7e22ce22;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#c2410c22;color:#c2410c;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#b91c1c22;color:#b91c1c;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;color:#c0392b;font-weight:600">+8</td>
+<td style="text-align:center;font-weight:600;color:#e74c3c">21</td>
+</tr>
+<tr>
+<td style="font-weight:600">Jun 2026</td>
+<td style="text-align:center;color:#b45309;font-weight:600">11</td>
+<td style="text-align:center;font-size:11px"><span style="background:#1d4ed822;color:#1d4ed8;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#0369a122;color:#0369a1;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#0f766e22;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:600">11</span></td><td style="text-align:center;font-size:11px"><span style="background:#7e22ce22;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#c2410c22;color:#c2410c;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#b91c1c22;color:#b91c1c;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;color:#27ae60;font-weight:600">12</td>
+<td style="text-align:center;font-size:11px"><span style="background:#1d4ed822;color:#1d4ed8;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#0369a122;color:#0369a1;padding:1px 5px;border-radius:3px;font-weight:600">7</span></td><td style="text-align:center;font-size:11px"><span style="background:#0f766e22;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:600">5</span></td><td style="text-align:center;font-size:11px"><span style="background:#7e22ce22;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#c2410c22;color:#c2410c;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#b91c1c22;color:#b91c1c;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;color:#27ae60;font-weight:600">-1</td>
+<td style="text-align:center;font-weight:600;color:#e74c3c">20</td>
+</tr>
+<tr>
+<td style="font-weight:600">Jul 2026</td>
+<td style="text-align:center;color:#b45309;font-weight:600">6</td>
+<td style="text-align:center;font-size:11px"><span style="background:#1d4ed822;color:#1d4ed8;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#0369a122;color:#0369a1;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#0f766e22;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#7e22ce22;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:600">6</span></td><td style="text-align:center;font-size:11px"><span style="background:#c2410c22;color:#c2410c;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#b91c1c22;color:#b91c1c;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;color:#27ae60;font-weight:600">3</td>
+<td style="text-align:center;font-size:11px"><span style="background:#1d4ed822;color:#1d4ed8;padding:1px 5px;border-radius:3px;font-weight:600">1</span></td><td style="text-align:center;font-size:11px"><span style="background:#0369a122;color:#0369a1;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#0f766e22;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#7e22ce22;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:600">2</span></td><td style="text-align:center;font-size:11px"><span style="background:#c2410c22;color:#c2410c;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#b91c1c22;color:#b91c1c;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;color:#c0392b;font-weight:600">+3</td>
+<td style="text-align:center;font-weight:600;color:#e74c3c">23</td>
+</tr>
+<tr>
+<td style="font-weight:600">Aug 2026</td>
+<td style="text-align:center;color:#b45309;font-weight:600">8</td>
+<td style="text-align:center;font-size:11px"><span style="background:#1d4ed822;color:#1d4ed8;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#0369a122;color:#0369a1;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#0f766e22;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#7e22ce22;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:600">8</span></td><td style="text-align:center;font-size:11px"><span style="background:#c2410c22;color:#c2410c;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#b91c1c22;color:#b91c1c;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;color:#27ae60;font-weight:600">9</td>
+<td style="text-align:center;font-size:11px"><span style="background:#1d4ed822;color:#1d4ed8;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#0369a122;color:#0369a1;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#0f766e22;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:600">1</span></td><td style="text-align:center;font-size:11px"><span style="background:#7e22ce22;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:600">8</span></td><td style="text-align:center;font-size:11px"><span style="background:#c2410c22;color:#c2410c;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td><td style="text-align:center;font-size:11px"><span style="background:#b91c1c22;color:#b91c1c;padding:1px 5px;border-radius:3px;font-weight:600">0</span></td>
+<td style="text-align:center;color:#27ae60;font-weight:600">-1</td>
+<td style="text-align:center;font-weight:600;color:#e74c3c">22</td>
+</tr>
+      <tr style="background:#f7f8fa;font-weight:700">
+<td>TOTAL</td>
+<td style="text-align:center;color:#b45309">75</td>
+<td style="text-align:center"><span style="background:#1d4ed822;color:#1d4ed8;padding:1px 5px;border-radius:3px;font-weight:700">19</span></td><td style="text-align:center"><span style="background:#0369a122;color:#0369a1;padding:1px 5px;border-radius:3px;font-weight:700">22</span></td><td style="text-align:center"><span style="background:#0f766e22;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:700">20</span></td><td style="text-align:center"><span style="background:#7e22ce22;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:700">14</span></td><td style="text-align:center"><span style="background:#c2410c22;color:#c2410c;padding:1px 5px;border-radius:3px;font-weight:700">0</span></td><td style="text-align:center"><span style="background:#b91c1c22;color:#b91c1c;padding:1px 5px;border-radius:3px;font-weight:700">0</span></td>
+<td style="text-align:center;color:#27ae60">53</td>
+<td style="text-align:center"><span style="background:#1d4ed822;color:#1d4ed8;padding:1px 5px;border-radius:3px;font-weight:700">16</span></td><td style="text-align:center"><span style="background:#0369a122;color:#0369a1;padding:1px 5px;border-radius:3px;font-weight:700">18</span></td><td style="text-align:center"><span style="background:#0f766e22;color:#0f766e;padding:1px 5px;border-radius:3px;font-weight:700">9</span></td><td style="text-align:center"><span style="background:#7e22ce22;color:#7e22ce;padding:1px 5px;border-radius:3px;font-weight:700">10</span></td><td style="text-align:center"><span style="background:#c2410c22;color:#c2410c;padding:1px 5px;border-radius:3px;font-weight:700">0</span></td><td style="text-align:center"><span style="background:#b91c1c22;color:#b91c1c;padding:1px 5px;border-radius:3px;font-weight:700">0</span></td>
+<td style="text-align:center">—</td>
+<td style="text-align:center;color:#e74c3c">22</td>
+</tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="alert" style="margin-top:14px">
+    <li><strong style="color:#1d4ed8">FN (Functional)</strong> — FT_R1.x-tagged defects &nbsp;·&nbsp; <strong>75 total</strong>: 53 closed, 22 open</li>
+<li><strong style="color:#7e22ce">REG (Regression)</strong> — REG_R1.x-tagged defects &nbsp;·&nbsp; <strong>8 total</strong>: 6 closed, 2 open</li>
+<li><strong style="color:#0f766e">INT (Integration)</strong> — INTEGRATION-only defects &nbsp;·&nbsp; <strong>3 total</strong>, all open: #32848, #32849, #32850</li>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="stitle"><span class="dot" style="background:#e74c3c"></span>Open Defects (27) — Action Required</div>
+  <div class="alert">⚠ 27 defects remain open as of 02 Sep 2026. Sorted by priority (P1 first), then age (oldest first).</div>
+  <div class="sx">
+  <table class="mt">
+    <thead><tr><th>ID</th><th>Title</th><th>Pri</th><th>Sev</th><th>Status</th><th>Assignee</th><th>Raised</th><th>Age</th><th>Tags</th></tr></thead>
+    <tbody>
+      <tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/25733" style="color:#3b82d4;font-weight:700;text-decoration:none">#25733</a></td>
+<td style="font-size:11px;max-width:240px">Invalid Label Format error displayed when attempting to print location barcode from Storage Location Manager</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Active</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">13 Mar 2026</td>
+<td style="text-align:center"><span style="color:#c0392b;font-weight:600;font-size:11px">173d</span></td>
+<td style="font-size:10px"><span style="background:#e67e22;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CODE ERROR</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.1</span><span style="background:#666;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">ON HOLD</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/27921" style="color:#3b82d4;font-weight:700;text-decoration:none">#27921</a></td>
+<td style="font-size:11px;max-width:240px">SLM tree view and content panel not synchronised</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Active</span></td>
+<td style="font-size:11px">Grace</td>
+<td style="font-size:11px;white-space:nowrap">15 May 2026</td>
+<td style="text-align:center"><span style="color:#c0392b;font-weight:600;font-size:11px">110d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.3</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/27981" style="color:#3b82d4;font-weight:700;text-decoration:none">#27981</a></td>
+<td style="font-size:11px;max-width:240px">Pending Samples Table and Issue Samples Table not aligned/rendered correctly in Research Project Visual Workflow.</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Active</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">20 May 2026</td>
+<td style="text-align:center"><span style="color:#c0392b;font-weight:600;font-size:11px">105d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.3</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/28096" style="color:#3b82d4;font-weight:700;text-decoration:none">#28096</a></td>
+<td style="font-size:11px;max-width:240px">SLM actions in LIMS web interface slowness causing automation failures</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Active</span></td>
+<td style="font-size:11px">Grace</td>
+<td style="font-size:11px;white-space:nowrap">27 May 2026</td>
+<td style="text-align:center"><span style="color:#c0392b;font-weight:600;font-size:11px">98d</span></td>
+<td style="font-size:10px"><span style="background:#7b3fa0;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">REG_R1.2</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">Webclient</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/28103" style="color:#3b82d4;font-weight:700;text-decoration:none">#28103</a></td>
+<td style="font-size:11px;max-width:240px">Bulk Rack Movement via File Upload fails on the LIMS web interface</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Active</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">27 May 2026</td>
+<td style="text-align:center"><span style="color:#c0392b;font-weight:600;font-size:11px">98d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.3</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">Webclient</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/28106" style="color:#3b82d4;font-weight:700;text-decoration:none">#28106</a></td>
+<td style="font-size:11px;max-width:240px">Bulk Rack Movement sent to Background Process does not complete and no completion or error alert is generated</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Active</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">28 May 2026</td>
+<td style="text-align:center"><span style="color:#c0392b;font-weight:600;font-size:11px">97d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.3</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/28534" style="color:#3b82d4;font-weight:700;text-decoration:none">#28534</a></td>
+<td style="font-size:11px;max-width:240px">Unclear and missing system functionality for decommissioning of Research Projects</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Active</span></td>
+<td style="font-size:11px">Ash</td>
+<td style="font-size:11px;white-space:nowrap">04 Jun 2026</td>
+<td style="text-align:center"><span style="color:#c0392b;font-weight:600;font-size:11px">90d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.3</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/28698" style="color:#3b82d4;font-weight:700;text-decoration:none">#28698</a></td>
+<td style="font-size:11px;max-width:240px">Importing picklist CSV fails with 'Query Error [22001] value too long for type character varying (10)' during Load</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td><span style="background:#8e44ad;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Resolved</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">07 Jun 2026</td>
+<td style="text-align:center"><span style="color:#e67e22;font-weight:600;font-size:11px">87d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.3</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/28846" style="color:#3b82d4;font-weight:700;text-decoration:none">#28846</a></td>
+<td style="font-size:11px;max-width:240px">Unreserved Volume and Expected Thaw Count not displayed for samples in newly created Research Projects</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td><span style="background:#c0392b;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">New</span></td>
+<td style="font-size:11px">Grace</td>
+<td style="font-size:11px;white-space:nowrap">10 Jun 2026</td>
+<td style="text-align:center"><span style="color:#e67e22;font-weight:600;font-size:11px">85d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.3</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/28847" style="color:#3b82d4;font-weight:700;text-decoration:none">#28847</a></td>
+<td style="font-size:11px;max-width:240px">Start Date and Planned End Date fields not editable despite pencil icon in Research Project Design Workflow</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Active</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">10 Jun 2026</td>
+<td style="text-align:center"><span style="color:#e67e22;font-weight:600;font-size:11px">84d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.3</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/28870" style="color:#3b82d4;font-weight:700;text-decoration:none">#28870</a></td>
+<td style="font-size:11px;max-width:240px">Audit History does not display sample selection changes made in the Master Picklist (Add / Remove / Replace)</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Active</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">10 Jun 2026</td>
+<td style="text-align:center"><span style="color:#e67e22;font-weight:600;font-size:11px">84d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.3</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/32902" style="color:#3b82d4;font-weight:700;text-decoration:none">#32902</a></td>
+<td style="font-size:11px;max-width:240px">Placeholder Clarification Required for Testing DNA Quantitation Repeat Batch Workflow (“Add Repeats to New Plate”)</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Active</span></td>
+<td style="font-size:11px">Grace</td>
+<td style="font-size:11px;white-space:nowrap">13 Aug 2026</td>
+<td style="text-align:center"><span style="color:#2980b9;font-weight:600;font-size:11px">20d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.4</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/25065" style="color:#3b82d4;font-weight:700;text-decoration:none">#25065</a></td>
+<td style="font-size:11px;max-width:240px">Flag count is not increasing when a flag is added_at Rack level_Event Tracking</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Active</span></td>
+<td style="font-size:11px">Grace</td>
+<td style="font-size:11px;white-space:nowrap">27 Feb 2026</td>
+<td style="text-align:center"><span style="color:#c0392b;font-weight:600;font-size:11px">187d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.1</span><span style="background:#666;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">ON HOLD</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/25568" style="color:#3b82d4;font-weight:700;text-decoration:none">#25568</a></td>
+<td style="font-size:11px;max-width:240px">Runtime error displayed when attempting to remove a Tray location containing stored samples</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Active</span></td>
+<td style="font-size:11px">Grace</td>
+<td style="font-size:11px;white-space:nowrap">11 Mar 2026</td>
+<td style="text-align:center"><span style="color:#c0392b;font-weight:600;font-size:11px">175d</span></td>
+<td style="font-size:10px"><span style="background:#e67e22;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CODE ERROR</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.1</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/26924" style="color:#3b82d4;font-weight:700;text-decoration:none">#26924</a></td>
+<td style="font-size:11px;max-width:240px">Client not updating the db object file after and synchronising with EC2 server following updates</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Active</span></td>
+<td style="font-size:11px">Grace</td>
+<td style="font-size:11px;white-space:nowrap">14 Apr 2026</td>
+<td style="text-align:center"><span style="color:#c0392b;font-weight:600;font-size:11px">141d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.2</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/27041" style="color:#3b82d4;font-weight:700;text-decoration:none">#27041</a></td>
+<td style="font-size:11px;max-width:240px">Duplicate Vacutainer barcodes are accepted without warning in Receive Samples workflow</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Active</span></td>
+<td style="font-size:11px">Peter</td>
+<td style="font-size:11px;white-space:nowrap">15 Apr 2026</td>
+<td style="text-align:center"><span style="color:#c0392b;font-weight:600;font-size:11px">140d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.2</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/27525" style="color:#3b82d4;font-weight:700;text-decoration:none">#27525</a></td>
+<td style="font-size:11px;max-width:240px">Updates made on EC2 Webserver not synchronising to AWS Workspace local server folder</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Active</span></td>
+<td style="font-size:11px">Sudheer</td>
+<td style="font-size:11px;white-space:nowrap">05 May 2026</td>
+<td style="text-align:center"><span style="color:#c0392b;font-weight:600;font-size:11px">120d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.2</span><span style="background:#c0392b;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">INFRASTRUCTURE ISSUE</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/27980" style="color:#3b82d4;font-weight:700;text-decoration:none">#27980</a></td>
+<td style="font-size:11px;max-width:240px">Dashboard Cards not rendering correctly in Research Project Visual Workflow.</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Active</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">20 May 2026</td>
+<td style="text-align:center"><span style="color:#c0392b;font-weight:600;font-size:11px">105d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.3</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/28102" style="color:#3b82d4;font-weight:700;text-decoration:none">#28102</a></td>
+<td style="font-size:11px;max-width:240px">Unclear error message displayed when importing invalid rack barcodes during Bulk Movement</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Active</span></td>
+<td style="font-size:11px">Megan</td>
+<td style="font-size:11px;white-space:nowrap">27 May 2026</td>
+<td style="text-align:center"><span style="color:#c0392b;font-weight:600;font-size:11px">98d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.3</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/30767" style="color:#3b82d4;font-weight:700;text-decoration:none">#30767</a></td>
+<td style="font-size:11px;max-width:240px">System-generated box names no longer created under structured freezer racks following R1.4 deployment.</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Active</span></td>
+<td style="font-size:11px">Ash</td>
+<td style="font-size:11px;white-space:nowrap">10 Jul 2026</td>
+<td style="text-align:center"><span style="color:#2980b9;font-weight:600;font-size:11px">54d</span></td>
+<td style="font-size:10px"><span style="background:#7b3fa0;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">REG_R1.4</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/32779" style="color:#3b82d4;font-weight:700;text-decoration:none">#32779</a></td>
+<td style="font-size:11px;max-width:240px">Load Manager workflow throws JavaScript error alert when selecting a Storage Device SOAP Exception</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Active</span></td>
+<td style="font-size:11px">Peter</td>
+<td style="font-size:11px;white-space:nowrap">11 Aug 2026</td>
+<td style="text-align:center"><span style="color:#2980b9;font-weight:600;font-size:11px">22d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.4</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/32787" style="color:#3b82d4;font-weight:700;text-decoration:none">#32787</a></td>
+<td style="font-size:11px;max-width:240px">LIMS Processing of Lunatic DNA Quantification Output file fails due to unresolvable sample association</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">High</span></td>
+<td><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Active</span></td>
+<td style="font-size:11px">Grace</td>
+<td style="font-size:11px;white-space:nowrap">11 Aug 2026</td>
+<td style="text-align:center"><span style="color:#2980b9;font-weight:600;font-size:11px">22d</span></td>
+<td style="font-size:10px"><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">DEFERRED TO R1.6</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.4</span><span style="background:#16a085;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">INTEGRATION</span><span style="background:#666;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">ON HOLD</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/32848" style="color:#3b82d4;font-weight:700;text-decoration:none">#32848</a></td>
+<td style="font-size:11px;max-width:240px">Tube Auditor Software Requires Local Admin Privileges — File Share Write Blocked in Production</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td><span style="background:#c0392b;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">New</span></td>
+<td style="font-size:11px">Unassigned</td>
+<td style="font-size:11px;white-space:nowrap">12 Aug 2026</td>
+<td style="text-align:center"><span style="color:#2980b9;font-weight:600;font-size:11px">21d</span></td>
+<td style="font-size:10px"><span style="background:#16a085;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">INTEGRATION</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/32849" style="color:#3b82d4;font-weight:700;text-decoration:none">#32849</a></td>
+<td style="font-size:11px;max-width:240px">Tube Auditor 2D Scanner Dynamic IP Address Causes NO_TUBE Reads — Risk of Incorrect Sample Volume Updates in LIMS</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td><span style="background:#c0392b;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">New</span></td>
+<td style="font-size:11px">Unassigned</td>
+<td style="font-size:11px;white-space:nowrap">12 Aug 2026</td>
+<td style="text-align:center"><span style="color:#2980b9;font-weight:600;font-size:11px">21d</span></td>
+<td style="font-size:10px"><span style="background:#16a085;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">INTEGRATION</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/32850" style="color:#3b82d4;font-weight:700;text-decoration:none">#32850</a></td>
+<td style="font-size:11px;max-width:240px">XL20 Tube Picker Incorrectly Reports Pick Status as &quot;OK&quot; for Missing Source Samples</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td><span style="background:#c0392b;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">New</span></td>
+<td style="font-size:11px">Unassigned</td>
+<td style="font-size:11px;white-space:nowrap">12 Aug 2026</td>
+<td style="text-align:center"><span style="color:#2980b9;font-weight:600;font-size:11px">21d</span></td>
+<td style="font-size:10px"><span style="background:#16a085;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">INTEGRATION</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/33747" style="color:#3b82d4;font-weight:700;text-decoration:none">#33747</a></td>
+<td style="font-size:11px;max-width:240px">Unable to create shipment task for research projects with Shipping Type set to Sample</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Active</span></td>
+<td style="font-size:11px">Grace</td>
+<td style="font-size:11px;white-space:nowrap">27 Aug 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-weight:600;font-size:11px">6d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.4</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/26852" style="color:#3b82d4;font-weight:700;text-decoration:none">#26852</a></td>
+<td style="font-size:11px;max-width:240px">Improvement – Test Feedback for Invalid Barcode Entry in Receive Samples Dialog</td>
+<td style="text-align:center"><span style="background:#27ae60;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P4</span></td>
+<td style="text-align:center"><span style="background:#27ae60;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Low</span></td>
+<td><span style="background:#c0392b;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">New</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">10 Apr 2026</td>
+<td style="text-align:center"><span style="color:#c0392b;font-weight:600;font-size:11px">145d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.2</span><span style="background:#666;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">ON HOLD</span></td>
+</tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="stitle"><span class="dot" style="background:#27ae60"></span>Closed Defects (59)</div>
+  <details>
+    <summary>Show / Hide closed defects ▸</summary>
+    <div class="sx" style="margin-top:12px">
+    <table class="mt">
+      <thead><tr><th>ID</th><th>Title</th><th>Pri</th><th>Sev</th><th>Raised By</th><th>Raised</th><th>Closed</th><th>Resolution Time</th><th>Tags</th></tr></thead>
+      <tbody>
+        <tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/26716" style="color:#3b82d4;font-weight:700;text-decoration:none">#26716</a></td>
+<td style="font-size:11px;max-width:260px">Getting 504 error in console and unable to load Freezer information</td>
+<td style="text-align:center"><span style="background:#c0392b;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P1</span></td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">High</span></td>
+<td style="font-size:11px">Udayasankara</td>
+<td style="font-size:11px;white-space:nowrap">01 Apr 2026</td>
+<td style="font-size:11px;white-space:nowrap">13 Apr 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">12d</span></td>
+<td style="font-size:10px"><span style="background:#c0392b;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">INFRASTRUCTURE ISSUE</span><span style="background:#7b3fa0;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">REG_R1.1</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">Webclient</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/26966" style="color:#3b82d4;font-weight:700;text-decoration:none">#26966</a></td>
+<td style="font-size:11px;max-width:260px">Collection vessels marked as received are not visible in selected storage location (FR20001) within Storage Location Manager</td>
+<td style="text-align:center"><span style="background:#c0392b;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P1</span></td>
+<td style="text-align:center"><span style="background:#c0392b;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Critical</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">14 Apr 2026</td>
+<td style="font-size:11px;white-space:nowrap">01 May 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">17d</span></td>
+<td style="font-size:10px"><span style="background:#e67e22;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CODE ERROR</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.2</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/26995" style="color:#3b82d4;font-weight:700;text-decoration:none">#26995</a></td>
+<td style="font-size:11px;max-width:260px">Error 42501: Permission denied for view t_scan_object_vw when searching with valid barcode_Web Interface.</td>
+<td style="text-align:center"><span style="background:#c0392b;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P1</span></td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">High</span></td>
+<td style="font-size:11px">Udayasankara</td>
+<td style="font-size:11px;white-space:nowrap">15 Apr 2026</td>
+<td style="font-size:11px;white-space:nowrap">27 Apr 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">12d</span></td>
+<td style="font-size:10px"><span style="background:#c0392b;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">INFRASTRUCTURE ISSUE</span><span style="background:#7b3fa0;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">REG_R1.1</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/27107" style="color:#3b82d4;font-weight:700;text-decoration:none">#27107</a></td>
+<td style="font-size:11px;max-width:260px">504 Gateway Timeout Error on Test Instance_Web Interface</td>
+<td style="text-align:center"><span style="background:#c0392b;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P1</span></td>
+<td style="text-align:center"><span style="background:#c0392b;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Critical</span></td>
+<td style="font-size:11px">Udayasankara</td>
+<td style="font-size:11px;white-space:nowrap">16 Apr 2026</td>
+<td style="font-size:11px;white-space:nowrap">16 Apr 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">0d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.2</span><span style="background:#c0392b;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">INFRASTRUCTURE ISSUE</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">Webclient</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/27108" style="color:#3b82d4;font-weight:700;text-decoration:none">#27108</a></td>
+<td style="font-size:11px;max-width:260px">Cluster Manager – Max Users Exceeded Error_Web Interface</td>
+<td style="text-align:center"><span style="background:#c0392b;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P1</span></td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">High</span></td>
+<td style="font-size:11px">Udayasankara</td>
+<td style="font-size:11px;white-space:nowrap">16 Apr 2026</td>
+<td style="font-size:11px;white-space:nowrap">28 Apr 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">12d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.2</span><span style="background:#c0392b;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">INFRASTRUCTURE ISSUE</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">Webclient</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/27241" style="color:#3b82d4;font-weight:700;text-decoration:none">#27241</a></td>
+<td style="font-size:11px;max-width:260px">Configuration required on manual ICE CTSU XML metadata file processing in the LIMS Test environment</td>
+<td style="text-align:center"><span style="background:#c0392b;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P1</span></td>
+<td style="text-align:center"><span style="background:#c0392b;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Critical</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">23 Apr 2026</td>
+<td style="font-size:11px;white-space:nowrap">01 May 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">8d</span></td>
+<td style="font-size:10px"><span style="background:#e67e22;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CODE ERROR</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.2</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/27822" style="color:#3b82d4;font-weight:700;text-decoration:none">#27822</a></td>
+<td style="font-size:11px;max-width:260px">Racks menu options for Bulk Movements and Bulk Updates not visible in LIMS</td>
+<td style="text-align:center"><span style="background:#c0392b;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P1</span></td>
+<td style="text-align:center"><span style="background:#c0392b;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Critical</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">14 May 2026</td>
+<td style="font-size:11px;white-space:nowrap">14 May 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">0d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.3</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">LIMS CONFIGURATION</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/31516" style="color:#3b82d4;font-weight:700;text-decoration:none">#31516</a></td>
+<td style="font-size:11px;max-width:260px">Tube Auditor XML queued successfully but Volume Analysis tests not updated for AUDITOR_A1</td>
+<td style="text-align:center"><span style="background:#c0392b;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P1</span></td>
+<td style="text-align:center"><span style="background:#c0392b;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Critical</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">19 Jul 2026</td>
+<td style="font-size:11px;white-space:nowrap">23 Jul 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">4d</span></td>
+<td style="font-size:10px"><span style="background:#e67e22;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CODE ERROR</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.4</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/24971" style="color:#3b82d4;font-weight:700;text-decoration:none">#24971</a></td>
+<td style="font-size:11px;max-width:260px">SLM with bb_manager credentials in the Edge browser fails to load TT00037 with runtime error and 404 returned</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">23 Feb 2026</td>
+<td style="font-size:11px;white-space:nowrap">26 Feb 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">3d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.1</span><span style="background:#c0392b;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">INFRASTRUCTURE ISSUE</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">Webclient</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/24972" style="color:#3b82d4;font-weight:700;text-decoration:none">#24972</a></td>
+<td style="font-size:11px;max-width:260px">Restricted SLM view for bb_manager role leading to runtime error</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">23 Feb 2026</td>
+<td style="font-size:11px;white-space:nowrap">25 Feb 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">2d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.1</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">USER ERROR</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/25116" style="color:#3b82d4;font-weight:700;text-decoration:none">#25116</a></td>
+<td style="font-size:11px;max-width:260px">User is unable to view and select options from the Scan Fields and Object Type dropdown menus because another content screen is overlapping the dropdown list._Barcode Scanners</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Udayasankara</td>
+<td style="font-size:11px;white-space:nowrap">03 Mar 2026</td>
+<td style="font-size:11px;white-space:nowrap">27 Apr 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">55d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.1</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">To be moved to test</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">VWF ERROR</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/25117" style="color:#3b82d4;font-weight:700;text-decoration:none">#25117</a></td>
+<td style="font-size:11px;max-width:260px">[Store Samples Module] Application Navigates to Debugger Object Storage Template After Entering Existing Sample ID in Scan Field</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Udayasankara</td>
+<td style="font-size:11px;white-space:nowrap">03 Mar 2026</td>
+<td style="font-size:11px;white-space:nowrap">10 Mar 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">7d</span></td>
+<td style="font-size:10px"><span style="background:#e67e22;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CODE ERROR</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.1</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">Webclient</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/25162" style="color:#3b82d4;font-weight:700;text-decoration:none">#25162</a></td>
+<td style="font-size:11px;max-width:260px">Unable to Login to Test and Dev Instances – Cannot Connect to Data source Error</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">High</span></td>
+<td style="font-size:11px">Udayasankara</td>
+<td style="font-size:11px;white-space:nowrap">03 Mar 2026</td>
+<td style="font-size:11px;white-space:nowrap">09 Mar 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">6d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.1</span><span style="background:#c0392b;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">INFRASTRUCTURE ISSUE</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">Webclient</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/26147" style="color:#3b82d4;font-weight:700;text-decoration:none">#26147</a></td>
+<td style="font-size:11px;max-width:260px">Performance lag/slowness observed in the web-based LIMS application in the TST env, where retrieving a box barcode and navigating from one freezer to another takes around 6–8 seconds.</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Khaja</td>
+<td style="font-size:11px;white-space:nowrap">18 Mar 2026</td>
+<td style="font-size:11px;white-space:nowrap">30 Apr 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">43d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.1</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">PERFORMANCE</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">Webclient</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/26805" style="color:#3b82d4;font-weight:700;text-decoration:none">#26805</a></td>
+<td style="font-size:11px;max-width:260px">Getting [42501 ERROR]Permission Denied for table is_template : Error While Executing query.</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Udayasankara</td>
+<td style="font-size:11px;white-space:nowrap">06 Apr 2026</td>
+<td style="font-size:11px;white-space:nowrap">14 Apr 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">8d</span></td>
+<td style="font-size:10px"><span style="background:#c0392b;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">INFRASTRUCTURE ISSUE</span><span style="background:#7b3fa0;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">REG_R1.1</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">Webclient</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/26840" style="color:#3b82d4;font-weight:700;text-decoration:none">#26840</a></td>
+<td style="font-size:11px;max-width:260px">Error while refreshing workflow elements after using refresh icon in Collection Vessel process_Web Client/Thick Client</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Udayasankara</td>
+<td style="font-size:11px;white-space:nowrap">09 Apr 2026</td>
+<td style="font-size:11px;white-space:nowrap">22 Apr 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">13d</span></td>
+<td style="font-size:10px"><span style="background:#e67e22;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CODE ERROR</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.2</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">VWF ERROR</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">Webclient</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/27110" style="color:#3b82d4;font-weight:700;text-decoration:none">#27110</a></td>
+<td style="font-size:11px;max-width:260px">Cannot Connect to Database LABWARE_TST Service_Web Interface</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Udayasankara</td>
+<td style="font-size:11px;white-space:nowrap">16 Apr 2026</td>
+<td style="font-size:11px;white-space:nowrap">11 Jun 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">56d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.2</span><span style="background:#c0392b;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">INFRASTRUCTURE ISSUE</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">Webclient</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/27207" style="color:#3b82d4;font-weight:700;text-decoration:none">#27207</a></td>
+<td style="font-size:11px;max-width:260px">Display discrepancy between samples in SLM Tree vs VWF Table</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#c0392b;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Critical</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">21 Apr 2026</td>
+<td style="font-size:11px;white-space:nowrap">05 May 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">14d</span></td>
+<td style="font-size:10px"><span style="background:#e67e22;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CODE ERROR</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.2</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">Webclient</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/27831" style="color:#3b82d4;font-weight:700;text-decoration:none">#27831</a></td>
+<td style="font-size:11px;max-width:260px">Information prompt displayed when opening Storage Location Manager, preventing metadata from loading</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">High</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">14 May 2026</td>
+<td style="font-size:11px;white-space:nowrap">14 May 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">0d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.3</span><span style="background:#c0392b;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">INFRASTRUCTURE ISSUE</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/28457" style="color:#3b82d4;font-weight:700;text-decoration:none">#28457</a></td>
+<td style="font-size:11px;max-width:260px">Unable to perform same‑day Sample Receipt and Collection Vessel Processing</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">03 Jun 2026</td>
+<td style="font-size:11px;white-space:nowrap">03 Jun 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">0d</span></td>
+<td style="font-size:10px"><span style="background:#e67e22;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CODE ERROR</span><span style="background:#7b3fa0;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">REG_R1.3</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/28535" style="color:#3b82d4;font-weight:700;text-decoration:none">#28535</a></td>
+<td style="font-size:11px;max-width:260px">Missing or undocumented functionality for setting Project Priority and Due Date in Research Projects</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">04 Jun 2026</td>
+<td style="font-size:11px;white-space:nowrap">12 Jun 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">8d</span></td>
+<td style="font-size:10px"><span style="background:#e67e22;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CODE ERROR</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.3</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/28536" style="color:#3b82d4;font-weight:700;text-decoration:none">#28536</a></td>
+<td style="font-size:11px;max-width:260px">Unable to remove Schedule records in the Research Project Design Workflow</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">04 Jun 2026</td>
+<td style="font-size:11px;white-space:nowrap">19 Jun 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">15d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.3</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/28697" style="color:#3b82d4;font-weight:700;text-decoration:none">#28697</a></td>
+<td style="font-size:11px;max-width:260px">Cancelling a sample from the Master Picklist incorrectly changes status to 'C' instead of 'X'</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">07 Jun 2026</td>
+<td style="font-size:11px;white-space:nowrap">19 Jun 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">12d</span></td>
+<td style="font-size:10px"><span style="background:#e67e22;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CODE ERROR</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.3</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/29157" style="color:#3b82d4;font-weight:700;text-decoration:none">#29157</a></td>
+<td style="font-size:11px;max-width:260px">BB_DASHBOARD workflow charts do not refresh and appear blank on load</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">12 Jun 2026</td>
+<td style="font-size:11px;white-space:nowrap">09 Aug 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">58d</span></td>
+<td style="font-size:10px"><span style="background:#e67e22;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CODE ERROR</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.3</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/30766" style="color:#3b82d4;font-weight:700;text-decoration:none">#30766</a></td>
+<td style="font-size:11px;max-width:260px">Storage Location Manager UI/Layout changes after R1.4 deployment causing regression automation failures</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">High</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">10 Jul 2026</td>
+<td style="font-size:11px;white-space:nowrap">26 Aug 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">47d</span></td>
+<td style="font-size:10px"><span style="background:#7b3fa0;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">REG_R1.4</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/31743" style="color:#3b82d4;font-weight:700;text-decoration:none">#31743</a></td>
+<td style="font-size:11px;max-width:260px">Automated Store Picking fails with 'device does not exist' when sending pick request to Hamilton BiOS simulation</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">21 Jul 2026</td>
+<td style="font-size:11px;white-space:nowrap">09 Aug 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">19d</span></td>
+<td style="font-size:10px"><span style="background:#e67e22;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CODE ERROR</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.4</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/32178" style="color:#3b82d4;font-weight:700;text-decoration:none">#32178</a></td>
+<td style="font-size:11px;max-width:260px">Azenta Tube Auditor XML Processing Fails with &quot;Missing all results Volume&quot; When Sample Barcode Is Used in the &lt;ID&gt; Attribute Instead of Sample Number</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">High</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">28 Jul 2026</td>
+<td style="font-size:11px;white-space:nowrap">05 Aug 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">8d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.4</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/32185" style="color:#3b82d4;font-weight:700;text-decoration:none">#32185</a></td>
+<td style="font-size:11px;max-width:260px">Azenta Tube Auditor XML Processes Successfully But Volume Analysis Test Results Are Not Updated for Samples Moved to a Different Rack Position After Scanning to AUDITOR_1</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">High</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">28 Jul 2026</td>
+<td style="font-size:11px;white-space:nowrap">09 Aug 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">12d</span></td>
+<td style="font-size:10px"><span style="background:#e67e22;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CODE ERROR</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.4</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/32975" style="color:#3b82d4;font-weight:700;text-decoration:none">#32975</a></td>
+<td style="font-size:11px;max-width:260px">Exporting worklist for Tube Picker moves samples to Target rack scanned in LIMS.</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">High</span></td>
+<td style="font-size:11px">Ash</td>
+<td style="font-size:11px;white-space:nowrap">14 Aug 2026</td>
+<td style="font-size:11px;white-space:nowrap">27 Aug 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">13d</span></td>
+<td style="font-size:10px"><span style="background:#e67e22;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CODE ERROR</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.4</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/33202" style="color:#3b82d4;font-weight:700;text-decoration:none">#33202</a></td>
+<td style="font-size:11px;max-width:260px">Research Project validation fails during rack scanning into shipping bag - &quot;Rack has no research project assigned&quot; error despite project being populated</td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P2</span></td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">High</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">21 Aug 2026</td>
+<td style="font-size:11px;white-space:nowrap">26 Aug 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">5d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.4</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/24995" style="color:#3b82d4;font-weight:700;text-decoration:none">#24995</a></td>
+<td style="font-size:11px;max-width:260px">SLM freezer configuration does not match agreed Master Data templates</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">23 Feb 2026</td>
+<td style="font-size:11px;white-space:nowrap">25 Feb 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">2d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.1</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">USER ERROR</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/25053" style="color:#3b82d4;font-weight:700;text-decoration:none">#25053</a></td>
+<td style="font-size:11px;max-width:260px">Incorrect Naming Convention Applied to Cassettes 100+ in BiOS 1 Bay 1</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">26 Feb 2026</td>
+<td style="font-size:11px;white-space:nowrap">27 Apr 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">60d</span></td>
+<td style="font-size:10px"><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">DEFERRED TO R1.3</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.1</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">PENDING ADDITIONAL CONFIG</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/25099" style="color:#3b82d4;font-weight:700;text-decoration:none">#25099</a></td>
+<td style="font-size:11px;max-width:260px">Barcode Scanners_Error Handling_The error message was displayed, but it disappeared without clicking on &quot;OK.&quot;</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#27ae60;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Low</span></td>
+<td style="font-size:11px">Udayasankara</td>
+<td style="font-size:11px;white-space:nowrap">02 Mar 2026</td>
+<td style="font-size:11px;white-space:nowrap">07 Mar 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">5d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.1</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">Standard functionality</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/25494" style="color:#3b82d4;font-weight:700;text-decoration:none">#25494</a></td>
+<td style="font-size:11px;max-width:260px">Syntax Error displayed when creating a new Workstation as a child location under UKB001</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#e67e22;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">High</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">07 Mar 2026</td>
+<td style="font-size:11px;white-space:nowrap">27 Apr 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">51d</span></td>
+<td style="font-size:10px"><span style="background:#e67e22;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CODE ERROR</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.1</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">T0004</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">To be moved to test</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/25744" style="color:#3b82d4;font-weight:700;text-decoration:none">#25744</a></td>
+<td style="font-size:11px;max-width:260px">System throws an Error when moving a Tray to an available position within structured freezer shelf</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">16 Mar 2026</td>
+<td style="font-size:11px;white-space:nowrap">24 Mar 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">8d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.1</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">USER ERROR</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/26129" style="color:#3b82d4;font-weight:700;text-decoration:none">#26129</a></td>
+<td style="font-size:11px;max-width:260px">Performance issues identified in the LIMS web-based application in the TST environment.</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Khaja</td>
+<td style="font-size:11px;white-space:nowrap">18 Mar 2026</td>
+<td style="font-size:11px;white-space:nowrap">30 Apr 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">43d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.1</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">PERFORMANCE</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">Webclient</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/26157" style="color:#3b82d4;font-weight:700;text-decoration:none">#26157</a></td>
+<td style="font-size:11px;max-width:260px">Query[4260] Syntax Error displayed when accessing Aliquot sample from SLM hierarchy tree</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">18 Mar 2026</td>
+<td style="font-size:11px;white-space:nowrap">22 Apr 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">35d</span></td>
+<td style="font-size:10px"><span style="background:#e67e22;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CODE ERROR</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.1</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">T0004</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/26837" style="color:#3b82d4;font-weight:700;text-decoration:none">#26837</a></td>
+<td style="font-size:11px;max-width:260px">Encountering a runtime error upon entering the sample number and refreshing the page in the TST environment with BB_Manager.</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Khaja</td>
+<td style="font-size:11px;white-space:nowrap">08 Apr 2026</td>
+<td style="font-size:11px;white-space:nowrap">14 Apr 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">6d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.2</span><span style="background:#c0392b;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">INFRASTRUCTURE ISSUE</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">Webclient</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/26838" style="color:#3b82d4;font-weight:700;text-decoration:none">#26838</a></td>
+<td style="font-size:11px;max-width:260px">Encountering a Query pop up while retrieving the sample details via Folder Manager in Tst Environment with Admin user</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Khaja</td>
+<td style="font-size:11px;white-space:nowrap">08 Apr 2026</td>
+<td style="font-size:11px;white-space:nowrap">14 Apr 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">6d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.2</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">USER ERROR</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/26892" style="color:#3b82d4;font-weight:700;text-decoration:none">#26892</a></td>
+<td style="font-size:11px;max-width:260px">Outcome field on Receive Sample prompt omits the storage location information and displays incomplete text</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Khaja</td>
+<td style="font-size:11px;white-space:nowrap">13 Apr 2026</td>
+<td style="font-size:11px;white-space:nowrap">22 Apr 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">9d</span></td>
+<td style="font-size:10px"><span style="background:#e67e22;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CODE ERROR</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.2</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/27007" style="color:#3b82d4;font-weight:700;text-decoration:none">#27007</a></td>
+<td style="font-size:11px;max-width:260px">Inconsistent colour‑coding of Vacutainer sample validation between LIMS thick client and LIMS web interface</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">15 Apr 2026</td>
+<td style="font-size:11px;white-space:nowrap">01 May 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">16d</span></td>
+<td style="font-size:10px"><span style="background:#e67e22;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CODE ERROR</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.2</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">Webclient</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/27513" style="color:#3b82d4;font-weight:700;text-decoration:none">#27513</a></td>
+<td style="font-size:11px;max-width:260px">Incorrect backup stock aliquot creation and rack storage behaviour during SST Collection Vessel Processing</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">01 May 2026</td>
+<td style="font-size:11px;white-space:nowrap">02 Jun 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">32d</span></td>
+<td style="font-size:10px"><span style="background:#e67e22;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CODE ERROR</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.2</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/27515" style="color:#3b82d4;font-weight:700;text-decoration:none">#27515</a></td>
+<td style="font-size:11px;max-width:260px">Rack Barcode field not displaying user‑entered rack barcodes during Collection Vessel Processing</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">03 May 2026</td>
+<td style="font-size:11px;white-space:nowrap">02 Jun 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">30d</span></td>
+<td style="font-size:10px"><span style="background:#e67e22;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CODE ERROR</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.2</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/27516" style="color:#3b82d4;font-weight:700;text-decoration:none">#27516</a></td>
+<td style="font-size:11px;max-width:260px">Aliquot edits not applied and missing aliquot in rack during EDTA Collection Vessel Processing</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">03 May 2026</td>
+<td style="font-size:11px;white-space:nowrap">03 Jun 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">31d</span></td>
+<td style="font-size:10px"><span style="background:#e67e22;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CODE ERROR</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.2</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/27517" style="color:#3b82d4;font-weight:700;text-decoration:none">#27517</a></td>
+<td style="font-size:11px;max-width:260px">Bin icon incorrectly replaced with numerical values after editing aliquots during Collection Vessel Processing</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">03 May 2026</td>
+<td style="font-size:11px;white-space:nowrap">03 Jun 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">31d</span></td>
+<td style="font-size:10px"><span style="background:#e67e22;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CODE ERROR</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.2</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/27518" style="color:#3b82d4;font-weight:700;text-decoration:none">#27518</a></td>
+<td style="font-size:11px;max-width:260px">Parent sample incorrectly marked as 'Used Up' when 'Parent Used Up' is selected as False in Clinical Protocol Manager</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">03 May 2026</td>
+<td style="font-size:11px;white-space:nowrap">02 Jun 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">30d</span></td>
+<td style="font-size:10px"><span style="background:#e67e22;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CODE ERROR</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.2</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/27519" style="color:#3b82d4;font-weight:700;text-decoration:none">#27519</a></td>
+<td style="font-size:11px;max-width:260px">Incorrect and misleading information displayed when searching for a Vaccutainer barcode in the Scanning to Workstation prompt window during Collection Vessel Processing</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">03 May 2026</td>
+<td style="font-size:11px;white-space:nowrap">02 Jun 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">30d</span></td>
+<td style="font-size:10px"><span style="background:#e67e22;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CODE ERROR</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.2</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/27725" style="color:#3b82d4;font-weight:700;text-decoration:none">#27725</a></td>
+<td style="font-size:11px;max-width:260px">Clarification required on use of 'T BiOS Container ID' attribute and change in sample creation process for BiOS-LIMS integration</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">08 May 2026</td>
+<td style="font-size:11px;white-space:nowrap">09 May 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">1d</span></td>
+<td style="font-size:10px"><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CLARIFICATION</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.2</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/27918" style="color:#3b82d4;font-weight:700;text-decoration:none">#27918</a></td>
+<td style="font-size:11px;max-width:260px">Bulk movement audit reason not recorded in SLM Audit History after rack/box movement</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">15 May 2026</td>
+<td style="font-size:11px;white-space:nowrap">21 May 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">6d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.3</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">USER ERROR</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/28417" style="color:#3b82d4;font-weight:700;text-decoration:none">#28417</a></td>
+<td style="font-size:11px;max-width:260px">Unexpected UI element {tabList} displayed on Collection Vessel Processing window</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#27ae60;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Low</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">02 Jun 2026</td>
+<td style="font-size:11px;white-space:nowrap">11 Aug 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">70d</span></td>
+<td style="font-size:10px"><span style="background:#e67e22;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CODE ERROR</span><span style="background:#7b3fa0;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">REG_R1.3</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/28460" style="color:#3b82d4;font-weight:700;text-decoration:none">#28460</a></td>
+<td style="font-size:11px;max-width:260px">Duplicate truncation warning displayed when saving a new Research Project in Manager Tables</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#27ae60;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Low</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">04 Jun 2026</td>
+<td style="font-size:11px;white-space:nowrap">17 Jun 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">13d</span></td>
+<td style="font-size:10px"><span style="background:#e67e22;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CODE ERROR</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.3</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/28466" style="color:#3b82d4;font-weight:700;text-decoration:none">#28466</a></td>
+<td style="font-size:11px;max-width:260px">Runtime Error displayed when selecting Pick Layout for a Research Project Picking Task</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#27ae60;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Low</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">04 Jun 2026</td>
+<td style="font-size:11px;white-space:nowrap">04 Jun 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">0d</span></td>
+<td style="font-size:10px"><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">Additional Identified Requirement - not in RFP</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.3</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/30325" style="color:#3b82d4;font-weight:700;text-decoration:none">#30325</a></td>
+<td style="font-size:11px;max-width:260px">Priority field on New Picking Request workflow does not reflect underlying Research Project priority.</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">05 Jul 2026</td>
+<td style="font-size:11px;white-space:nowrap">28 Jul 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">23d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.4</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/31517" style="color:#3b82d4;font-weight:700;text-decoration:none">#31517</a></td>
+<td style="font-size:11px;max-width:260px">Tube Auditor contents window does not refresh full rack details after scanning rack</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">19 Jul 2026</td>
+<td style="font-size:11px;white-space:nowrap">09 Aug 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">21d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.4</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/32678" style="color:#3b82d4;font-weight:700;text-decoration:none">#32678</a></td>
+<td style="font-size:11px;max-width:260px">'Select' and 'Filter' buttons non-functional in 'In Process and Planned Tasks' section of Research Project Management workflow</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">09 Aug 2026</td>
+<td style="font-size:11px;white-space:nowrap">10 Aug 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">1d</span></td>
+<td style="font-size:10px"><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">DUPLICATE</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.4</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/32904" style="color:#3b82d4;font-weight:700;text-decoration:none">#32904</a></td>
+<td style="font-size:11px;max-width:260px">Placeholder Clarification - Unable to create new Shipment Task for Research Project</td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P3</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">13 Aug 2026</td>
+<td style="font-size:11px;white-space:nowrap">26 Aug 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">13d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.4</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/25033" style="color:#3b82d4;font-weight:700;text-decoration:none">#25033</a></td>
+<td style="font-size:11px;max-width:260px">Hierarchy attribute missing tank level for tower and compartment locations (LN2 tank only)</td>
+<td style="text-align:center"><span style="background:#27ae60;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P4</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">24 Feb 2026</td>
+<td style="font-size:11px;white-space:nowrap">16 Jul 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">142d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.1</span><span style="background:#666;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">ON HOLD</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">Standard functionality</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/25100" style="color:#3b82d4;font-weight:700;text-decoration:none">#25100</a></td>
+<td style="font-size:11px;max-width:260px">Unexpected Communication Error – Session Reset Occurs Intermittently.</td>
+<td style="text-align:center"><span style="background:#27ae60;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P4</span></td>
+<td style="text-align:center"><span style="background:#27ae60;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Low</span></td>
+<td style="font-size:11px">Udayasankara</td>
+<td style="font-size:11px;white-space:nowrap">02 Mar 2026</td>
+<td style="font-size:11px;white-space:nowrap">20 May 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">79d</span></td>
+<td style="font-size:10px"><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.1</span><span style="background:#c0392b;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">INFRASTRUCTURE ISSUE</span></td>
+</tr>
+<tr>
+<td><a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/26159" style="color:#3b82d4;font-weight:700;text-decoration:none">#26159</a></td>
+<td style="font-size:11px;max-width:260px">ODBC Escape Convert Error and Invalid Integer Syntax errors displayed when opening Sample Login with BB_ADHOC template</td>
+<td style="text-align:center"><span style="background:#27ae60;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">P4</span></td>
+<td style="text-align:center"><span style="background:#2980b9;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600">Medium</span></td>
+<td style="font-size:11px">Satishkumar</td>
+<td style="font-size:11px;white-space:nowrap">18 Mar 2026</td>
+<td style="font-size:11px;white-space:nowrap">27 Apr 2026</td>
+<td style="text-align:center"><span style="color:#27ae60;font-size:11px">40d</span></td>
+<td style="font-size:10px"><span style="background:#e67e22;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">CODE ERROR</span><span style="background:#1a6fb5;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">FT_R1.1</span><span style="background:#888;color:#fff;padding:1px 5px;border-radius:2px;font-size:9px;margin:1px;display:inline-block">T0004</span></td>
+</tr>
+      </tbody>
+    </table>
+    </div>
+  </details>
+</div>
+
+<div class="sec">
+  <div class="stitle"><span class="dot" style="background:#8e44ad"></span>Defect Insights</div>
+  <div class="ins">
+    <div class="ic"><h3>By Priority</h3><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between"><span style="font-size:12px;font-weight:600;color:#c0392b">P1 – Critical</span><span style="font-size:12px;color:#777">8</span></div><div style="background:#eee;border-radius:4px;height:8px;margin-top:3px"><div style="background:#c0392b;width:20%;height:8px;border-radius:4px"></div></div></div>
+<div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between"><span style="font-size:12px;font-weight:600;color:#e67e22">P2 – High</span><span style="font-size:12px;color:#777">34</span></div><div style="background:#eee;border-radius:4px;height:8px;margin-top:3px"><div style="background:#e67e22;width:85%;height:8px;border-radius:4px"></div></div></div>
+<div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between"><span style="font-size:12px;font-weight:600;color:#2980b9">P3 – Medium</span><span style="font-size:12px;color:#777">40</span></div><div style="background:#eee;border-radius:4px;height:8px;margin-top:3px"><div style="background:#2980b9;width:100%;height:8px;border-radius:4px"></div></div></div>
+<div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between"><span style="font-size:12px;font-weight:600;color:#27ae60">P4 – Low</span><span style="font-size:12px;color:#777">4</span></div><div style="background:#eee;border-radius:4px;height:8px;margin-top:3px"><div style="background:#27ae60;width:10%;height:8px;border-radius:4px"></div></div></div>
+<div style="margin-top:10px;font-size:10px;color:#888">Total: 86 · Open: P1=0, P2=12, P3=14, P4=1</div></div>
+    <div class="ic"><h3>By Severity</h3><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between"><span style="font-size:12px;font-weight:600;color:#c0392b">1 – Critical</span><span style="font-size:12px;color:#777">6</span></div><div style="background:#eee;border-radius:4px;height:8px;margin-top:3px"><div style="background:#c0392b;width:10%;height:8px;border-radius:4px"></div></div></div>
+<div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between"><span style="font-size:12px;font-weight:600;color:#e67e22">2 – High</span><span style="font-size:12px;color:#777">12</span></div><div style="background:#eee;border-radius:4px;height:8px;margin-top:3px"><div style="background:#e67e22;width:19%;height:8px;border-radius:4px"></div></div></div>
+<div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between"><span style="font-size:12px;font-weight:600;color:#2980b9">3 – Medium</span><span style="font-size:12px;color:#777">62</span></div><div style="background:#eee;border-radius:4px;height:8px;margin-top:3px"><div style="background:#2980b9;width:100%;height:8px;border-radius:4px"></div></div></div>
+<div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between"><span style="font-size:12px;font-weight:600;color:#27ae60">4 – Low</span><span style="font-size:12px;color:#777">6</span></div><div style="background:#eee;border-radius:4px;height:8px;margin-top:3px"><div style="background:#27ae60;width:10%;height:8px;border-radius:4px"></div></div></div>
+<div style="margin-top:10px;font-size:10px;color:#888">Total: 86 · All Critical defects are closed</div></div>
+    <div class="ic"><h3>By Reporter</h3><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between"><span style="font-size:12px;font-weight:600;color:#333">Satishkumar</span><span style="font-size:12px;color:#777">65</span></div><div style="background:#eee;border-radius:4px;height:8px;margin-top:3px"><div style="background:#3b82d4;width:100%;height:8px;border-radius:4px"></div></div></div>
+<div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between"><span style="font-size:12px;font-weight:600;color:#333">Udayasankara</span><span style="font-size:12px;color:#777">15</span></div><div style="background:#eee;border-radius:4px;height:8px;margin-top:3px"><div style="background:#8e44ad;width:23%;height:8px;border-radius:4px"></div></div></div>
+<div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between"><span style="font-size:12px;font-weight:600;color:#333">Khaja</span><span style="font-size:12px;color:#777">5</span></div><div style="background:#eee;border-radius:4px;height:8px;margin-top:3px"><div style="background:#e67e22;width:8%;height:8px;border-radius:4px"></div></div></div>
+<div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between"><span style="font-size:12px;font-weight:600;color:#333">Ash</span><span style="font-size:12px;color:#777">1</span></div><div style="background:#eee;border-radius:4px;height:8px;margin-top:3px"><div style="background:#16a085;width:2%;height:8px;border-radius:4px"></div></div></div></div>
+    <div class="ic"><h3>Top Tags</h3><div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between"><span style="font-size:11px;font-weight:600;color:#e67e22">CODE ERROR</span><span style="font-size:11px;color:#777">28</span></div><div style="background:#eee;border-radius:4px;height:8px;margin-top:3px"><div style="background:#e67e22;width:100%;height:8px;border-radius:4px"></div></div></div>
+<div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between"><span style="font-size:11px;font-weight:600;color:#1a6fb5">FT_R1.2</span><span style="font-size:11px;color:#777">22</span></div><div style="background:#eee;border-radius:4px;height:8px;margin-top:3px"><div style="background:#1a6fb5;width:79%;height:8px;border-radius:4px"></div></div></div>
+<div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between"><span style="font-size:11px;font-weight:600;color:#1a6fb5">FT_R1.3</span><span style="font-size:11px;color:#777">20</span></div><div style="background:#eee;border-radius:4px;height:8px;margin-top:3px"><div style="background:#1a6fb5;width:71%;height:8px;border-radius:4px"></div></div></div>
+<div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between"><span style="font-size:11px;font-weight:600;color:#1a6fb5">FT_R1.1</span><span style="font-size:11px;color:#777">19</span></div><div style="background:#eee;border-radius:4px;height:8px;margin-top:3px"><div style="background:#1a6fb5;width:68%;height:8px;border-radius:4px"></div></div></div>
+<div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between"><span style="font-size:11px;font-weight:600;color:#888">Webclient</span><span style="font-size:11px;color:#777">16</span></div><div style="background:#eee;border-radius:4px;height:8px;margin-top:3px"><div style="background:#888;width:57%;height:8px;border-radius:4px"></div></div></div>
+<div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between"><span style="font-size:11px;font-weight:600;color:#1a6fb5">FT_R1.4</span><span style="font-size:11px;color:#777">14</span></div><div style="background:#eee;border-radius:4px;height:8px;margin-top:3px"><div style="background:#1a6fb5;width:50%;height:8px;border-radius:4px"></div></div></div>
+<div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between"><span style="font-size:11px;font-weight:600;color:#c0392b">INFRASTRUCTURE ISSUE</span><span style="font-size:11px;color:#777">12</span></div><div style="background:#eee;border-radius:4px;height:8px;margin-top:3px"><div style="background:#c0392b;width:43%;height:8px;border-radius:4px"></div></div></div>
+<div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between"><span style="font-size:11px;font-weight:600;color:#555">USER ERROR</span><span style="font-size:11px;color:#777">5</span></div><div style="background:#eee;border-radius:4px;height:8px;margin-top:3px"><div style="background:#555;width:18%;height:8px;border-radius:4px"></div></div></div>
+<div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between"><span style="font-size:11px;font-weight:600;color:#888">ON HOLD</span><span style="font-size:11px;color:#777">5</span></div><div style="background:#eee;border-radius:4px;height:8px;margin-top:3px"><div style="background:#888;width:18%;height:8px;border-radius:4px"></div></div></div>
+<div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between"><span style="font-size:11px;font-weight:600;color:#0d9488">INTEGRATION</span><span style="font-size:11px;color:#777">4</span></div><div style="background:#eee;border-radius:4px;height:8px;margin-top:3px"><div style="background:#0d9488;width:14%;height:8px;border-radius:4px"></div></div></div>
+<div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between"><span style="font-size:11px;font-weight:600;color:#888">T0004</span><span style="font-size:11px;color:#777">3</span></div><div style="background:#eee;border-radius:4px;height:8px;margin-top:3px"><div style="background:#888;width:11%;height:8px;border-radius:4px"></div></div></div>
+<div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between"><span style="font-size:11px;font-weight:600;color:#7b3fa0">REG_R1.1</span><span style="font-size:11px;color:#777">3</span></div><div style="background:#eee;border-radius:4px;height:8px;margin-top:3px"><div style="background:#7b3fa0;width:11%;height:8px;border-radius:4px"></div></div></div>
+<div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between"><span style="font-size:11px;font-weight:600;color:#888">Standard functionality</span><span style="font-size:11px;color:#777">2</span></div><div style="background:#eee;border-radius:4px;height:8px;margin-top:3px"><div style="background:#888;width:7%;height:8px;border-radius:4px"></div></div></div>
+<div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between"><span style="font-size:11px;font-weight:600;color:#888">To be moved to test</span><span style="font-size:11px;color:#777">2</span></div><div style="background:#eee;border-radius:4px;height:8px;margin-top:3px"><div style="background:#888;width:7%;height:8px;border-radius:4px"></div></div></div></div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
