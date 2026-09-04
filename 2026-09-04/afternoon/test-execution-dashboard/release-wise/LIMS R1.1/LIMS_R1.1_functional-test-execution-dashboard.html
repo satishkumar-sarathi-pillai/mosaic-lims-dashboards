@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>LIMS R1.1 – Test Execution Dashboard</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;line-height:1.6;color:#1f2328;background:#f4f6f9}
+.wrap{max-width:1160px;margin:0 auto;padding:20px 16px 64px}
+
+/* Header */
+.hdr{background:linear-gradient(135deg,#1e3a5f 0%,#1d4ed8 100%);color:#fff;border-radius:10px;padding:24px 28px 20px;margin-bottom:22px;position:relative;overflow:hidden}
+.hdr::before{content:'';position:absolute;right:-40px;top:-40px;width:200px;height:200px;background:rgba(255,255,255,0.04);border-radius:50%}
+.hdr h1{font-size:21px;font-weight:700;margin-bottom:4px}
+.hdr .sub{font-size:12px;color:#93c5fd;margin-top:3px}
+.hdr .meta{font-size:11px;color:#bfdbfe;margin-top:6px}
+
+/* KPIs */
+.kpis{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:22px;justify-content:center}
+.kpi{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:16px 14px;text-align:center;min-width:110px;flex:0 0 auto;max-width:160px}
+.kpi .n{font-size:26px;font-weight:700;line-height:1;margin-bottom:3px}
+.kpi .l{font-size:11px;color:#6b7280;font-weight:500}
+.blue .n{color:#2563eb}.green .n{color:#16a34a}.red .n{color:#dc2626}
+.ora .n{color:#d97706}.pur .n{color:#7c3aed}.grey .n{color:#9ca3af}
+
+/* Cards */
+.sec{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:20px;margin-bottom:20px}
+.stitle{font-size:14px;font-weight:700;padding-bottom:10px;border-bottom:2px solid #f3f4f6;margin-bottom:16px;display:flex;align-items:center;gap:8px;color:#111827}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex-shrink:0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+@media(max-width:820px){.two-col,.three-col{grid-template-columns:1fr}}
+
+/* Tables */
+.mt{width:100%;border-collapse:collapse;font-size:12px}
+.mt th{background:#f9fafb;padding:8px 10px;text-align:left;font-weight:700;color:#6b7280;border-bottom:2px solid #e5e7eb;font-size:10px;text-transform:uppercase;letter-spacing:.4px;white-space:nowrap}
+.mt td{padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top}
+.mt tr:last-child td{border-bottom:none}
+.mt tr:hover td{background:#fafbff}
+.sx{overflow-x:auto}
+
+/* Badges */
+.badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:600;white-space:nowrap}
+.green-b{background:#dcfce7;color:#15803d}
+.red-b{background:#fee2e2;color:#b91c1c}
+.ora-b{background:#fff7ed;color:#c2410c;border:1px solid #fed7aa}
+.blue-b{background:#dbeafe;color:#1d4ed8;border:1px solid #bfdbfe}
+.grey-b{background:#f1f5f9;color:#475569}
+
+/* Mini progress bar in KPI */
+.kpi-bar{height:4px;border-radius:2px;margin-top:6px;background:#f3f4f6;overflow:hidden}
+.kpi-bar-fill{height:100%;border-radius:2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ── Header ──────────────────────────────────────────────────────────────── -->
+<div class="hdr">
+  <h1>Mosaic LIMS — LIMS R1.1 Test Execution Dashboard</h1>
+  <div class="sub">Release: LIMS R1.1 &nbsp;·&nbsp; Project: UK Biobank &nbsp;·&nbsp; Source: Azure DevOps (ukbiobank / Mosaic)</div>
+  <div class="meta">Generated: 04 Sept 2026 &nbsp;·&nbsp; Prepared by: Satishkumar Sarathi Pillai</div>
+</div>
+
+<!-- ── KPI Tiles ─────────────────────────────────────────────────────────── -->
+<div class="kpis"><div class="kpi blue"><div class="n">41</div><div class="l">Total Tests</div></div><div class="kpi blue"><div class="n">100%</div><div class="l">Executed</div></div><div class="kpi green"><div class="n">39</div><div class="l">Passed</div></div><div class="kpi green"><div class="n">95%</div><div class="l">Pass Rate</div></div><div class="kpi red"><div class="n">2</div><div class="l">Failed</div></div><div class="kpi red"><div class="n">5%</div><div class="l">Fail Rate</div></div><div class="kpi ora"><div class="n">0</div><div class="l">Blocked</div></div><div class="kpi blue"><div class="n">0</div><div class="l">In Progress</div></div><div class="kpi grey"><div class="n">0</div><div class="l">Not Run</div></div><div class="kpi pur"><div class="n">54%</div><div class="l">1st-Time Pass Rate</div></div><div class="kpi pur"><div class="n">100%</div><div class="l">Retest Success</div></div></div>
+
+<!-- ── Donut + Status Bar Row ────────────────────────────────────────────── -->
+<div class="two-col" style="margin-bottom:20px">
+  <div class="sec">
+    <div class="stitle"><span class="dot" style="background:#2563eb"></span>Execution Status Split</div>
+    <svg width="100%" viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg">
+  <path d="M120,58 L120,22 A88,88 0 1,1 93.448587323623,26.101117499166136 L104.31052887304996,60.423387613143625 A52,52 0 1,0 120,58" fill="#22c55e" opacity="0.92"/><path d="M104.31052887304996,60.423387613143625 L93.448587323623,26.101117499166136 A88,88 0 0,1 119.9999999999999,22 L119.99999999999994,58 A52,52 0 0,0 104.31052887304996,60.423387613143625" fill="#ef4444" opacity="0.92"/>
+  <text x="120" y="100" text-anchor="middle" font-size="19" font-weight="700" fill="#22c55e">95%</text>
+  <text x="120" y="120" text-anchor="middle" font-size="10" fill="#6b7280" font-weight="500">Pass Rate</text>
+  <text x="120" y="136" text-anchor="middle" font-size="9" fill="#9ca3af">100% Executed</text>
+  <rect x="252" y="18" width="10" height="10" rx="3" fill="#22c55e"/>
+    <text x="266" y="27" font-size="10" fill="#374151" font-weight="600">Passed</text>
+    <text x="410" y="27" font-size="10" fill="#6b7280" text-anchor="end">39 <tspan font-weight="600" fill="#22c55e">(95%)</tspan></text><rect x="252" y="38" width="10" height="10" rx="3" fill="#ef4444"/>
+    <text x="266" y="47" font-size="10" fill="#374151" font-weight="600">Failed</text>
+    <text x="410" y="47" font-size="10" fill="#6b7280" text-anchor="end">2 <tspan font-weight="600" fill="#ef4444">(5%)</tspan></text>
+</svg>
+  </div>
+  <div class="sec">
+    <div class="stitle"><span class="dot" style="background:#374151"></span>Test Count by Status</div>
+    <div style="font-size:11px;color:#6b7280;margin-bottom:8px">Actual counts and percentages per outcome — each bar shows a concrete number.</div>
+    <svg width="100%" viewBox="0 0 420 250" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="420" height="250" fill="#fdfdfe" rx="4"/>
+  <line x1="36" y1="198.0" x2="404" y2="198.0" stroke="#f0f0f0" stroke-width="1"/><text x="31.0" y="198.0" text-anchor="end" dominant-baseline="middle" font-size="9" fill="#9ca3af">0</text><line x1="36" y1="157.0" x2="404" y2="157.0" stroke="#f0f0f0" stroke-width="1"/><text x="31.0" y="157.0" text-anchor="end" dominant-baseline="middle" font-size="9" fill="#9ca3af">10</text><line x1="36" y1="115.9" x2="404" y2="115.9" stroke="#f0f0f0" stroke-width="1"/><text x="31.0" y="115.9" text-anchor="end" dominant-baseline="middle" font-size="9" fill="#9ca3af">20</text><line x1="36" y1="74.9" x2="404" y2="74.9" stroke="#f0f0f0" stroke-width="1"/><text x="31.0" y="74.9" text-anchor="end" dominant-baseline="middle" font-size="9" fill="#9ca3af">30</text>
+  <line x1="36" y1="198" x2="404" y2="198" stroke="#e5e7eb" stroke-width="1"/>
+  <rect x="118.7" y="38.0" width="60" height="160" fill="#22c55e" rx="3" opacity="0.9"/><text x="148.7" y="32.0" text-anchor="middle" font-size="9" font-weight="600" fill="#22c55e">39</text><text x="148.7" y="18.0" text-anchor="middle" font-size="9" fill="#9ca3af">95%</text><text x="148.7" y="214.0" text-anchor="middle" font-size="9" font-weight="500" fill="#374151">Passed</text><rect x="261.3" y="189.8" width="60" height="8.2" fill="#ef4444" rx="3" opacity="0.9"/><text x="291.3" y="183.8" text-anchor="middle" font-size="9" font-weight="600" fill="#ef4444">2</text><text x="291.3" y="169.8" text-anchor="middle" font-size="9" fill="#9ca3af">5%</text><text x="291.3" y="214.0" text-anchor="middle" font-size="9" font-weight="500" fill="#374151">Failed</text>
+  <text x="210" y="244" text-anchor="middle" font-size="10" fill="#9ca3af">Total: 41 tests &nbsp;·&nbsp; 100% executed</text>
+</svg>
+  </div>
+</div>
+
+<!-- ── Execution Trend ─────────────────────────────────────────────────────── -->
+<div class="sec">
+  <div class="stitle"><span class="dot" style="background:#22c55e"></span>Weekly Execution Trend — Pass / Fail / Blocked</div>
+  <div style="font-size:10px;color:#6b7280;margin-bottom:10px">Results aggregated by ISO week. Labels show week-of-month and month (e.g. <strong>W2 Aug</strong> = second week of August). Dots mark weeks with activity.</div>
+  <svg width="100%" viewBox="0 0 740 220" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="740" height="220" fill="#fdfdfe" rx="4"/>
+  <line x1="46" y1="176" x2="720" y2="176" stroke="#f0f0f0" stroke-width="1"/><text x="40" y="176" text-anchor="end" dominant-baseline="middle" font-size="8" fill="#9ca3af">0</text><line x1="46" y1="134.4" x2="720" y2="134.4" stroke="#f0f0f0" stroke-width="1"/><text x="40" y="134.4" text-anchor="end" dominant-baseline="middle" font-size="8" fill="#9ca3af">5</text><line x1="46" y1="92.8" x2="720" y2="92.8" stroke="#f0f0f0" stroke-width="1"/><text x="40" y="92.8" text-anchor="end" dominant-baseline="middle" font-size="8" fill="#9ca3af">10</text><line x1="46" y1="51.3" x2="720" y2="51.3" stroke="#f0f0f0" stroke-width="1"/><text x="40" y="51.3" text-anchor="end" dominant-baseline="middle" font-size="8" fill="#9ca3af">15</text>
+  <line x1="46" y1="18" x2="46" y2="176" stroke="#e5e7eb"/>
+  <line x1="46" y1="176" x2="720" y2="176" stroke="#e5e7eb"/>
+  <polyline points="46,176 130.3,67.9 214.5,92.8 298.8,92.8 383,159.4 467.3,142.7 551.5,167.7 635.8,159.4 720,167.7" fill="none" stroke="#22c55e" stroke-width="2" stroke-linejoin="round"/><polyline points="46,167.7 130.3,126.1 214.5,117.8 298.8,176 383,159.4 467.3,176 551.5,176 635.8,176 720,176" fill="none" stroke="#ef4444" stroke-width="2" stroke-linejoin="round" stroke-dasharray="5,3"/><polyline points="46,176 130.3,176 214.5,176 298.8,176 383,176 467.3,176 551.5,176 635.8,176 720,176" fill="none" stroke="#f97316" stroke-width="2" stroke-linejoin="round" stroke-dasharray="2,4"/>
+  <circle cx="130.3" cy="67.9" r="3.5" fill="#22c55e" stroke="#fff" stroke-width="1.5"/><circle cx="214.5" cy="92.8" r="3.5" fill="#22c55e" stroke="#fff" stroke-width="1.5"/><circle cx="298.8" cy="92.8" r="3.5" fill="#22c55e" stroke="#fff" stroke-width="1.5"/><circle cx="383" cy="159.4" r="3.5" fill="#22c55e" stroke="#fff" stroke-width="1.5"/><circle cx="467.3" cy="142.7" r="3.5" fill="#22c55e" stroke="#fff" stroke-width="1.5"/><circle cx="551.5" cy="167.7" r="3.5" fill="#22c55e" stroke="#fff" stroke-width="1.5"/><circle cx="635.8" cy="159.4" r="3.5" fill="#22c55e" stroke="#fff" stroke-width="1.5"/><circle cx="720" cy="167.7" r="3.5" fill="#22c55e" stroke="#fff" stroke-width="1.5"/><circle cx="46" cy="167.7" r="3.5" fill="#ef4444" stroke="#fff" stroke-width="1.5"/><circle cx="130.3" cy="126.1" r="3.5" fill="#ef4444" stroke="#fff" stroke-width="1.5"/><circle cx="214.5" cy="117.8" r="3.5" fill="#ef4444" stroke="#fff" stroke-width="1.5"/><circle cx="383" cy="159.4" r="3.5" fill="#ef4444" stroke="#fff" stroke-width="1.5"/>
+  <text x="46" y="191" text-anchor="middle" font-size="8" fill="#6b7280" font-weight="500">W3 Feb</text><text x="130.3" y="191" text-anchor="middle" font-size="8" fill="#6b7280" font-weight="500">W4 Feb</text><text x="214.5" y="191" text-anchor="middle" font-size="8" fill="#6b7280" font-weight="500">W1 Mar</text><text x="298.8" y="191" text-anchor="middle" font-size="8" fill="#6b7280" font-weight="500">W2 Mar</text><text x="383" y="191" text-anchor="middle" font-size="8" fill="#6b7280" font-weight="500">W3 Mar</text><text x="467.3" y="191" text-anchor="middle" font-size="8" fill="#6b7280" font-weight="500">W4 Mar</text><text x="551.5" y="191" text-anchor="middle" font-size="8" fill="#6b7280" font-weight="500">W3 Apr</text><text x="635.8" y="191" text-anchor="middle" font-size="8" fill="#6b7280" font-weight="500">W4 Apr</text><text x="720" y="191" text-anchor="middle" font-size="8" fill="#6b7280" font-weight="500">W4 Aug</text>
+  <line x1="243" y1="208" x2="261" y2="208" stroke="#22c55e" stroke-width="2"/><text x="265" y="212" font-size="9" font-weight="600" fill="#374151">Passed</text><line x1="353" y1="208" x2="371" y2="208" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,3"/><text x="375" y="212" font-size="9" font-weight="600" fill="#374151">Failed</text><line x1="463" y1="208" x2="481" y2="208" stroke="#f97316" stroke-width="2" stroke-dasharray="2,4"/><text x="485" y="212" font-size="9" font-weight="600" fill="#374151">Blocked</text>
+</svg>
+</div>
+
+<!-- ── Module Breakdown ─────────────────────────────────────────────────────── -->
+<div class="sec">
+  <div class="stitle"><span class="dot" style="background:#7c3aed"></span>Module-wise Execution Breakdown</div>
+  <div style="font-size:11px;color:#6b7280;margin-bottom:12px">Modules sorted by defect density (Failed + Blocked count). Bar width proportional to test count.</div>
+  <svg width="100%" viewBox="0 0 720 156" xmlns="http://www.w3.org/2000/svg" overflow="visible">
+  <line x1="220.0" y1="14" x2="220.0" y2="110" stroke="#e5e7eb" stroke-width="1"/><text x="220.0" y="130" text-anchor="middle" font-size="9" fill="#9ca3af">0</text><line x1="323.5" y1="14" x2="323.5" y2="110" stroke="#e5e7eb" stroke-width="1"/><text x="323.5" y="130" text-anchor="middle" font-size="9" fill="#9ca3af">4</text><line x1="427.1" y1="14" x2="427.1" y2="110" stroke="#e5e7eb" stroke-width="1"/><text x="427.1" y="130" text-anchor="middle" font-size="9" fill="#9ca3af">8</text><line x1="530.6" y1="14" x2="530.6" y2="110" stroke="#e5e7eb" stroke-width="1"/><text x="530.6" y="130" text-anchor="middle" font-size="9" fill="#9ca3af">12</text><line x1="634.1" y1="14" x2="634.1" y2="110" stroke="#e5e7eb" stroke-width="1"/><text x="634.1" y="130" text-anchor="middle" font-size="9" fill="#9ca3af">16</text>
+  <text x="214" y="31" text-anchor="end" font-size="9" font-weight="600" fill="#374151">Event Tracking</text><rect x="220" y="17" width="440" height="20" fill="#f9fafb" rx="2"/><rect x="220.0" y="19" width="155.3" height="16" fill="#22c55e" rx="2"/><rect x="375.3" y="19" width="25.9" height="16" fill="#ef4444" rx="2"/><text x="406.2" y="31" font-size="9" font-weight="400" fill="#9ca3af">7</text><text x="214" y="55" text-anchor="end" font-size="9" font-weight="600" fill="#374151">Location Management</text><rect x="220.0" y="43" width="414.1" height="16" fill="#22c55e" rx="2"/><rect x="634.1" y="43" width="25.9" height="16" fill="#ef4444" rx="2"/><text x="665.0" y="55" font-size="9" font-weight="400" fill="#9ca3af">17</text><text x="214" y="79" text-anchor="end" font-size="9" font-weight="600" fill="#374151">Barcode Scanners</text><rect x="220" y="65" width="440" height="20" fill="#f9fafb" rx="2"/><rect x="220.0" y="67" width="232.9" height="16" fill="#22c55e" rx="2"/><text x="457.9" y="79" font-size="9" font-weight="400" fill="#9ca3af">9</text><text x="214" y="103" text-anchor="end" font-size="9" font-weight="600" fill="#374151">Sample Movement Tracking</text><rect x="220.0" y="91" width="207.1" height="16" fill="#22c55e" rx="2"/><text x="432.1" y="103" font-size="9" font-weight="400" fill="#9ca3af">8</text>
+  <line x1="220" y1="14" x2="220" y2="110" stroke="#d1d5db" stroke-width="1"/>
+  <rect x="360.0" y="139.0" width="11" height="11" rx="2" fill="#22c55e"/><text x="375.0" y="150.0" font-size="9" font-weight="600" fill="#6b7280">Passed</text><rect x="440.0" y="139.0" width="11" height="11" rx="2" fill="#ef4444"/><text x="455.0" y="150.0" font-size="9" font-weight="600" fill="#6b7280">Failed</text>
+</svg>
+</div>
+
+<!-- ── Module Summary Table ─────────────────────────────────────────────────── -->
+<div class="sec">
+  <div class="stitle"><span class="dot" style="background:#0369a1"></span>Module Execution Summary — LIMS R1.1</div>
+  <div class="sx">
+  <table class="mt">
+    <thead><tr>
+      <th>Module</th><th style="text-align:center">Total</th>
+      <th style="text-align:center;color:#16a34a">Passed</th>
+      <th style="text-align:center;color:#dc2626">Failed</th>
+      <th style="text-align:center;color:#d97706">Blocked</th>
+      <th style="text-align:center;color:#2563eb">In Progress</th>
+      <th style="text-align:center">Not Run</th>
+      <th style="text-align:center">Executed %</th>
+      <th style="text-align:center">Pass Rate</th>
+      <th style="min-width:100px">Status Bar</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+  <td style="font-size:11px;font-weight:600;color:#374151">Event Tracking</td>
+  <td style="text-align:center;font-weight:700">7</td>
+  <td style="text-align:center"><span class="badge green-b">6</span></td>
+  <td style="text-align:center"><span class="badge red-b">1</span></td>
+  <td style="text-align:center"><span class="badge ora-b">0</span></td>
+  <td style="text-align:center"><span class="badge blue-b">0</span></td>
+  <td style="text-align:center;color:#9ca3af">0</td>
+  <td style="text-align:center;font-weight:700">100%</td>
+  <td style="text-align:center;font-weight:700;color:#16a34a">86%</td>
+  <td>
+    <div style="height:8px;background:#f3f4f6;border-radius:4px;overflow:hidden;display:flex">
+      <div style="width:86%;background:#22c55e"></div>
+      <div style="width:14%;background:#ef4444"></div>
+      <div style="width:0%;background:#f97316"></div>
+      <div style="width:0%;background:#60a5fa"></div>
+    </div>
+  </td>
+</tr><tr>
+  <td style="font-size:11px;font-weight:600;color:#374151">Location Management</td>
+  <td style="text-align:center;font-weight:700">17</td>
+  <td style="text-align:center"><span class="badge green-b">16</span></td>
+  <td style="text-align:center"><span class="badge red-b">1</span></td>
+  <td style="text-align:center"><span class="badge ora-b">0</span></td>
+  <td style="text-align:center"><span class="badge blue-b">0</span></td>
+  <td style="text-align:center;color:#9ca3af">0</td>
+  <td style="text-align:center;font-weight:700">100%</td>
+  <td style="text-align:center;font-weight:700;color:#16a34a">94%</td>
+  <td>
+    <div style="height:8px;background:#f3f4f6;border-radius:4px;overflow:hidden;display:flex">
+      <div style="width:94%;background:#22c55e"></div>
+      <div style="width:6%;background:#ef4444"></div>
+      <div style="width:0%;background:#f97316"></div>
+      <div style="width:0%;background:#60a5fa"></div>
+    </div>
+  </td>
+</tr><tr>
+  <td style="font-size:11px;font-weight:600;color:#374151">Barcode Scanners</td>
+  <td style="text-align:center;font-weight:700">9</td>
+  <td style="text-align:center"><span class="badge green-b">9</span></td>
+  <td style="text-align:center"><span class="badge red-b">0</span></td>
+  <td style="text-align:center"><span class="badge ora-b">0</span></td>
+  <td style="text-align:center"><span class="badge blue-b">0</span></td>
+  <td style="text-align:center;color:#9ca3af">0</td>
+  <td style="text-align:center;font-weight:700">100%</td>
+  <td style="text-align:center;font-weight:700;color:#16a34a">100%</td>
+  <td>
+    <div style="height:8px;background:#f3f4f6;border-radius:4px;overflow:hidden;display:flex">
+      <div style="width:100%;background:#22c55e"></div>
+      <div style="width:0%;background:#ef4444"></div>
+      <div style="width:0%;background:#f97316"></div>
+      <div style="width:0%;background:#60a5fa"></div>
+    </div>
+  </td>
+</tr><tr>
+  <td style="font-size:11px;font-weight:600;color:#374151">Sample Movement Tracking</td>
+  <td style="text-align:center;font-weight:700">8</td>
+  <td style="text-align:center"><span class="badge green-b">8</span></td>
+  <td style="text-align:center"><span class="badge red-b">0</span></td>
+  <td style="text-align:center"><span class="badge ora-b">0</span></td>
+  <td style="text-align:center"><span class="badge blue-b">0</span></td>
+  <td style="text-align:center;color:#9ca3af">0</td>
+  <td style="text-align:center;font-weight:700">100%</td>
+  <td style="text-align:center;font-weight:700;color:#16a34a">100%</td>
+  <td>
+    <div style="height:8px;background:#f3f4f6;border-radius:4px;overflow:hidden;display:flex">
+      <div style="width:100%;background:#22c55e"></div>
+      <div style="width:0%;background:#ef4444"></div>
+      <div style="width:0%;background:#f97316"></div>
+      <div style="width:0%;background:#60a5fa"></div>
+    </div>
+  </td>
+</tr>
+    </tbody>
+    <tfoot>
+      <tr style="background:#f9fafb;font-weight:700;border-top:2px solid #e5e7eb">
+        <td>TOTAL</td>
+        <td style="text-align:center">41</td>
+        <td style="text-align:center"><span class="badge green-b">39</span></td>
+        <td style="text-align:center"><span class="badge red-b">2</span></td>
+        <td style="text-align:center"><span class="badge ora-b">0</span></td>
+        <td style="text-align:center"><span class="badge blue-b">0</span></td>
+        <td style="text-align:center;color:#9ca3af">0</td>
+        <td style="text-align:center">100%</td>
+        <td style="text-align:center;color:#16a34a">95%</td>
+        <td></td>
+      </tr>
+    </tfoot>
+  </table>
+  </div>
+</div>
+
+<!-- ── Defect Traceability ─────────────────────────────────────────────────── -->
+<div class="sec">
+  <div class="stitle"><span class="dot" style="background:#dc2626"></span>Failed &amp; Blocked Tests — Defect Traceability (2)</div>
+  <div style="font-size:11px;color:#6b7280;margin-bottom:10px">Grouped by module · sorted by defect density · Failed shown before Blocked within each module</div>
+    <div class="sx"><table class="mt">
+    <thead><tr>
+      <th>Test Case</th><th>Status</th><th>Tester</th>
+      <th style="text-align:center">Last Run</th><th style="text-align:center">Age</th><th>Linked Bugs</th>
+    </tr></thead>
+    <tbody><tr style="background:#f8f9fa">
+  <td colspan="6" style="padding:7px 12px;font-size:11px;font-weight:700;color:#374151;border-bottom:2px solid #e5e7eb">
+    Event Tracking
+    <span style="margin-left:8px"><span class="badge red-b" style="font-size:9px">1 Failed</span></span>
+    <span style="float:right;font-size:10px;color:#9ca3af;font-weight:400">1 defect</span>
+  </td>
+</tr><tr>
+  <td style="font-size:11px;max-width:220px;padding-left:20px">03_Event Tracking_Flags_Audit_History at Rack  Level</td>
+  <td><span class="badge red-b">Failed</span></td>
+  <td style="font-size:11px">Satishkumar</td>
+  <td style="text-align:center;font-size:10px;white-space:nowrap">27 Feb 2026</td>
+  <td style="text-align:center"><span style="color:#ef4444;font-size:10px;font-weight:700">189d</span></td>
+  <td style="font-size:10px"><div style="margin-bottom:4px;font-size:10px">
+            <a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/25065" style="color:#2563eb;font-weight:700;text-decoration:none">#25065</a>
+            <span style="margin-left:4px">Flag count is not increasing when a flag is added_at Rack level_Event Tracking</span><br>
+            <span class="badge red-b" style="font-size:9px">Active</span>
+            <span style="color:#9ca3af;font-size:9px;margin-left:4px">P3 · Medium · Grace</span>
+          </div></td>
+</tr><tr style="background:#f8f9fa">
+  <td colspan="6" style="padding:7px 12px;font-size:11px;font-weight:700;color:#374151;border-bottom:2px solid #e5e7eb">
+    Location Management
+    <span style="margin-left:8px"><span class="badge red-b" style="font-size:9px">1 Failed</span></span>
+    <span style="float:right;font-size:10px;color:#9ca3af;font-weight:400">1 defect</span>
+  </td>
+</tr><tr>
+  <td style="font-size:11px;max-width:220px;padding-left:20px">11_Location Management_Barcode_Print Location Label</td>
+  <td><span class="badge red-b">Failed</span></td>
+  <td style="font-size:11px">Satishkumar</td>
+  <td style="text-align:center;font-size:10px;white-space:nowrap">16 Mar 2026</td>
+  <td style="text-align:center"><span style="color:#ef4444;font-size:10px;font-weight:700">172d</span></td>
+  <td style="font-size:10px"><div style="margin-bottom:4px;font-size:10px">
+            <a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/25733" style="color:#2563eb;font-weight:700;text-decoration:none">#25733</a>
+            <span style="margin-left:4px">Invalid Label Format error displayed when attempting to print location barcode from Storage Location Manager</span><br>
+            <span class="badge red-b" style="font-size:9px">Active</span>
+            <span style="color:#9ca3af;font-size:9px;margin-left:4px">P2 · Medium · Satishkumar</span>
+          </div></td>
+</tr></tbody>
+  </table></div>
+</div>
+
+<!-- ── In Progress / Paused Tests ─────────────────────────────────────────── -->
+
+
+<!-- ── Retest Cycle Analysis ───────────────────────────────────────────────── -->
+<div class="sec">
+  <div class="stitle"><span class="dot" style="background:#7c3aed"></span>Retest Cycle Analysis — Multi-Attempt Tests</div>
+
+  <!-- Release-level KPI strip -->
+  <div style="display:flex;gap:16px;margin-bottom:14px;flex-wrap:wrap;justify-content:center">
+    <div class="kpi pur" style="min-width:130px;flex:0 0 auto"><div class="n">17</div><div class="l">Retested → Passed</div></div>
+    <div class="kpi red" style="min-width:130px;flex:0 0 auto"><div class="n">0</div><div class="l">Repeatedly Failing</div></div>
+    <div class="kpi green" style="min-width:130px;flex:0 0 auto"><div class="n">100%</div><div class="l">Retest Success Rate</div></div>
+    <div class="kpi blue" style="min-width:130px;flex:0 0 auto"><div class="n">54%</div><div class="l">First-Time Pass Rate</div></div>
+  </div>
+
+  <!-- Dot legend -->
+  <div style="font-size:11px;color:#6b7280;margin-bottom:14px">
+    Each dot = one execution attempt:
+    <span style="display:inline-block;width:11px;height:11px;background:#22c55e;border-radius:50%;margin:0 3px 0 8px;vertical-align:middle"></span>Passed
+    <span style="display:inline-block;width:11px;height:11px;background:#ef4444;border-radius:50%;margin:0 3px 0 8px;vertical-align:middle"></span>Failed
+    <span style="display:inline-block;width:11px;height:11px;background:#f97316;border-radius:50%;margin:0 3px 0 8px;vertical-align:middle"></span>Blocked
+    <span style="display:inline-block;width:11px;height:11px;background:#d1d5db;border-radius:50%;margin:0 3px 0 8px;vertical-align:middle"></span>Not Run
+  </div>
+
+  <!-- Per-module blocks -->
+  <div style="margin-bottom:20px;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden">
+  <div style="background:#f3f4f6;padding:9px 14px;border-bottom:2px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px">
+    <span style="font-size:12px;font-weight:700;color:#111827">Event Tracking</span>
+    <span style="display:flex;align-items:center;gap:0;flex-wrap:wrap">
+      <span style="margin-right:14px;font-size:11px;color:#6b7280">
+        <strong style="color:#374151">1</strong> test
+      </span>
+      <span style="margin-right:14px;font-size:11px;color:#6b7280">
+        max <strong style="color:#374151">1</strong> attempt
+      </span>
+      
+      </span>
+  </div>
+  <div class="sx">
+  <table class="mt" style="border-radius:0">
+    <thead><tr>
+      <th>Test Case</th>
+      <th style="text-align:center">Attempts</th>
+      <th>Attempt History</th>
+      <th>Final Status</th>
+      <th>Pass Date</th>
+      <th>Fail Date</th>
+      <th>Blocked Date</th>
+      <th>N/A Date</th>
+    </tr></thead>
+    <tbody><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">03_Event Tracking_Flags_Audit_History at Rack  Level</td>
+  <td style="text-align:center;font-weight:700;color:#374151">1</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Failed on 27 Feb 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge red-b">Failed</span></td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">27 Feb 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr></tbody>
+  </table>
+  </div>
+</div><div style="margin-bottom:20px;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden">
+  <div style="background:#f3f4f6;padding:9px 14px;border-bottom:2px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px">
+    <span style="font-size:12px;font-weight:700;color:#111827">Location Management</span>
+    <span style="display:flex;align-items:center;gap:0;flex-wrap:wrap">
+      <span style="margin-right:14px;font-size:11px;color:#6b7280">
+        <strong style="color:#374151">11</strong> tests
+      </span>
+      <span style="margin-right:14px;font-size:11px;color:#6b7280">
+        max <strong style="color:#374151">5</strong> attempts
+      </span>
+      <span style="margin-right:14px"><span class="badge green-b" style="font-size:9px">10 retested → Passed</span></span>
+      </span>
+  </div>
+  <div class="sx">
+  <table class="mt" style="border-radius:0">
+    <thead><tr>
+      <th>Test Case</th>
+      <th style="text-align:center">Attempts</th>
+      <th>Attempt History</th>
+      <th>Final Status</th>
+      <th>Pass Date</th>
+      <th>Fail Date</th>
+      <th>Blocked Date</th>
+      <th>N/A Date</th>
+    </tr></thead>
+    <tbody><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">14_Location Management_Prevent_Decommissioning</td>
+  <td style="text-align:center;font-weight:700;color:#374151">5</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: NotRun on 06 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#d1d5db;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: NotRun on 06 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#d1d5db;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 3: NotRun on 06 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#d1d5db;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 4: InProgress on 06 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#60a5fa;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 5: Passed on 11 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">11 Mar 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">16_Location Management_Tracking Samples_Not in Physical Locations</td>
+  <td style="text-align:center;font-weight:700;color:#374151">5</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: NotRun on 06 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#d1d5db;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: NotRun on 06 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#d1d5db;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 3: NotRun on 06 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#d1d5db;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 4: InProgress on 06 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#60a5fa;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 5: Passed on 11 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">11 Mar 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">18_Location Management_LN2 Tower Child Location Creation and Removal Rules</td>
+  <td style="text-align:center;font-weight:700;color:#374151">5</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: NotRun on 06 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#d1d5db;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: NotRun on 06 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#d1d5db;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 3: NotRun on 06 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#d1d5db;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 4: InProgress on 06 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#60a5fa;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 5: Passed on 13 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">13 Mar 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">02_Location Management_Freezer_Structured</td>
+  <td style="text-align:center;font-weight:700;color:#374151">4</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Failed on 23 Feb 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Failed on 23 Feb 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 3: Failed on 25 Feb 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 4: Passed on 25 Feb 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">25 Feb 2026</td>
+  <td style="font-size:10px;white-space:nowrap">23 Feb 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">15_Location Management_Decommission_Audit</td>
+  <td style="text-align:center;font-weight:700;color:#374151">4</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: NotRun on 06 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#d1d5db;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: NotRun on 06 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#d1d5db;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 3: InProgress on 06 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#60a5fa;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 4: Passed on 11 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">11 Mar 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">11_Location Management_Barcode_Print Location Label</td>
+  <td style="text-align:center;font-weight:700;color:#374151">3</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: NotRun on 05 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#d1d5db;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: InProgress on 06 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#60a5fa;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 3: Failed on 16 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge red-b">Failed</span></td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">16 Mar 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">01_Location Management_Freezer_Unstructured</td>
+  <td style="text-align:center;font-weight:700;color:#374151">2</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Failed on 20 Feb 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Passed on 26 Feb 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">26 Feb 2026</td>
+  <td style="font-size:10px;white-space:nowrap">20 Feb 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">03_Location Management_Liquid Nitrogen</td>
+  <td style="text-align:center;font-weight:700;color:#374151">2</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Failed on 24 Feb 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Passed on 24 Aug 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">24 Aug 2026</td>
+  <td style="font-size:10px;white-space:nowrap">24 Feb 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">06_Location Management_BiOS_Bay01_Cassette</td>
+  <td style="text-align:center;font-weight:700;color:#374151">2</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Failed on 26 Feb 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Passed on 27 Apr 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">27 Apr 2026</td>
+  <td style="font-size:10px;white-space:nowrap">26 Feb 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">09_Location Management_Workstation</td>
+  <td style="text-align:center;font-weight:700;color:#374151">2</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Failed on 07 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Passed on 27 Apr 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">27 Apr 2026</td>
+  <td style="font-size:10px;white-space:nowrap">07 Mar 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">17_Location Management_Duplicate Location Entry</td>
+  <td style="text-align:center;font-weight:700;color:#374151">2</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: NotRun on 04 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#d1d5db;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Passed on 04 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">04 Mar 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr></tbody>
+  </table>
+  </div>
+</div><div style="margin-bottom:20px;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden">
+  <div style="background:#f3f4f6;padding:9px 14px;border-bottom:2px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px">
+    <span style="font-size:12px;font-weight:700;color:#111827">Barcode Scanners</span>
+    <span style="display:flex;align-items:center;gap:0;flex-wrap:wrap">
+      <span style="margin-right:14px;font-size:11px;color:#6b7280">
+        <strong style="color:#374151">5</strong> tests
+      </span>
+      <span style="margin-right:14px;font-size:11px;color:#6b7280">
+        max <strong style="color:#374151">5</strong> attempts
+      </span>
+      <span style="margin-right:14px"><span class="badge green-b" style="font-size:9px">4 retested → Passed</span></span>
+      </span>
+  </div>
+  <div class="sx">
+  <table class="mt" style="border-radius:0">
+    <thead><tr>
+      <th>Test Case</th>
+      <th style="text-align:center">Attempts</th>
+      <th>Attempt History</th>
+      <th>Final Status</th>
+      <th>Pass Date</th>
+      <th>Fail Date</th>
+      <th>Blocked Date</th>
+      <th>N/A Date</th>
+    </tr></thead>
+    <tbody><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">01_Barcode Scanners_Scan a Freezer Barcode</td>
+  <td style="text-align:center;font-weight:700;color:#374151">5</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: NotApplicable on 03 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#d1d5db;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Passed on 11 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 3: NotApplicable on 11 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#d1d5db;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 4: Passed on 23 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 5: Passed on 26 Apr 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">11 Mar 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">03 Mar 2026</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">07_Barcode Scanners_Duplicate Barcode Scan during Sample Addition</td>
+  <td style="text-align:center;font-weight:700;color:#374151">4</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Failed on 02 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Failed on 03 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 3: Failed on 03 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 4: Passed on 24 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">24 Mar 2026</td>
+  <td style="font-size:10px;white-space:nowrap">02 Mar 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">03_Barcode Scanners_Scan a Rack Barcode</td>
+  <td style="text-align:center;font-weight:700;color:#374151">3</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Failed on 02 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: NotApplicable on 03 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#d1d5db;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 3: Passed on 24 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">24 Mar 2026</td>
+  <td style="font-size:10px;white-space:nowrap">02 Mar 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">03 Mar 2026</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">08_Barcode Scanners_Error Handling for Invalid Barcode Scan from Homepage Search</td>
+  <td style="text-align:center;font-weight:700;color:#374151">3</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Passed on 02 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Failed on 02 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 3: Passed on 09 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">02 Mar 2026</td>
+  <td style="font-size:10px;white-space:nowrap">02 Mar 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">04_Barcode Scanners_Scan a Tray/Box/Plate Barcode &amp; Add a Sample</td>
+  <td style="text-align:center;font-weight:700;color:#374151">2</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Failed on 02 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Passed on 04 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">04 Mar 2026</td>
+  <td style="font-size:10px;white-space:nowrap">02 Mar 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr></tbody>
+  </table>
+  </div>
+</div><div style="margin-bottom:20px;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden">
+  <div style="background:#f3f4f6;padding:9px 14px;border-bottom:2px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px">
+    <span style="font-size:12px;font-weight:700;color:#111827">Sample Movement Tracking</span>
+    <span style="display:flex;align-items:center;gap:0;flex-wrap:wrap">
+      <span style="margin-right:14px;font-size:11px;color:#6b7280">
+        <strong style="color:#374151">3</strong> tests
+      </span>
+      <span style="margin-right:14px;font-size:11px;color:#6b7280">
+        max <strong style="color:#374151">3</strong> attempts
+      </span>
+      <span style="margin-right:14px"><span class="badge green-b" style="font-size:9px">3 retested → Passed</span></span>
+      </span>
+  </div>
+  <div class="sx">
+  <table class="mt" style="border-radius:0">
+    <thead><tr>
+      <th>Test Case</th>
+      <th style="text-align:center">Attempts</th>
+      <th>Attempt History</th>
+      <th>Final Status</th>
+      <th>Pass Date</th>
+      <th>Fail Date</th>
+      <th>Blocked Date</th>
+      <th>N/A Date</th>
+    </tr></thead>
+    <tbody><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">03_Sample Movement Tracking_Sample Movement History Across Storage Locations</td>
+  <td style="text-align:center;font-weight:700;color:#374151">3</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: NotRun on 06 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#d1d5db;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: InProgress on 10 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#60a5fa;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 3: Passed on 17 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">17 Mar 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">04_Sample Movement Tracking_Tray Movement Tracking</td>
+  <td style="text-align:center;font-weight:700;color:#374151">3</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: InProgress on 05 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#60a5fa;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Failed on 16 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 3: Passed on 24 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">24 Mar 2026</td>
+  <td style="font-size:10px;white-space:nowrap">16 Mar 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr><tr>
+  <td style="font-size:11px;max-width:210px;padding-left:14px">05_Sample Movement Tracking_Sample Hierarchy via Folder Manager</td>
+  <td style="text-align:center;font-weight:700;color:#374151">2</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: InProgress on 10 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#60a5fa;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Passed on 16 Mar 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#22c55e;margin:1px 2px;vertical-align:middle"></span></td>
+  <td><span class="badge green-b">Passed</span></td>
+  <td style="font-size:10px;white-space:nowrap">16 Mar 2026</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px;white-space:nowrap">—</td>
+</tr></tbody>
+  </table>
+  </div>
+</div>
+</div>
+
+<!-- ── Footer ──────────────────────────────────────────────────────────────── -->
+<div style="font-size:11px;color:#9ca3af;text-align:center;margin-top:10px;padding-top:14px;border-top:1px solid #e5e7eb">
+  Last refreshed: 04 Sept 2026, 12:00 &nbsp;·&nbsp; LIMS R1.1 &nbsp;·&nbsp; Prepared by Satishkumar Sarathi Pillai &nbsp;·&nbsp; UK Biobank — Mosaic LIMS
+</div>
+
+</div>
+</body>
+</html>
