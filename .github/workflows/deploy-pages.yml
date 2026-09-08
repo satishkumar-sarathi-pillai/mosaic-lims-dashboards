@@ -1,0 +1,99 @@
+# .github/workflows/deploy-pages.yml
+#
+# Deploys only the live dashboard files to GitHub Pages.
+#
+# WHY THIS EXISTS
+# ───────────────
+# The mosaic-lims-dashboards repo stores every run's output under dated folders
+# (YYYY-MM-DD/morning|afternoon|evening/...).  As those accumulate the full-repo
+# deployment artifact grows until GitHub Pages' CDN upload times out (~10 min).
+#
+# This workflow solves that by assembling a small, fixed-size _site/ directory
+# that contains ONLY the files actually served at the Pages URL:
+#
+#   index.html
+#   defect-dashboard/functional-burn-down-report.html
+#   test-execution-dashboard/overall_functional-test-execution-dashboard.html
+#   test-execution-dashboard/release-wise/...   (all files, mirrored 1-to-1)
+#
+# Historical archives (YYYY-MM-DD/...) stay safely in git history and are
+# accessible at their full GitHub blob URLs — nothing is deleted or lost.
+#
+# TRIGGER
+# ───────
+# Runs on every push to main (the ADO pipeline commits the live files there).
+# Can also be triggered manually from the Actions tab.
+
+name: Deploy live dashboards to Pages
+
+on:
+  push:
+    branches: [main]
+    # Only re-deploy when a live dashboard file actually changes.
+    # Pushes that only touch dated archive folders will NOT trigger this.
+    paths:
+      - 'index.html'
+      - 'defect-dashboard/**'
+      - 'test-execution-dashboard/**'
+  workflow_dispatch:   # allow manual re-run from the Actions tab
+
+# Allow only one Pages deployment at a time; cancel any in-flight run
+# so a rapid sequence of ADO commits doesn't queue up multiple deploys.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages:    write
+  id-token: write
+
+jobs:
+  build:
+    name: Assemble _site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Assemble site directory
+        # Copy only the live files into _site/.
+        # The YYYY-MM-DD/* dated archive folders are intentionally excluded.
+        run: |
+          mkdir -p _site/defect-dashboard
+          mkdir -p _site/test-execution-dashboard
+
+          # Root landing page
+          cp index.html _site/index.html
+
+          # Live defect dashboards (flat folder — copy all HTML files)
+          cp defect-dashboard/*.html _site/defect-dashboard/
+
+          # Live test-execution dashboards (preserve subdirectory structure)
+          cp -r test-execution-dashboard/. _site/test-execution-dashboard/
+
+          # Suppress Jekyll processing (repo contains no Jekyll source,
+          # and Jekyll would try to process the HTML files unnecessarily)
+          touch _site/.nojekyll
+
+          echo "── _site contents ──────────────────────────────────"
+          find _site -type f | sort
+          echo "────────────────────────────────────────────────────"
+          du -sh _site
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url:  ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
