@@ -1,40 +1,42 @@
 # .github/workflows/deploy-pages.yml
 #
-# Deploys only the live dashboard files to GitHub Pages.
+# Deploys the full set of dashboard files to GitHub Pages.
 #
 # WHY THIS EXISTS
 # ───────────────
 # The mosaic-lims-dashboards repo stores every run's output under dated folders
-# (YYYY-MM-DD/morning|afternoon|evening/...).  As those accumulate the full-repo
-# deployment artifact grows until GitHub Pages' CDN upload times out (~10 min).
+# (YYYY-MM-DD/morning|afternoon|evening/...) AND mirrors the latest run to
+# top-level live folders (defect-dashboard/, test-execution-dashboard/).
 #
-# This workflow solves that by assembling a small, fixed-size _site/ directory
-# that contains ONLY the files actually served at the Pages URL:
+# The old branch-based Pages deployment timed out because it tried to upload
+# the entire repo as a single git-based artifact via the legacy CDN path.
 #
-#   index.html
-#   defect-dashboard/functional-burn-down-report.html
-#   test-execution-dashboard/overall_functional-test-execution-dashboard.html
-#   test-execution-dashboard/release-wise/...   (all files, mirrored 1-to-1)
+# This workflow builds an explicit _site/ directory and uses the modern
+# actions/upload-pages-artifact + actions/deploy-pages approach, which
+# is fast and reliable regardless of repo size.
 #
-# Historical archives (YYYY-MM-DD/...) stay safely in git history and are
-# accessible at their full GitHub blob URLs — nothing is deleted or lost.
+# _site/ contains:
+#   index.html                                  ← landing page
+#   defect-dashboard/...                        ← live (latest) dashboards
+#   test-execution-dashboard/...               ← live (latest) dashboards
+#   YYYY-MM-DD/slot/defect-dashboard/...       ← all dated archives (historical links)
+#   YYYY-MM-DD/slot/test-execution-dashboard/... ← all dated archives
 #
 # TRIGGER
 # ───────
-# Runs on every push to main (the ADO pipeline commits the live files there).
+# Runs on every push to main that touches any dashboard file or archive folder.
 # Can also be triggered manually from the Actions tab.
 
-name: Deploy live dashboards to Pages
+name: Deploy dashboards to Pages
 
 on:
   push:
     branches: [main]
-    # Only re-deploy when a live dashboard file actually changes.
-    # Pushes that only touch dated archive folders will NOT trigger this.
     paths:
       - 'index.html'
       - 'defect-dashboard/**'
       - 'test-execution-dashboard/**'
+      - '20[0-9][0-9]-[0-9][0-9]-[0-9][0-9]/**'
   workflow_dispatch:   # allow manual re-run from the Actions tab
 
 # Allow only one Pages deployment at a time; cancel any in-flight run
@@ -57,8 +59,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Assemble site directory
-        # Copy only the live files into _site/.
-        # The YYYY-MM-DD/* dated archive folders are intentionally excluded.
         run: |
           mkdir -p _site/defect-dashboard
           mkdir -p _site/test-execution-dashboard
@@ -66,19 +66,29 @@ jobs:
           # Root landing page
           cp index.html _site/index.html
 
-          # Live defect dashboards (flat folder — copy all HTML files)
+          # Live (latest) defect dashboards
           cp defect-dashboard/*.html _site/defect-dashboard/
 
-          # Live test-execution dashboards (preserve subdirectory structure)
+          # Live (latest) test-execution dashboards (preserve subdirectory structure)
           cp -r test-execution-dashboard/. _site/test-execution-dashboard/
 
-          # Suppress Jekyll processing (repo contains no Jekyll source,
-          # and Jekyll would try to process the HTML files unnecessarily)
+          # Dated archive folders — copy every YYYY-MM-DD/ directory so that
+          # historical wiki links (e.g. /2026-08-29/morning/defect-dashboard/...)
+          # continue to resolve correctly on GitHub Pages.
+          for dir in [0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]; do
+            if [ -d "$dir" ]; then
+              cp -r "$dir" "_site/$dir"
+            fi
+          done
+
+          # Suppress Jekyll processing
           touch _site/.nojekyll
 
-          echo "── _site contents ──────────────────────────────────"
-          find _site -type f | sort
-          echo "────────────────────────────────────────────────────"
+          echo "── _site summary ────────────────────────────────────"
+          find _site -maxdepth 3 -type d | sort
+          echo "── file count ───────────────────────────────────────"
+          find _site -type f | wc -l
+          echo "── total size ───────────────────────────────────────"
           du -sh _site
 
       - name: Upload Pages artifact
