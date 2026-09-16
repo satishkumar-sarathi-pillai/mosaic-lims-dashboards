@@ -64,18 +64,33 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
 </div>
 
 <!-- ── KPI Tiles ─────────────────────────────────────────────────────────── -->
-<div class="kpis"><div class="kpi blue"><div class="n">0</div><div class="l">Total Tests</div></div><div class="kpi blue"><div class="n">0%</div><div class="l">Executed</div></div><div class="kpi green"><div class="n">0</div><div class="l">Passed</div></div><div class="kpi green"><div class="n">0%</div><div class="l">Pass Rate</div></div><div class="kpi red"><div class="n">0</div><div class="l">Failed</div></div><div class="kpi red"><div class="n">0%</div><div class="l">Fail Rate</div></div><div class="kpi ora"><div class="n">0</div><div class="l">Blocked</div></div><div class="kpi blue"><div class="n">0</div><div class="l">In Progress</div></div><div class="kpi grey"><div class="n">0</div><div class="l">Not Run</div></div><div class="kpi pur"><div class="n">0%</div><div class="l">1st-Time Pass Rate</div></div><div class="kpi pur"><div class="n">0%</div><div class="l">Retest Success</div></div></div>
+<div class="kpis"><div class="kpi blue"><div class="n">13</div><div class="l">Total Tests</div></div><div class="kpi blue"><div class="n">0%</div><div class="l">Executed</div></div><div class="kpi green"><div class="n">0</div><div class="l">Passed</div></div><div class="kpi green"><div class="n">0%</div><div class="l">Pass Rate</div></div><div class="kpi red"><div class="n">0</div><div class="l">Failed</div></div><div class="kpi red"><div class="n">0%</div><div class="l">Fail Rate</div></div><div class="kpi ora"><div class="n">0</div><div class="l">Blocked</div></div><div class="kpi blue"><div class="n">0</div><div class="l">In Progress</div></div><div class="kpi grey"><div class="n">13</div><div class="l">Not Run</div></div><div class="kpi pur"><div class="n">0%</div><div class="l">1st-Time Pass Rate</div></div><div class="kpi pur"><div class="n">0%</div><div class="l">Retest Success</div></div></div>
 
 <!-- ── Donut + Status Bar Row ────────────────────────────────────────────── -->
 <div class="two-col" style="margin-bottom:20px">
   <div class="sec">
     <div class="stitle"><span class="dot" style="background:#2563eb"></span>Execution Status Split</div>
-    <p style="color:#aaa;text-align:center;padding:40px;font-size:13px">No test data for this release.</p>
+    <svg width="100%" viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="120" cy="110" r="88" fill="#d1d5db" opacity="0.92"/>
+  <circle cx="120" cy="110" r="52" fill="#ffffff"/>
+  <text x="120" y="100" text-anchor="middle" font-size="19" font-weight="700" fill="#ef4444">0%</text>
+  <text x="120" y="120" text-anchor="middle" font-size="10" fill="#6b7280" font-weight="500">Pass Rate</text>
+  <text x="120" y="136" text-anchor="middle" font-size="9" fill="#9ca3af">0% Executed</text>
+  <rect x="252" y="18" width="10" height="10" rx="3" fill="#d1d5db"/>
+    <text x="266" y="27" font-size="10" fill="#374151" font-weight="600">Not Run</text>
+    <text x="410" y="27" font-size="10" fill="#6b7280" text-anchor="end">13 <tspan font-weight="600" fill="#d1d5db">(100%)</tspan></text>
+</svg>
   </div>
   <div class="sec">
     <div class="stitle"><span class="dot" style="background:#374151"></span>Test Count by Status</div>
     <div style="font-size:11px;color:#6b7280;margin-bottom:8px">Actual counts and percentages per outcome — each bar shows a concrete number.</div>
-    <p style="color:#aaa;text-align:center;padding:40px;font-size:13px">No test data.</p>
+    <svg width="100%" viewBox="0 0 420 250" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="420" height="250" fill="#fdfdfe" rx="4"/>
+  <line x1="36" y1="198.0" x2="404" y2="198.0" stroke="#f0f0f0" stroke-width="1"/><text x="31.0" y="198.0" text-anchor="end" dominant-baseline="middle" font-size="9" fill="#9ca3af">0</text><line x1="36" y1="148.8" x2="404" y2="148.8" stroke="#f0f0f0" stroke-width="1"/><text x="31.0" y="148.8" text-anchor="end" dominant-baseline="middle" font-size="9" fill="#9ca3af">4</text><line x1="36" y1="99.5" x2="404" y2="99.5" stroke="#f0f0f0" stroke-width="1"/><text x="31.0" y="99.5" text-anchor="end" dominant-baseline="middle" font-size="9" fill="#9ca3af">8</text><line x1="36" y1="50.3" x2="404" y2="50.3" stroke="#f0f0f0" stroke-width="1"/><text x="31.0" y="50.3" text-anchor="end" dominant-baseline="middle" font-size="9" fill="#9ca3af">12</text>
+  <line x1="36" y1="198" x2="404" y2="198" stroke="#e5e7eb" stroke-width="1"/>
+  <rect x="190.0" y="38.0" width="60" height="160" fill="#d1d5db" rx="3" opacity="0.9"/><text x="220.0" y="32.0" text-anchor="middle" font-size="9" font-weight="600" fill="#d1d5db">13</text><text x="220.0" y="18.0" text-anchor="middle" font-size="9" fill="#9ca3af">100%</text><text x="220.0" y="214.0" text-anchor="middle" font-size="9" font-weight="500" fill="#374151">Not Run</text>
+  <text x="210" y="244" text-anchor="middle" font-size="10" fill="#9ca3af">Total: 13 tests &nbsp;·&nbsp; 0% executed</text>
+</svg>
   </div>
 </div>
 
@@ -94,7 +109,12 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
 <div class="sec">
   <div class="stitle"><span class="dot" style="background:#7c3aed"></span>Module-wise Execution Breakdown</div>
   <div style="font-size:11px;color:#6b7280;margin-bottom:12px">Modules sorted by defect density (Failed + Blocked count). Bar width proportional to test count.</div>
-  <p style="color:#aaa;text-align:center;padding:30px">No module data.</p>
+  <svg width="100%" viewBox="0 0 720 84" xmlns="http://www.w3.org/2000/svg" overflow="visible">
+  <line x1="220.0" y1="14" x2="220.0" y2="38" stroke="#e5e7eb" stroke-width="1"/><text x="220.0" y="58" text-anchor="middle" font-size="9" fill="#9ca3af">0</text><line x1="321.5" y1="14" x2="321.5" y2="38" stroke="#e5e7eb" stroke-width="1"/><text x="321.5" y="58" text-anchor="middle" font-size="9" fill="#9ca3af">3</text><line x1="423.1" y1="14" x2="423.1" y2="38" stroke="#e5e7eb" stroke-width="1"/><text x="423.1" y="58" text-anchor="middle" font-size="9" fill="#9ca3af">6</text><line x1="524.6" y1="14" x2="524.6" y2="38" stroke="#e5e7eb" stroke-width="1"/><text x="524.6" y="58" text-anchor="middle" font-size="9" fill="#9ca3af">9</text><line x1="626.2" y1="14" x2="626.2" y2="38" stroke="#e5e7eb" stroke-width="1"/><text x="626.2" y="58" text-anchor="middle" font-size="9" fill="#9ca3af">12</text>
+  <text x="214" y="31" text-anchor="end" font-size="9" font-weight="600" fill="#374151">Sample Destruction</text><rect x="220" y="17" width="440" height="20" fill="#f9fafb" rx="2"/><rect x="220.0" y="19" width="440.0" height="16" fill="#d1d5db" rx="2"/><text x="665.0" y="31" font-size="9" font-weight="400" fill="#9ca3af">13</text>
+  <line x1="220" y1="14" x2="220" y2="38" stroke="#d1d5db" stroke-width="1"/>
+  <rect x="400.0" y="67.0" width="11" height="11" rx="2" fill="#d1d5db"/><text x="415.0" y="78.0" font-size="9" font-weight="600" fill="#6b7280">Not Run</text>
+</svg>
 </div>
 
 <!-- ── Module Summary Table ─────────────────────────────────────────────────── -->
@@ -114,17 +134,35 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
       <th style="min-width:100px">Status Bar</th>
     </tr></thead>
     <tbody>
-      <tr><td colspan="10" style="text-align:center;color:#d1d5db;padding:20px">No module data</td></tr>
+      <tr>
+  <td style="font-size:11px;font-weight:600;color:#374151">Sample Destruction</td>
+  <td style="text-align:center;font-weight:700">13</td>
+  <td style="text-align:center"><span class="badge green-b">0</span></td>
+  <td style="text-align:center"><span class="badge red-b">0</span></td>
+  <td style="text-align:center"><span class="badge ora-b">0</span></td>
+  <td style="text-align:center"><span class="badge blue-b">0</span></td>
+  <td style="text-align:center;color:#9ca3af">13</td>
+  <td style="text-align:center;font-weight:700">0%</td>
+  <td style="text-align:center;font-weight:700;color:#dc2626">0%</td>
+  <td>
+    <div style="height:8px;background:#f3f4f6;border-radius:4px;overflow:hidden;display:flex">
+      <div style="width:0%;background:#22c55e"></div>
+      <div style="width:0%;background:#ef4444"></div>
+      <div style="width:0%;background:#f97316"></div>
+      <div style="width:0%;background:#60a5fa"></div>
+    </div>
+  </td>
+</tr>
     </tbody>
     <tfoot>
       <tr style="background:#f9fafb;font-weight:700;border-top:2px solid #e5e7eb">
         <td>TOTAL</td>
-        <td style="text-align:center">0</td>
+        <td style="text-align:center">13</td>
         <td style="text-align:center"><span class="badge green-b">0</span></td>
         <td style="text-align:center"><span class="badge red-b">0</span></td>
         <td style="text-align:center"><span class="badge ora-b">0</span></td>
         <td style="text-align:center"><span class="badge blue-b">0</span></td>
-        <td style="text-align:center;color:#9ca3af">0</td>
+        <td style="text-align:center;color:#9ca3af">13</td>
         <td style="text-align:center">0%</td>
         <td style="text-align:center;color:#dc2626">0%</td>
         <td></td>
@@ -170,7 +208,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
 
 <!-- ── Footer ──────────────────────────────────────────────────────────────── -->
 <div style="font-size:11px;color:#9ca3af;text-align:center;margin-top:10px;padding-top:14px;border-top:1px solid #e5e7eb">
-  Last refreshed: 16 Sept 2026, 08:55 &nbsp;·&nbsp; LIMS R1.5 &nbsp;·&nbsp; Prepared by Satishkumar Sarathi Pillai &nbsp;·&nbsp; UK Biobank — Mosaic LIMS
+  Last refreshed: 16 Sept 2026, 09:00 &nbsp;·&nbsp; LIMS R1.5 &nbsp;·&nbsp; Prepared by Satishkumar Sarathi Pillai &nbsp;·&nbsp; UK Biobank — Mosaic LIMS
 </div>
 
 </div>
