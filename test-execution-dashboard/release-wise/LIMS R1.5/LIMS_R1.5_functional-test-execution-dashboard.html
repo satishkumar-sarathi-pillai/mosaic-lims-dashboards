@@ -104,9 +104,9 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <line x1="46" y1="176" x2="720" y2="176" stroke="#f0f0f0" stroke-width="1"/><text x="40" y="176" text-anchor="end" dominant-baseline="middle" font-size="8" fill="#9ca3af">0</text><line x1="46" y1="97" x2="720" y2="97" stroke="#f0f0f0" stroke-width="1"/><text x="40" y="97" text-anchor="end" dominant-baseline="middle" font-size="8" fill="#9ca3af">1</text><line x1="46" y1="18" x2="720" y2="18" stroke="#f0f0f0" stroke-width="1"/><text x="40" y="18" text-anchor="end" dominant-baseline="middle" font-size="8" fill="#9ca3af">2</text>
   <line x1="46" y1="18" x2="46" y2="176" stroke="#e5e7eb"/>
   <line x1="46" y1="176" x2="720" y2="176" stroke="#e5e7eb"/>
-  <polyline points="383,176" fill="none" stroke="#22c55e" stroke-width="2" stroke-linejoin="round"/><polyline points="383,18" fill="none" stroke="#ef4444" stroke-width="2" stroke-linejoin="round" stroke-dasharray="5,3"/><polyline points="383,176" fill="none" stroke="#f97316" stroke-width="2" stroke-linejoin="round" stroke-dasharray="2,4"/>
-  <circle cx="383" cy="18" r="3.5" fill="#ef4444" stroke="#fff" stroke-width="1.5"/>
-  <text x="383" y="191" text-anchor="middle" font-size="8" fill="#6b7280" font-weight="500">W2 Sep</text>
+  <polyline points="46,176 720,176" fill="none" stroke="#22c55e" stroke-width="2" stroke-linejoin="round"/><polyline points="46,18 720,97" fill="none" stroke="#ef4444" stroke-width="2" stroke-linejoin="round" stroke-dasharray="5,3"/><polyline points="46,176 720,176" fill="none" stroke="#f97316" stroke-width="2" stroke-linejoin="round" stroke-dasharray="2,4"/>
+  <circle cx="46" cy="18" r="3.5" fill="#ef4444" stroke="#fff" stroke-width="1.5"/><circle cx="720" cy="97" r="3.5" fill="#ef4444" stroke="#fff" stroke-width="1.5"/>
+  <text x="46" y="191" text-anchor="middle" font-size="8" fill="#6b7280" font-weight="500">W2 Sep</text><text x="720" y="191" text-anchor="middle" font-size="8" fill="#6b7280" font-weight="500">W3 Sep</text>
   <line x1="243" y1="208" x2="261" y2="208" stroke="#22c55e" stroke-width="2"/><text x="265" y="212" font-size="9" font-weight="600" fill="#374151">Passed</text><line x1="353" y1="208" x2="371" y2="208" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,3"/><text x="375" y="212" font-size="9" font-weight="600" fill="#374151">Failed</text><line x1="463" y1="208" x2="481" y2="208" stroke="#f97316" stroke-width="2" stroke-dasharray="2,4"/><text x="485" y="212" font-size="9" font-weight="600" fill="#374151">Blocked</text>
 </svg>
 </div>
@@ -215,13 +215,18 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:11px;max-width:220px;padding-left:20px">SD-001 — Destruction Workflow Configuration Verification</td>
   <td><span class="badge red-b">Failed</span></td>
   <td style="font-size:11px">Satishkumar</td>
-  <td style="text-align:center;font-size:10px;white-space:nowrap">17 Sept 2026</td>
+  <td style="text-align:center;font-size:10px;white-space:nowrap">21 Sept 2026</td>
   <td style="text-align:center"><span style="color:#ef4444;font-size:10px;font-weight:700">4d</span></td>
   <td style="font-size:10px"><div style="margin-bottom:4px;font-size:10px">
             <a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/35019" style="color:#2563eb;font-weight:700;text-decoration:none">#35019</a>
             <span style="margin-left:4px">Unable to access the Conditions Flag table through Manage Table with the sys_admin role</span><br>
             <span class="badge green-b" style="font-size:9px">Closed</span>
             <span style="color:#9ca3af;font-size:9px;margin-left:4px">P3 · Medium · Satishkumar</span>
+          </div><div style="margin-bottom:4px;font-size:10px">
+            <a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/35140" style="color:#2563eb;font-weight:700;text-decoration:none">#35140</a>
+            <span style="margin-left:4px">'Can Dispose Samples' and 'Remove From Pick Box' fields missing from the Conditions Flag table</span><br>
+            <span class="badge red-b" style="font-size:9px">New</span>
+            <span style="color:#9ca3af;font-size:9px;margin-left:4px">P2 · High · Grace</span>
           </div></td>
 </tr><tr>
   <td style="font-size:11px;max-width:220px;padding-left:20px">SD-002 — Ad Hoc Sample Destruction — Single Sample Scan &amp; Role-Based Access</td>
@@ -249,7 +254,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <!-- Release-level KPI strip -->
   <div style="display:flex;gap:16px;margin-bottom:14px;flex-wrap:wrap;justify-content:center">
     <div class="kpi pur" style="min-width:130px;flex:0 0 auto"><div class="n">0</div><div class="l">Retested → Passed</div></div>
-    <div class="kpi red" style="min-width:130px;flex:0 0 auto"><div class="n">0</div><div class="l">Repeatedly Failing</div></div>
+    <div class="kpi red" style="min-width:130px;flex:0 0 auto"><div class="n">1</div><div class="l">Repeatedly Failing</div></div>
     <div class="kpi green" style="min-width:130px;flex:0 0 auto"><div class="n">0%</div><div class="l">Retest Success Rate</div></div>
     <div class="kpi blue" style="min-width:130px;flex:0 0 auto"><div class="n">0%</div><div class="l">First-Time Pass Rate</div></div>
   </div>
@@ -272,10 +277,10 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
         <strong style="color:#374151">2</strong> tests
       </span>
       <span style="margin-right:14px;font-size:11px;color:#6b7280">
-        max <strong style="color:#374151">1</strong> attempt
+        max <strong style="color:#374151">2</strong> attempts
       </span>
       
-      </span>
+      <span><span class="badge red-b" style="font-size:9px">1 repeatedly Failing</span></span></span>
   </div>
   <div class="sx">
   <table class="mt" style="border-radius:0">
@@ -291,8 +296,8 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
     </tr></thead>
     <tbody><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">SD-001 — Destruction Workflow Configuration Verification</td>
-  <td style="text-align:center;font-weight:700;color:#374151">1</td>
-  <td style="white-space:nowrap"><span title="Attempt 1: Failed on 17 Sept 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span></td>
+  <td style="text-align:center;font-weight:700;color:#374151">2</td>
+  <td style="white-space:nowrap"><span title="Attempt 1: Failed on 17 Sept 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span><span title="Attempt 2: Failed on 21 Sept 2026" style="display:inline-block;width:13px;height:13px;border-radius:50%;background:#ef4444;margin:1px 2px;vertical-align:middle"></span></td>
   <td><span class="badge red-b">Failed</span></td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">17 Sept 2026</td>
@@ -315,7 +320,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
 
 <!-- ── Footer ──────────────────────────────────────────────────────────────── -->
 <div style="font-size:11px;color:#9ca3af;text-align:center;margin-top:10px;padding-top:14px;border-top:1px solid #e5e7eb">
-  Last refreshed: 21 Sept 2026, 12:01 &nbsp;·&nbsp; LIMS R1.5 &nbsp;·&nbsp; Prepared by Satishkumar Sarathi Pillai &nbsp;·&nbsp; UK Biobank — Mosaic LIMS
+  Last refreshed: 21 Sept 2026, 17:00 &nbsp;·&nbsp; LIMS R1.5 &nbsp;·&nbsp; Prepared by Satishkumar Sarathi Pillai &nbsp;·&nbsp; UK Biobank — Mosaic LIMS
 </div>
 
 </div>
