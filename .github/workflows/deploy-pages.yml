@@ -39,11 +39,14 @@ on:
       - '20[0-9][0-9]-[0-9][0-9]-[0-9][0-9]/**'
   workflow_dispatch:   # allow manual re-run from the Actions tab
 
-# Allow only one Pages deployment at a time; cancel any in-flight run
-# so a rapid sequence of ADO commits doesn't queue up multiple deploys.
+# Allow only one Pages deployment at a time.
+# cancel-in-progress is intentionally false: when the ADO pipeline pushes
+# several commits in quick succession, we queue runs rather than cancel them.
+# Cancelling mid-deploy causes GitHub to mark the run as failed and sends a
+# spurious failure notification email even though the final run succeeds.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 permissions:
   contents: read
