@@ -261,6 +261,11 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
 <!-- ── Retest Cycle Analysis ───────────────────────────────────────────────── -->
 <div class="sec">
   <div class="stitle"><span class="dot" style="background:#7c3aed"></span>Retest Cycle Analysis — Multi-Attempt Tests</div>
+  <div style="font-size:11px;color:#6b7280;margin-bottom:14px;line-height:1.5;background:#f8f7ff;border-left:3px solid #7c3aed;padding:8px 12px;border-radius:0 6px 6px 0">
+    Counts <strong>distinct test cases</strong> (test points) whose ADO execution history shows at least one prior failure before passing —
+    not individual defects raised. Multiple bugs can be logged against a single failing test case, so the number of
+    tests retested will always be less than or equal to the total bugs raised for the release.
+  </div>
 
   <!-- Release-level KPI strip -->
   <div style="display:flex;gap:16px;margin-bottom:14px;flex-wrap:wrap;justify-content:center">
@@ -304,6 +309,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
       <th>Fail Date</th>
       <th>Blocked Date</th>
       <th>N/A Date</th>
+      <th>Bugs Resolved</th>
     </tr></thead>
     <tbody><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">LM-007 — Capacity Planning — Task Management Kanban</td>
@@ -314,6 +320,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">25 Oct 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr></tbody>
   </table>
   </div>
@@ -341,6 +348,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
       <th>Fail Date</th>
       <th>Blocked Date</th>
       <th>N/A Date</th>
+      <th>Bugs Resolved</th>
     </tr></thead>
     <tbody><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">RV-007 — Event Tracking Config Verification — Invisible System Integration Setup</td>
@@ -351,6 +359,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">25 Oct 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">RV-008 — Max and Min Temperatures for an investigation</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -360,6 +369,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">25 Oct 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr></tbody>
   </table>
   </div>
@@ -387,6 +397,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
       <th>Fail Date</th>
       <th>Blocked Date</th>
       <th>N/A Date</th>
+      <th>Bugs Resolved</th>
     </tr></thead>
     <tbody><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">SD-001 — Destruction Workflow Configuration Verification</td>
@@ -397,6 +408,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">17 Sept 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">SD-002 — Ad Hoc Sample Destruction — Single Sample Scan &amp; Role-Based Access</td>
   <td style="text-align:center;font-weight:700;color:#374151">3</td>
@@ -406,6 +418,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">18 Sept 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">SD-003 — Destruction Metadata, Audit Trail &amp; Child Aliquot Behaviour</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -415,6 +428,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">24 Sept 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">SD-004 — Batch Destruction via Research Project CSV</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -424,6 +438,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">24 Sept 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">SD-005 — Adverse Minor Condition — Disposal triggered via Folder Manager (Run – Dispose Selected Samples menu)</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -433,6 +448,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">11 Oct 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">SD-006 — Adverse Major Condition — Disposal triggered via Folder Manager (Run – Dispose Selected Samples menu)</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -442,6 +458,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">11 Oct 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">SD-011 — Sample Destruction for condition Sample Not Received</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -451,6 +468,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">11 Oct 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr></tbody>
   </table>
   </div>
@@ -478,6 +496,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
       <th>Fail Date</th>
       <th>Blocked Date</th>
       <th>N/A Date</th>
+      <th>Bugs Resolved</th>
     </tr></thead>
     <tbody><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">ST-006 — Label Management Config — Barcode Types, Formats, Bulk Production &amp; Increment Management</td>
@@ -488,6 +507,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">25 Oct 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr></tbody>
   </table>
   </div>
@@ -496,7 +516,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
 
 <!-- ── Footer ──────────────────────────────────────────────────────────────── -->
 <div style="font-size:11px;color:#9ca3af;text-align:center;margin-top:10px;padding-top:14px;border-top:1px solid #e5e7eb">
-  Last refreshed: 29 Oct 2026, 19:45 &nbsp;·&nbsp; LIMS R1.5 &nbsp;·&nbsp; Prepared by Satishkumar Sarathi Pillai &nbsp;·&nbsp; UK Biobank — Mosaic LIMS
+  Last refreshed: 29 Oct 2026, 20:10 &nbsp;·&nbsp; LIMS R1.5 &nbsp;·&nbsp; Prepared by Satishkumar Sarathi Pillai &nbsp;·&nbsp; UK Biobank — Mosaic LIMS
 </div>
 
 </div>
