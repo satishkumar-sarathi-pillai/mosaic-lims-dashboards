@@ -317,6 +317,11 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
 <!-- ── Retest Cycle Analysis ───────────────────────────────────────────────── -->
 <div class="sec">
   <div class="stitle"><span class="dot" style="background:#7c3aed"></span>Retest Cycle Analysis — Multi-Attempt Tests</div>
+  <div style="font-size:11px;color:#6b7280;margin-bottom:14px;line-height:1.5;background:#f8f7ff;border-left:3px solid #7c3aed;padding:8px 12px;border-radius:0 6px 6px 0">
+    Counts <strong>distinct test cases</strong> (test points) whose ADO execution history shows at least one prior failure before passing —
+    not individual defects raised. Multiple bugs can be logged against a single failing test case, so the number of
+    tests retested will always be less than or equal to the total bugs raised for the release.
+  </div>
 
   <!-- Release-level KPI strip -->
   <div style="display:flex;gap:16px;margin-bottom:14px;flex-wrap:wrap;justify-content:center">
@@ -360,6 +365,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
       <th>Fail Date</th>
       <th>Blocked Date</th>
       <th>N/A Date</th>
+      <th>Bugs Resolved</th>
     </tr></thead>
     <tbody><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">04_Sample Measurement_Tube Auditor_XML File Contains Barcodes — Results Assigned via Barcode Match</td>
@@ -370,6 +376,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">28 Jul 2026</td>
   <td style="font-size:10px;white-space:nowrap">19 Jul 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">06_Sample Measurement_Tube Auditor_Result Processing When Samples Moved After Scanning</td>
   <td style="text-align:center;font-weight:700;color:#374151">4</td>
@@ -379,6 +386,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">28 Jul 2026</td>
   <td style="font-size:10px;white-space:nowrap">19 Jul 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">05_Sample Measurement_Tube Auditor_XML File Contains No Barcodes — Results Assigned via Rack Position Fallback</td>
   <td style="text-align:center;font-weight:700;color:#374151">3</td>
@@ -388,6 +396,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">19 Jul 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">08_Sample Measurement_Tube Auditor_XML File Rack Barcode Does Not Match Audited Rack</td>
   <td style="text-align:center;font-weight:700;color:#374151">3</td>
@@ -397,6 +406,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">09_Sample Measurement_Tube Auditor_Number of Tubes in XML Differs From Rack Contents</td>
   <td style="text-align:center;font-weight:700;color:#374151">3</td>
@@ -406,6 +416,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">10_Sample Measurement_Tube Auditor_Repeat Tube Auditor Measurement — New Test Result Created Without Overwriting Previous</td>
   <td style="text-align:center;font-weight:700;color:#374151">3</td>
@@ -415,6 +426,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">01_Sample Measurement_Tube Auditor_Add Rack to Tube Auditor Location_AUDITOR_1</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -424,6 +436,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">19 Jul 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">02_Sample Measurement_Tube Auditor_Add Rack to Tube Auditor Location_AZENTA_TUBE_AUDITOR</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -433,6 +446,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">19 Jul 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">03_Sample Measurement_Tube Auditor_Verify Volume Is Recorded in Both the Volume Analysis Test Result and the Sample Property</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -442,6 +456,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">19 Jul 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">07_Sample Measurement_Tube Auditor_Verify Audited Rack Using AD HOC Folder</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -451,6 +466,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">19 Jul 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">14_Sample Measurement_DNA Quantitation_Import Lunatic File</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -460,6 +476,12 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">17 Aug 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><div style="margin-bottom:4px;font-size:10px">
+              <a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/32787" style="color:#2563eb;font-weight:700;text-decoration:none">#32787</a>
+              <span style="margin-left:4px">Lunatic - LIMS Processing of Lunatic DNA Quantification Output file fails due to unresolvable sample association</span><br>
+              <span class="badge red-b" style="font-size:9px">Active</span>
+              <span style="color:#9ca3af;font-size:9px;margin-left:4px">P3 · High · Grace</span>
+            </div></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">16_Sample Measurement_DNA Quantitation_Assign Sample Replicates to a New Repeat Batch Using 'Add Repeats to New Plate'</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -469,6 +491,12 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
   <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><div style="margin-bottom:4px;font-size:10px">
+              <a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/32902" style="color:#2563eb;font-weight:700;text-decoration:none">#32902</a>
+              <span style="margin-left:4px">Lunatic - Placeholder Clarification Required for Testing Lunatic DNA Quantitation Repeat Batch Workflow (“Add Repeats to New Plate”)</span><br>
+              <span class="badge red-b" style="font-size:9px">Active</span>
+              <span style="color:#9ca3af;font-size:9px;margin-left:4px">P2 · Medium · Grace</span>
+            </div></td>
 </tr></tbody>
   </table>
   </div>
@@ -496,6 +524,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
       <th>Fail Date</th>
       <th>Blocked Date</th>
       <th>N/A Date</th>
+      <th>Bugs Resolved</th>
     </tr></thead>
     <tbody><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">01_Sample Shipment_Create New Shipping Request from Main Dashboard — Default Field Population</td>
@@ -506,6 +535,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
   <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">02_Sample Shipment_Shipping Task Drives Request Template — Racks vs. Samples Shipping Type</td>
   <td style="text-align:center;font-weight:700;color:#374151">4</td>
@@ -515,6 +545,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">06_Sample Shipment_Research Project &amp; Request ID Inheritance Through Packaging Hierarchy</td>
   <td style="text-align:center;font-weight:700;color:#374151">3</td>
@@ -524,6 +555,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">20 Aug 2026</td>
   <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">07_Sample Shipment_Scan Racks Directly into Shipment or into Bags/Containers</td>
   <td style="text-align:center;font-weight:700;color:#374151">3</td>
@@ -533,6 +565,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">09_Sample Shipment_Generate Manifest from Research Project Shipping Tab</td>
   <td style="text-align:center;font-weight:700;color:#374151">3</td>
@@ -542,6 +575,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">25 Aug 2026</td>
   <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">11_Sample Shipment_Record Data Logger IDs on Shipping Containers Before Sending</td>
   <td style="text-align:center;font-weight:700;color:#374151">3</td>
@@ -551,6 +585,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">14_Sample Shipment_Close Shipping Request After All Receipt Information Recorded</td>
   <td style="text-align:center;font-weight:700;color:#374151">3</td>
@@ -560,6 +595,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">03_Sample Shipment_Manually Set Request ID / Research Project on Bag or Container</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -569,6 +605,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">04_Sample Shipment_Create New Shipping Bag 12-Digit Barcode Format (099__________)</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -578,6 +615,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">05_Sample Shipment_Create New Shipping Container 12-Digit Barcode Format (77__________)</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -587,6 +625,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">08_Sample Shipment_Scan Samples (Not Racks) into Shipping Material for Sample-Type Shipments</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -596,6 +635,12 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">27 Aug 2026</td>
   <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><div style="margin-bottom:4px;font-size:10px">
+              <a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/33747" style="color:#2563eb;font-weight:700;text-decoration:none">#33747</a>
+              <span style="margin-left:4px">Shipping - Unable to create shipment task for research projects with Shipping Type set to Sample</span><br>
+              <span class="badge red-b" style="font-size:9px">Active</span>
+              <span style="color:#9ca3af;font-size:9px;margin-left:4px">P3 · Medium · Megan</span>
+            </div></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">10_Sample Shipment_Select SHIPMENT_DESTINATION and Ship Request — Status Transitions to Shipped</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -605,6 +650,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">12_Sample Shipment_Attach Photograph of Packaged Samples to Shipping Request</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -614,6 +660,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">13_Sample Shipment_Record Initial Receipt — Receive Button Sets Received By and Received Date</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -623,6 +670,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">13 Aug 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr></tbody>
   </table>
   </div>
@@ -650,6 +698,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
       <th>Fail Date</th>
       <th>Blocked Date</th>
       <th>N/A Date</th>
+      <th>Bugs Resolved</th>
     </tr></thead>
     <tbody><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">04_Validate Load Manager graphical workload chart</td>
@@ -660,6 +709,12 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">11 Aug 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><div style="margin-bottom:4px;font-size:10px">
+              <a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/32779" style="color:#2563eb;font-weight:700;text-decoration:none">#32779</a>
+              <span style="margin-left:4px">Load Manager workflow throws JavaScript error alert when selecting a Storage Device SOAP Exception</span><br>
+              <span class="badge red-b" style="font-size:9px">Active</span>
+              <span style="color:#9ca3af;font-size:9px;margin-left:4px">P3 · Medium · Gethyn</span>
+            </div></td>
 </tr></tbody>
   </table>
   </div>
@@ -687,6 +742,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
       <th>Fail Date</th>
       <th>Blocked Date</th>
       <th>N/A Date</th>
+      <th>Bugs Resolved</th>
     </tr></thead>
     <tbody><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">01_Sample Picking_Create a New Picking Request from the Main Dashboard</td>
@@ -697,6 +753,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">05 Jul 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">03_Sample Picking_Automated Store Picking Type Workflow</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -706,6 +763,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">21 Jul 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">08_Sample Picking_Export Tube Picker Worklist to XL20 and Pick Task State Management</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -715,6 +773,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">17 Aug 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr></tbody>
   </table>
   </div>
@@ -723,7 +782,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
 
 <!-- ── Footer ──────────────────────────────────────────────────────────────── -->
 <div style="font-size:11px;color:#9ca3af;text-align:center;margin-top:10px;padding-top:14px;border-top:1px solid #e5e7eb">
-  Last refreshed: 29 Oct 2026, 19:45 &nbsp;·&nbsp; LIMS R1.4 &nbsp;·&nbsp; Prepared by Satishkumar Sarathi Pillai &nbsp;·&nbsp; UK Biobank — Mosaic LIMS
+  Last refreshed: 29 Oct 2026, 20:10 &nbsp;·&nbsp; LIMS R1.4 &nbsp;·&nbsp; Prepared by Satishkumar Sarathi Pillai &nbsp;·&nbsp; UK Biobank — Mosaic LIMS
 </div>
 
 </div>
