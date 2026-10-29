@@ -349,6 +349,11 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
 <!-- ── Retest Cycle Analysis ───────────────────────────────────────────────── -->
 <div class="sec">
   <div class="stitle"><span class="dot" style="background:#7c3aed"></span>Retest Cycle Analysis — Multi-Attempt Tests</div>
+  <div style="font-size:11px;color:#6b7280;margin-bottom:14px;line-height:1.5;background:#f8f7ff;border-left:3px solid #7c3aed;padding:8px 12px;border-radius:0 6px 6px 0">
+    Counts <strong>distinct test cases</strong> (test points) whose ADO execution history shows at least one prior failure before passing —
+    not individual defects raised. Multiple bugs can be logged against a single failing test case, so the number of
+    tests retested will always be less than or equal to the total bugs raised for the release.
+  </div>
 
   <!-- Release-level KPI strip -->
   <div style="display:flex;gap:16px;margin-bottom:14px;flex-wrap:wrap;justify-content:center">
@@ -392,6 +397,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
       <th>Fail Date</th>
       <th>Blocked Date</th>
       <th>N/A Date</th>
+      <th>Bugs Resolved</th>
     </tr></thead>
     <tbody><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">01_Bulk Movements_Bulk Movement of Racks Using File Upload</td>
@@ -402,6 +408,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">15 May 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">02_Bulk Movements_Bulk Movement of Racks Using Search</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -411,6 +418,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">15 May 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">05_Bulk Movements_Bulk Movement Triggering Background Processing</td>
   <td style="text-align:center;font-weight:700;color:#374151">1</td>
@@ -420,6 +428,12 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">28 May 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><div style="margin-bottom:4px;font-size:10px">
+              <a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/28106" style="color:#2563eb;font-weight:700;text-decoration:none">#28106</a>
+              <span style="margin-left:4px">Bulk Rack Movement sent to Background Process does not complete and no completion or error alert is generated</span><br>
+              <span class="badge red-b" style="font-size:9px">Resolved</span>
+              <span style="color:#9ca3af;font-size:9px;margin-left:4px">P2 · Medium · Satishkumar</span>
+            </div></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">08_Bulk Movements_Uploading File Containing Invalid Rack Barcodes</td>
   <td style="text-align:center;font-weight:700;color:#374151">1</td>
@@ -429,6 +443,12 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">27 May 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><div style="margin-bottom:4px;font-size:10px">
+              <a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/28102" style="color:#2563eb;font-weight:700;text-decoration:none">#28102</a>
+              <span style="margin-left:4px">Unclear error message displayed when importing invalid rack barcodes during Bulk Movement</span><br>
+              <span class="badge red-b" style="font-size:9px">Active</span>
+              <span style="color:#9ca3af;font-size:9px;margin-left:4px">P3 · Medium · Satishkumar</span>
+            </div></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">11_Bulk Movements_Using LIMS Web Client</td>
   <td style="text-align:center;font-weight:700;color:#374151">1</td>
@@ -438,6 +458,12 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">27 May 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><div style="margin-bottom:4px;font-size:10px">
+              <a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/28103" style="color:#2563eb;font-weight:700;text-decoration:none">#28103</a>
+              <span style="margin-left:4px">Bulk Rack Movement via File Upload fails on the LIMS web interface</span><br>
+              <span class="badge red-b" style="font-size:9px">Active</span>
+              <span style="color:#9ca3af;font-size:9px;margin-left:4px">P2 · Medium · Satishkumar</span>
+            </div></td>
 </tr></tbody>
   </table>
   </div>
@@ -465,6 +491,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
       <th>Fail Date</th>
       <th>Blocked Date</th>
       <th>N/A Date</th>
+      <th>Bugs Resolved</th>
     </tr></thead>
     <tbody><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">09_Management of Projects_Use and Navigate the Master Picklist Workflow</td>
@@ -475,6 +502,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">07 Jun 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">10_Management of Projects_Modify the Priority and Due Date of a Research Project</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -484,6 +512,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">04 Jun 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">07_Management of Projects_View and Navigate a Research Project Using the Visual Workflow</td>
   <td style="text-align:center;font-weight:700;color:#374151">1</td>
@@ -493,6 +522,17 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">04 Jun 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><div style="margin-bottom:4px;font-size:10px">
+              <a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/27981" style="color:#2563eb;font-weight:700;text-decoration:none">#27981</a>
+              <span style="margin-left:4px">Pending Samples Table and Issue Samples Table not aligned/rendered correctly in Research Project Visual Workflow.</span><br>
+              <span class="badge red-b" style="font-size:9px">Active</span>
+              <span style="color:#9ca3af;font-size:9px;margin-left:4px">P2 · Medium · Satishkumar</span>
+            </div><div style="margin-bottom:4px;font-size:10px">
+              <a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/27980" style="color:#2563eb;font-weight:700;text-decoration:none">#27980</a>
+              <span style="margin-left:4px">Dashboard Cards not rendering correctly in Research Project Visual Workflow.</span><br>
+              <span class="badge red-b" style="font-size:9px">Active</span>
+              <span style="color:#9ca3af;font-size:9px;margin-left:4px">P3 · Medium · Satishkumar</span>
+            </div></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">11_Management of Projects_Decommission a Research Project</td>
   <td style="text-align:center;font-weight:700;color:#374151">1</td>
@@ -502,6 +542,12 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">04 Jun 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><div style="margin-bottom:4px;font-size:10px">
+              <a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/28534" style="color:#2563eb;font-weight:700;text-decoration:none">#28534</a>
+              <span style="margin-left:4px">Unclear and missing system functionality for decommissioning of Research Projects</span><br>
+              <span class="badge red-b" style="font-size:9px">Active</span>
+              <span style="color:#9ca3af;font-size:9px;margin-left:4px">P2 · Medium · Ash</span>
+            </div></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">12_Management of Projects_View Project Information After Project Decommissioning</td>
   <td style="text-align:center;font-weight:700;color:#374151">1</td>
@@ -511,6 +557,12 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">04 Jun 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><div style="margin-bottom:4px;font-size:10px">
+              <a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/28534" style="color:#2563eb;font-weight:700;text-decoration:none">#28534</a>
+              <span style="margin-left:4px">Unclear and missing system functionality for decommissioning of Research Projects</span><br>
+              <span class="badge red-b" style="font-size:9px">Active</span>
+              <span style="color:#9ca3af;font-size:9px;margin-left:4px">P2 · Medium · Ash</span>
+            </div></td>
 </tr></tbody>
   </table>
   </div>
@@ -538,6 +590,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
       <th>Fail Date</th>
       <th>Blocked Date</th>
       <th>N/A Date</th>
+      <th>Bugs Resolved</th>
     </tr></thead>
     <tbody><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">01_Sample Selection_Use and Navigate the Master Picklist Workflow</td>
@@ -548,6 +601,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">07 Jun 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">02_Sample Selection_Identify Samples for Inclusion in a Master Pick List</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -557,6 +611,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">07 Jun 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">05_Sample Selection_Display Sample Depletion</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -566,6 +621,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">10 Jun 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">06_Sample Selection_Display Expected Freeze/Thaw Cycle Count</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -575,6 +631,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">10 Jun 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">07_Sample Selection_Prevent Returning Samples Required in Other Tasks</td>
   <td style="text-align:center;font-weight:700;color:#374151">1</td>
@@ -584,6 +641,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">09 Jun 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">08_Sample Selection_Record Changes to Sample Selections with Audit Logging</td>
   <td style="text-align:center;font-weight:700;color:#374151">1</td>
@@ -593,6 +651,12 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">09 Jun 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><div style="margin-bottom:4px;font-size:10px">
+              <a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/28870" style="color:#2563eb;font-weight:700;text-decoration:none">#28870</a>
+              <span style="margin-left:4px">Audit History does not display sample selection changes made in the Master Picklist (Add / Remove / Replace)</span><br>
+              <span class="badge red-b" style="font-size:9px">Active</span>
+              <span style="color:#9ca3af;font-size:9px;margin-left:4px">P2 · Medium · Ash</span>
+            </div></td>
 </tr></tbody>
   </table>
   </div>
@@ -601,7 +665,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
 
 <!-- ── Footer ──────────────────────────────────────────────────────────────── -->
 <div style="font-size:11px;color:#9ca3af;text-align:center;margin-top:10px;padding-top:14px;border-top:1px solid #e5e7eb">
-  Last refreshed: 29 Oct 2026, 19:45 &nbsp;·&nbsp; LIMS R1.3 &nbsp;·&nbsp; Prepared by Satishkumar Sarathi Pillai &nbsp;·&nbsp; UK Biobank — Mosaic LIMS
+  Last refreshed: 29 Oct 2026, 20:10 &nbsp;·&nbsp; LIMS R1.3 &nbsp;·&nbsp; Prepared by Satishkumar Sarathi Pillai &nbsp;·&nbsp; UK Biobank — Mosaic LIMS
 </div>
 
 </div>
