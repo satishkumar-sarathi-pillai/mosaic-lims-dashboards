@@ -287,6 +287,11 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
 <!-- ── Retest Cycle Analysis ───────────────────────────────────────────────── -->
 <div class="sec">
   <div class="stitle"><span class="dot" style="background:#7c3aed"></span>Retest Cycle Analysis — Multi-Attempt Tests</div>
+  <div style="font-size:11px;color:#6b7280;margin-bottom:14px;line-height:1.5;background:#f8f7ff;border-left:3px solid #7c3aed;padding:8px 12px;border-radius:0 6px 6px 0">
+    Counts <strong>distinct test cases</strong> (test points) whose ADO execution history shows at least one prior failure before passing —
+    not individual defects raised. Multiple bugs can be logged against a single failing test case, so the number of
+    tests retested will always be less than or equal to the total bugs raised for the release.
+  </div>
 
   <!-- Release-level KPI strip -->
   <div style="display:flex;gap:16px;margin-bottom:14px;flex-wrap:wrap;justify-content:center">
@@ -330,6 +335,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
       <th>Fail Date</th>
       <th>Blocked Date</th>
       <th>N/A Date</th>
+      <th>Bugs Resolved</th>
     </tr></thead>
     <tbody><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">03_Event Tracking_Flags_Audit_History at Rack  Level</td>
@@ -340,6 +346,12 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">27 Feb 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><div style="margin-bottom:4px;font-size:10px">
+              <a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/25065" style="color:#2563eb;font-weight:700;text-decoration:none">#25065</a>
+              <span style="margin-left:4px">Flag count is not increasing when a flag is added_at Rack level_Event Tracking</span><br>
+              <span class="badge red-b" style="font-size:9px">Active</span>
+              <span style="color:#9ca3af;font-size:9px;margin-left:4px">P3 · Medium · Grace</span>
+            </div></td>
 </tr></tbody>
   </table>
   </div>
@@ -367,6 +379,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
       <th>Fail Date</th>
       <th>Blocked Date</th>
       <th>N/A Date</th>
+      <th>Bugs Resolved</th>
     </tr></thead>
     <tbody><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">14_Location Management_Prevent_Decommissioning</td>
@@ -377,6 +390,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">16_Location Management_Tracking Samples_Not in Physical Locations</td>
   <td style="text-align:center;font-weight:700;color:#374151">5</td>
@@ -386,6 +400,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">18_Location Management_LN2 Tower Child Location Creation and Removal Rules</td>
   <td style="text-align:center;font-weight:700;color:#374151">5</td>
@@ -395,6 +410,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">02_Location Management_Freezer_Structured</td>
   <td style="text-align:center;font-weight:700;color:#374151">4</td>
@@ -404,6 +420,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">23 Feb 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">15_Location Management_Decommission_Audit</td>
   <td style="text-align:center;font-weight:700;color:#374151">4</td>
@@ -413,6 +430,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">11_Location Management_Barcode_Print Location Label</td>
   <td style="text-align:center;font-weight:700;color:#374151">3</td>
@@ -422,6 +440,12 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">16 Mar 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><div style="margin-bottom:4px;font-size:10px">
+              <a href="https://ukbiobank.visualstudio.com/Mosaic/_workitems/edit/25733" style="color:#2563eb;font-weight:700;text-decoration:none">#25733</a>
+              <span style="margin-left:4px">Invalid Label Format error displayed when attempting to print location barcode from Storage Location Manager</span><br>
+              <span class="badge red-b" style="font-size:9px">Active</span>
+              <span style="color:#9ca3af;font-size:9px;margin-left:4px">P2 · Medium · Satishkumar</span>
+            </div></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">01_Location Management_Freezer_Unstructured</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -431,6 +455,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">20 Feb 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">03_Location Management_Liquid Nitrogen</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -440,6 +465,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">24 Feb 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">06_Location Management_BiOS_Bay01_Cassette</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -449,6 +475,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">26 Feb 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">09_Location Management_Workstation</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -458,6 +485,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">07 Mar 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">17_Location Management_Duplicate Location Entry</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -467,6 +495,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr></tbody>
   </table>
   </div>
@@ -494,6 +523,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
       <th>Fail Date</th>
       <th>Blocked Date</th>
       <th>N/A Date</th>
+      <th>Bugs Resolved</th>
     </tr></thead>
     <tbody><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">01_Barcode Scanners_Scan a Freezer Barcode</td>
@@ -504,6 +534,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">03 Mar 2026</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">07_Barcode Scanners_Duplicate Barcode Scan during Sample Addition</td>
   <td style="text-align:center;font-weight:700;color:#374151">4</td>
@@ -513,6 +544,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">02 Mar 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">03_Barcode Scanners_Scan a Rack Barcode</td>
   <td style="text-align:center;font-weight:700;color:#374151">3</td>
@@ -522,6 +554,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">02 Mar 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">03 Mar 2026</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">08_Barcode Scanners_Error Handling for Invalid Barcode Scan from Homepage Search</td>
   <td style="text-align:center;font-weight:700;color:#374151">3</td>
@@ -531,6 +564,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">02 Mar 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">04_Barcode Scanners_Scan a Tray/Box/Plate Barcode &amp; Add a Sample</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -540,6 +574,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">02 Mar 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr></tbody>
   </table>
   </div>
@@ -567,6 +602,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
       <th>Fail Date</th>
       <th>Blocked Date</th>
       <th>N/A Date</th>
+      <th>Bugs Resolved</th>
     </tr></thead>
     <tbody><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">03_Sample Movement Tracking_Sample Movement History Across Storage Locations</td>
@@ -577,6 +613,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">04_Sample Movement Tracking_Tray Movement Tracking</td>
   <td style="text-align:center;font-weight:700;color:#374151">3</td>
@@ -586,6 +623,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">16 Mar 2026</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr><tr>
   <td style="font-size:11px;max-width:210px;padding-left:14px">05_Sample Movement Tracking_Sample Hierarchy via Folder Manager</td>
   <td style="text-align:center;font-weight:700;color:#374151">2</td>
@@ -595,6 +633,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
   <td style="font-size:10px;white-space:nowrap">—</td>
+  <td style="font-size:10px"><span style="color:#d1d5db;font-size:10px">No linked bugs</span></td>
 </tr></tbody>
   </table>
   </div>
@@ -603,7 +642,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
 
 <!-- ── Footer ──────────────────────────────────────────────────────────────── -->
 <div style="font-size:11px;color:#9ca3af;text-align:center;margin-top:10px;padding-top:14px;border-top:1px solid #e5e7eb">
-  Last refreshed: 29 Oct 2026, 19:45 &nbsp;·&nbsp; LIMS R1.1 &nbsp;·&nbsp; Prepared by Satishkumar Sarathi Pillai &nbsp;·&nbsp; UK Biobank — Mosaic LIMS
+  Last refreshed: 29 Oct 2026, 20:10 &nbsp;·&nbsp; LIMS R1.1 &nbsp;·&nbsp; Prepared by Satishkumar Sarathi Pillai &nbsp;·&nbsp; UK Biobank — Mosaic LIMS
 </div>
 
 </div>
